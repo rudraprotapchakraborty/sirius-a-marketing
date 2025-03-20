@@ -162,84 +162,39 @@ export default function ClientPage() {
   return (
     <div className="min-h-screen bg-[#0D0B21] text-white max-w-full overflow-x-hidden">
       {/* Hero Section - Fade In Up */}
-      <motion.section
-        className="container mx-auto px-4 py-20 max-w-full relative hero-bg hero-content"
-        initial="initial"
-        animate="animate"
-        variants={staggerChildren}
-      >
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-left md:pr-8 pl-4 md:pl-8">
-            <motion.h1
-              className="max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
-              variants={fadeInUp}
-            >
-              <span className="block">Your Partner for</span>
-              <TypeAnimation
-                sequence={[
-                  "Stellar Marketing Campaigns",
-                  2000,
-                  "Exponential Growth",
-                  2000,
-                  "Next-Level Branding",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Number.POSITIVE_INFINITY}
-                className="block"
-              />
-            </motion.h1>
-            <motion.p className="mt-6 max-w-2xl text-lg text-gray-400" variants={fadeInUp}>
-              We empower businesses to thrive in today's competitive market. Our cutting-edge strategies, data-driven
-              approach, and creative campaigns strategically position your brand for industry leadership.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
-                Meet the Team
-              </Button>
-            </motion.div>
-          </div>
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+      <motion.section className="relative container mx-auto px-4 py-20 text-center hero-bg hero-content">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src="/CosmosR4.mp4" type="video/mp4" />
+        </video>
+
+        <div className="relative z-10">
+          <motion.h1
+            className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
+            variants={fadeInUp}
           >
-            <div className="relative w-[300px] h-[600px] mx-auto">
-              <div className="absolute inset-0 bg-black rounded-[40px] shadow-lg"></div>
-              <div className="absolute inset-2 bg-gray-800 rounded-[36px] overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-6 bg-black rounded-t-[36px] flex items-center justify-center">
-                  <div className="w-20 h-4 bg-gray-800 rounded-full"></div>
-                </div>
-                <div className="relative w-full h-full">
-                  <video
-                    ref={videoRef}
-                    className="w-full h-full object-cover rounded-[32px]"
-                    poster="/placeholder.svg"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onClick={toggleVideo}
-                  >
-                    <source src="/placeholder-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                    onClick={toggleVideo}
-                  >
-                    {!isPlaying && (
-                      <div className="bg-black/50 text-white text-4xl w-16 h-16 rounded-full flex items-center justify-center">
-                        ▶️
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full"></div>
-              </div>
-            </div>
+            <span className="block text-white">Your Partner for</span>
+            <TypeAnimation
+              sequence={["Stellar Marketing Campaigns", 2000, "Exponential Growth", 2000, "Next-Level Branding", 2000]}
+              wrapper="span"
+              speed={50}
+              repeat={Number.POSITIVE_INFINITY}
+              className="block text-white pb-24"
+            />
+          </motion.h1>
+          <motion.p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400" variants={fadeInUp}>
+            We empower businesses to thrive in today's competitive market. Our cutting-edge strategies, data-driven
+            approach, and creative campaigns strategically position your brand for industry leadership.
+          </motion.p>
+          <motion.div variants={fadeInUp}>
+            <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
+              Meet the Team
+            </Button>
           </motion.div>
         </div>
       </motion.section>
