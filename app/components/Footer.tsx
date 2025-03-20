@@ -7,6 +7,7 @@ import { ArrowRight, MessageCircle } from "lucide-react"
 import { subscribe } from "@/app/actions/subscribe"
 import { useFormStatus } from "react-dom"
 import { toast } from "sonner"
+import SubscriptionForm from "./SubscriptionForm"
 
 function SubscribeButton() {
   const { pending } = useFormStatus()
@@ -126,31 +127,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-2 sm:mb-4 text-center md:text-left">
           {/* Newsletter Section */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <h3 className="text-lg font-light mb-4">
-              Stay in touch with the herd and receive up to date insights, strategies and news.
-            </h3>
-            <form
-              action={async (formData) => {
-                const result = await subscribe(formData)
-                if (result.error) {
-                  toast.error(result.error)
-                } else if (result.success) {
-                  toast.success(result.success)
-                }
-              }}
-              className="flex gap-2 max-w-md"
-            >
-              <Input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="bg-[#1A1A2E] border-purple-800/20"
-                required
-              />
-              <SubscribeButton />
-            </form>
-          </div>
+          <SubscriptionForm></SubscriptionForm>
+
 
           {/* Services and Company Sections */}
           <div className="grid grid-cols-2 col-span-1 md:col-span-2 gap-8">
