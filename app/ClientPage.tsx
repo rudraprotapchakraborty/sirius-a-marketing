@@ -170,7 +170,7 @@ export default function ClientPage() {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
         >
-          <source src="/CosmosR4.mp4" type="video/mp4" />
+          <source src="https://media-hosting.imagekit.io//b9316ab06c7543a3/CosmosR4.mp4?Expires=1837116088&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hyYm1G0Ia-bl9H4zBf60O51IhphrGOrw9Xb~6ttKOo-o07DIWKzKltvFMQQL8XI~0PdPLxDdhBI8rurkLtVsUEm1ZLhguQ1Uw4uJxeZRsxn8wPrMCKAkMTSD8BQQtT1bRrcl2eeR0s6WY55zj6X0c08GTNnudk-lY1VdDLVZm-QnCX11KOp4T-c6Y5CyxIph-qL3PhkT081jxvXmYL4VmXrBLMlyB39BqoMjpO15~yFjIACkheh~LiLqg4ZblaPqXSEHZhddOy2MGpjF9uT8~IHz4c6El-WT-UIBIVQCRhWRPTyn2WGq~iVVzRN-wg5Hc7tYlWBHNr2-dHPk61sVMg__" type="video/mp4" />
         </video>
 
         <div className="relative z-10">
