@@ -223,20 +223,23 @@ export default function ClientPage() {
   return (
     <div className="min-h-screen bg-[#0D0B21] text-white max-w-full overflow-x-hidden">
       {/* Hero Section - Fade In Up */}
-      <motion.section className="relative container mx-auto px-4 py-20 text-center hero-bg hero-content">
+      <motion.section className="relative w-full min-h-[80vh] text-center hero-bg hero-content">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="https://media-hosting.imagekit.io//b9316ab06c7543a3/CosmosR4.mp4?Expires=1837116088&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hyYm1G0Ia-bl9H4zBf60O51IhphrGOrw9Xb~6ttKOo-o07DIWKzKltvFMQQL8XI~0PdPLxDdhBI8rurkLtVsUEm1ZLhguQ1Uw4uJxeZRsxn8wPrMCKAkMTSD8BQQtT1bRrcl2eeR0s6WY55zj6X0c08GTNnudk-lY1VdDLVZm-QnCX11KOp4T-c6Y5CyxIph-qL3PhkT081jxvXmYL4VmXrBLMlyB39BqoMjpO15~yFjIACkheh~LiLqg4ZblaPqXSEHZhddOy2MGpjF9uT8~IHz4c6El-WT-UIBIVQCRhWRPTyn2WGq~iVVzRN-wg5Hc7tYlWBHNr2-dHPk61sVMg__" type="video/mp4" />
+          <source
+            src="https://media-hosting.imagekit.io//b9316ab06c7543a3/CosmosR4.mp4?Expires=1837116088&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hyYm1G0Ia-bl9H4zBf60O51IhphrGOrw9Xb~6ttKOo-o07DIWKzKltvFMQQL8XI~0PdPLxDdhBI8rurkLtVsUEm1ZLhguQ1Uw4uJxeZRsxn8wPrMCKAkMTSD8BQQtT1bRrcl2eeR0s6WY55zj6X0c08GTNnudk-lY1VdDLVZm-QnCX11KOp4T-c6Y5CyxIph-qL3PhkT081jxvXmYL4VmXrBLMlyB39BqoMjpO15~yFjIACkheh~LiLqg4ZblaPqXSEHZhddOy2MGpjF9uT8~IHz4c6El-WT-UIBIVQCRhWRPTyn2WGq~iVVzRN-wg5Hc7tYlWBHNr2-dHPk61sVMg__"
+            type="video/mp4"
+          />
         </video>
 
         <div className="relative z-10">
           <motion.h1
-            className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
+            className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x pt-8"
             variants={fadeInUp}
           >
             <span className="block text-white">Your Partner for</span>
@@ -248,7 +251,7 @@ export default function ClientPage() {
               className="block text-white pb-24"
             />
           </motion.h1>
-          <motion.p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400" variants={fadeInUp}>
+          <motion.p className="mx-auto mt-8 max-w-2xl text-lg text-gray-100 px-2" variants={fadeInUp}>
             We empower businesses to thrive in today's competitive market. Our cutting-edge strategies, data-driven
             approach, and creative campaigns strategically position your brand for industry leadership.
           </motion.p>
@@ -321,13 +324,12 @@ export default function ClientPage() {
           ].map((service, index) => (
             <motion.div key={index} variants={scaleIn}>
               <Card
-                className={`feature-card border-purple-800/20 bg-gradient-to-br ${
-                  index % 3 === 0
+                className={`feature-card border-purple-800/20 bg-gradient-to-br ${index % 3 === 0
                     ? "from-purple-900/40 to-blue-900/40"
                     : index % 3 === 1
                       ? "from-blue-900/40 to-green-900/40"
                       : "from-green-900/40 to-purple-900/40"
-                }`}
+                  }`}
               >
                 <CardContent className="p-6">
                   <div className="mb-4 rounded-full bg-purple-600/20 p-3 w-fit">{service.icon}</div>
