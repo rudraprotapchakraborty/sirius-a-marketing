@@ -111,22 +111,21 @@ const rotateIn = {
 // Add this new component for the moving logos
 const MovingLogos = () => {
   const logos = [
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
+    "/waffletime.jpg",
+    "/zafenity.jpg",
+    "/ghuddy.jpg",
+    "/namimoon.jpg",
+    "/kudos.jpg",
+    "/waffletime.jpg",
+    "/zafenity.jpg",
+    "/ghuddy.jpg",
+    "/namimoon.jpg",
+    "/kudos.jpg",
+    "/waffletime.jpg",
+    "/zafenity.jpg",
+    "/ghuddy.jpg",
+    "/namimoon.jpg",
+    "/kudos.jpg",
   ];
 
   const duplicatedLogos = [...logos, ...logos];
@@ -139,9 +138,9 @@ const MovingLogos = () => {
             <img
               src={logo || "/placeholder.svg"}
               alt={`Company logo ${(index % logos.length) + 1}`}
-              width={120}
-              height={60}
-              className="object-contain"
+              width={100}
+              height={100}
+              className="object-cover rounded-full"
             />
           </div>
         ))}
