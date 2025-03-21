@@ -119,17 +119,24 @@ const MovingLogos = () => {
     "/logo.png",
     "/logo.png",
     "/logo.png",
-  ]
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+  ];
 
-  // Create a duplicate set of logos to ensure seamless looping
-  const duplicatedLogos = [...logos, ...logos]
+  const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <div className="logo-scroll-container">
+    <div className="logo-scroll-wrapper">
       <div className="logo-scroll">
         {duplicatedLogos.map((logo, index) => (
           <div key={index} className="logo-item">
-            <Image
+            <img
               src={logo || "/placeholder.svg"}
               alt={`Company logo ${(index % logos.length) + 1}`}
               width={120}
@@ -140,29 +147,26 @@ const MovingLogos = () => {
         ))}
       </div>
       <style jsx>{`
-        .logo-scroll-container {
-          width: 100vw; /* Ensures full viewport width */
-          margin-left: -16px; /* Counteract px-4 padding */
+        .logo-scroll-wrapper {
+          width: 100vw;  /* Full viewport width */
+          position: absolute; /* Removes influence of container */
+          left: 0;
+          right: 0;
+          margin-left: -16px;  /* Counteracts px-4 */
           margin-right: -16px;
           overflow: hidden;
           padding: 25px 0;
-          position: relative;
         }
 
         .logo-scroll {
           display: flex;
-          width: max-content; /* Changed from fit-content */
-          animation: scrollLogos 20s linear infinite;
-          will-change: transform; /* Performance optimization */
+          width: max-content;
+          animation: scrollLogos 40s linear infinite;
         }
 
-        // .logo-scroll:hover {
-        //   animation-play-state: paused;
-        // }
-
         .logo-item {
-          flex-shrink: 0; /* Prevent items from shrinking */
-          width: 160px; /* Increased width for better spacing */
+          flex-shrink: 0;
+          width: 160px;
           height: 60px;
           margin: 0 20px;
           display: flex;
@@ -171,39 +175,17 @@ const MovingLogos = () => {
         }
 
         @keyframes scrollLogos {
-          0% {
+          from {
             transform: translateX(0);
           }
-          100% {
-            transform: translateX(-50%);
+          to {
+            transform: translateX(-100%);
           }
-        }
-
-        /* Optional: Add fade effect at edges */
-        .logo-scroll-container::before,
-        .logo-scroll-container::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 100px;
-          height: 100%;
-          z-index: 1;
-          pointer-events: none;
-        }
-
-        .logo-scroll-container::before {
-          left: 0;
-          background: linear-gradient(to right, #0D0B21, transparent);
-        }
-
-        .logo-scroll-container::after {
-          right: 0;
-          background: linear-gradient(to left, #0D0B21, transparent);
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
 export default function ClientPage() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -258,7 +240,7 @@ export default function ClientPage() {
             approach, and creative campaigns strategically position your brand for industry leadership.
           </motion.p>
           <motion.div variants={fadeInUp}>
-            <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
+            <Button className="my-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
               Meet the Team
             </Button>
           </motion.div>
@@ -268,7 +250,7 @@ export default function ClientPage() {
       {/* Trusted by Companies Section */}
       <section className="bg-gray-900 py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-8">Trusted by Companies Worldwide</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Trusted by Companies Worldwide</h2>
           <MovingLogos />
         </div>
       </section>
@@ -276,7 +258,7 @@ export default function ClientPage() {
       {/* Features Grid - Scale In */}
       <motion.section
         id="features"
-        className="container mx-auto px-4 py-20 max-w-full"
+        className="container mx-auto px-4 py-20 mt-8 max-w-full"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
