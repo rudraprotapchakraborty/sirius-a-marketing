@@ -326,7 +326,7 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Feature Highlights - Slide In from Left/Right */}
-      <motion.section
+      {/* <motion.section
         className="container mx-auto px-4 py-20 max-w-full"
         initial="initial"
         whileInView="animate"
@@ -361,7 +361,35 @@ export default function ClientPage() {
             </Card>
           </motion.div>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
+
+      <div className="relative bg-[#e1e1eb] flex items-center justify-center h-[400px] w-full">
+        {/* Background Text */}
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-900 merriweather">
+            What's next for your marketing?
+          </h2>
+          <a href="#" className="text-gray-700 underline mt-8 font-semibold inline-block">
+            Get in touch →
+          </a>
+        </div>
+
+        {/* Images */}
+        <div className="absolute left-0 -bottom-10 w-[200px]">
+          <img
+            src="/img2.webp"
+            alt="People"
+            className=""
+          />
+        </div>
+        <div className="absolute right-0 top-0 w-[200px]">
+          <img
+            src="/img1.jpg"
+            alt="Red Appliances"
+            className=""
+          />
+        </div>
+      </div>
 
       {/* Reviews Section - Fade In Up */}
       <motion.section
