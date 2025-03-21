@@ -366,7 +366,7 @@ export default function ClientPage() {
       <div className="relative bg-[#e1e1eb] flex items-center justify-center h-[400px] w-full">
         {/* Background Text */}
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 merriweather">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 merriweather">
             What's next for your marketing?
           </h2>
           <a href="#" className="text-gray-700 underline mt-8 font-semibold inline-block">
@@ -375,14 +375,14 @@ export default function ClientPage() {
         </div>
 
         {/* Images */}
-        <div className="absolute left-0 -bottom-10 w-[200px]">
+        <div className="absolute left-0 -bottom-10 w-[100px] md:w-[125px] lg:w-[200px]">
           <img
             src="/img2.webp"
             alt="People"
             className=""
           />
         </div>
-        <div className="absolute right-0 top-0 w-[200px]">
+        <div className="absolute right-0 top-0 w-[100px] md:w-[125px] lg:w-[200px]">
           <img
             src="/img1.jpg"
             alt="Red Appliances"
