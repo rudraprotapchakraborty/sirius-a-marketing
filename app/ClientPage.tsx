@@ -141,9 +141,11 @@ const MovingLogos = () => {
       </div>
       <style jsx>{`
         .logo-scroll-container {
+          width: 100vw; /* Ensures full viewport width */
+          margin-left: -16px; /* Counteract px-4 padding */
+          margin-right: -16px;
           overflow: hidden;
-          width: 100%;
-          padding: 20px 0;
+          padding: 25px 0;
           position: relative;
         }
 
@@ -325,10 +327,10 @@ export default function ClientPage() {
             <motion.div key={index} variants={scaleIn}>
               <Card
                 className={`feature-card border-purple-800/20 bg-gradient-to-br ${index % 3 === 0
-                    ? "from-purple-900/40 to-blue-900/40"
-                    : index % 3 === 1
-                      ? "from-blue-900/40 to-green-900/40"
-                      : "from-green-900/40 to-purple-900/40"
+                  ? "from-purple-900/40 to-blue-900/40"
+                  : index % 3 === 1
+                    ? "from-blue-900/40 to-green-900/40"
+                    : "from-green-900/40 to-purple-900/40"
                   }`}
               >
                 <CardContent className="p-6">
