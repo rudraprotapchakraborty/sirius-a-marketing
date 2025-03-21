@@ -111,14 +111,14 @@ const rotateIn = {
 // Add this new component for the moving logos
 const MovingLogos = () => {
   const logos = [
-    "/logo1.png",
-    "/logo2.png",
-    "/logo3.png",
-    "/logo4.png",
-    "/logo5.png",
-    "/logo6.png",
-    "/logo7.png",
-    "/logo8.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
+    "/logo.png",
   ]
 
   // Create a duplicate set of logos to ensure seamless looping
@@ -134,10 +134,71 @@ const MovingLogos = () => {
               alt={`Company logo ${(index % logos.length) + 1}`}
               width={120}
               height={60}
+              className="object-contain"
             />
           </div>
         ))}
       </div>
+      <style jsx>{`
+        .logo-scroll-container {
+          overflow: hidden;
+          width: 100%;
+          padding: 20px 0;
+          position: relative;
+        }
+
+        .logo-scroll {
+          display: flex;
+          width: max-content; /* Changed from fit-content */
+          animation: scrollLogos 20s linear infinite;
+          will-change: transform; /* Performance optimization */
+        }
+
+        // .logo-scroll:hover {
+        //   animation-play-state: paused;
+        // }
+
+        .logo-item {
+          flex-shrink: 0; /* Prevent items from shrinking */
+          width: 160px; /* Increased width for better spacing */
+          height: 60px;
+          margin: 0 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @keyframes scrollLogos {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        /* Optional: Add fade effect at edges */
+        .logo-scroll-container::before,
+        .logo-scroll-container::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 100px;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .logo-scroll-container::before {
+          left: 0;
+          background: linear-gradient(to right, #0D0B21, transparent);
+        }
+
+        .logo-scroll-container::after {
+          right: 0;
+          background: linear-gradient(to left, #0D0B21, transparent);
+        }
+      `}</style>
     </div>
   )
 }
@@ -223,7 +284,7 @@ export default function ClientPage() {
           {[
             {
               icon: <MessageCircle className="h-6 w-6" />,
-              title: "Social Media Marketing",
+              title: "Social Media Management",
               description:
                 "We develop and implement impactful social media strategies to cultivate audience engagement and expand your online presence.",
             },
@@ -235,19 +296,19 @@ export default function ClientPage() {
             },
             {
               icon: <DollarSign className="h-6 w-6" />,
-              title: "Paid Advertising",
+              title: "Meta & Google Ads",
               description:
                 "We manage and optimize Google Ads, social media advertising, and display campaigns to maximize your return on investment (ROI).",
             },
             {
               icon: <Palette className="h-6 w-6" />,
-              title: "Brand Strategy & Development",
+              title: "Brand Strategy & Consulting",
               description:
                 "We assist in defining your unique brand identity and crafting a compelling and consistent brand narrative.",
             },
             {
               icon: <FileText className="h-6 w-6" />,
-              title: "Content Creation",
+              title: "Content Marketing",
               description:
                 "We produce engaging visual, video, and written content tailored to resonate with your target audience.",
             },
@@ -255,7 +316,7 @@ export default function ClientPage() {
               icon: <Globe className="h-6 w-6" />,
               title: "Web Design & Development",
               description:
-                "We design and develop aesthetically pleasing and highly functional websites that provide an optimal user experience.",
+                "We design and develop visually appealing, highly functional websites for an optimal user experience.",
             },
           ].map((service, index) => (
             <motion.div key={index} variants={scaleIn}>
