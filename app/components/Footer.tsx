@@ -28,6 +28,7 @@ const StickyIcons = () => (
     {[
       {
         name: "facebook",
+        url: "https://www.facebook.com/share/1CG8CPCm9s/",
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +48,7 @@ const StickyIcons = () => (
       },
       {
         name: "linkedin",
+        url: "https://linkedin.com",
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +70,7 @@ const StickyIcons = () => (
       },
       {
         name: "instagram",
+        url: "https://www.instagram.com/sirius_a_marketing?igsh=MXVncTJ5dTBscmVwbQ==",
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -89,6 +92,7 @@ const StickyIcons = () => (
       },
       {
         name: "twitter",
+        url: "https://twitter.com",
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +113,7 @@ const StickyIcons = () => (
     ].map((social) => (
       <Link
         key={social.name}
-        href={`https://${social.name}.com`}
+        href={social.url}
         className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#e1e1eb] dark:bg-[#0D0B21] flex items-center justify-center hover:bg-purple-900/50 dark:hover:bg-purple-900/50 transition-colors duration-300"
         target="_blank"
         rel="noopener noreferrer"
@@ -119,7 +123,8 @@ const StickyIcons = () => (
       </Link>
     ))}
   </div>
-)
+);
+
 
 export function Footer() {
   return (
