@@ -116,16 +116,15 @@ const MovingLogos = () => {
     "/ghuddy.jpg",
     "/namimoon.jpg",
     "/kudos.jpg",
+    "/masalaking.jpg",
+    "/bridgepoint.jpg",
     "/waffletime.jpg",
     "/zafenity.jpg",
     "/ghuddy.jpg",
     "/namimoon.jpg",
     "/kudos.jpg",
-    "/waffletime.jpg",
-    "/zafenity.jpg",
-    "/ghuddy.jpg",
-    "/namimoon.jpg",
-    "/kudos.jpg",
+    "/masalaking.jpg",
+    "/bridgepoint.jpg",
   ];
 
   const duplicatedLogos = [...logos, ...logos];
