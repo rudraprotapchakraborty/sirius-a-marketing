@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { TypeAnimation } from "react-type-animation"
 import { useState, useRef } from "react"
 import MovingLogos from "./components/MovingLogos"
+import OurStory from "./components/OurStory"
 
 // Sample blog post data
 const blogPosts = [
@@ -326,6 +327,7 @@ export default function ClientPage() {
           </Link>
         </motion.div>
       </motion.section>
+      <OurStory></OurStory>
 
       {/* Blog Section - Scale In */}
       <motion.section
