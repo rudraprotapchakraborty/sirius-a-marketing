@@ -10,6 +10,7 @@ import { motion } from "framer-motion"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { TypeAnimation } from "react-type-animation"
 import { useState, useRef } from "react"
+import MovingLogos from "./components/MovingLogos"
 
 // Sample blog post data
 const blogPosts = [
@@ -108,75 +109,6 @@ const rotateIn = {
   transition: { duration: 0.5 },
 }
 
-// Add this new component for the moving logos
-const MovingLogos = () => {
-  const logos = [
-    "/waffletime.jpg",
-    "/zafenity.jpg",
-    "/ghuddy.jpg",
-    "/namimoon.jpg",
-    "/kudos.jpg",
-    "/masalaking.jpg",
-    "/bridgepoint.jpg",
-  ];
-
-  // Duplicate the logos array for seamless scrolling
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
-
-  return (
-    <div className="logo-scroll-container">
-      <div className="logo-scroll-track">
-        {duplicatedLogos.map((logo, index) => (
-          <div key={index} className="logo-item">
-            <img
-              src={logo || "/placeholder.svg"}
-              alt={`Company logo ${index + 1}`}
-              width={100}
-              height={100}
-              className="object-cover rounded-full"
-            />
-          </div>
-        ))}
-      </div>
-      <style jsx>{`
-        .logo-scroll-container {
-          width: 100vw;
-          position: absolute;
-          left: 0;
-          right: 0;
-          overflow: hidden;
-          padding: 25px 0;
-        }
-
-        .logo-scroll-track {
-          display: flex;
-          animation: scrollLogos 20s linear infinite;
-          will-change: transform;
-        }
-
-        .logo-item {
-          flex-shrink: 0;
-          width: 160px;
-          height: 60px;
-          margin: 0 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        @keyframes scrollLogos {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${logos.length * 180}px); /* Move by the original set's width */
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
 export default function ClientPage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -238,12 +170,12 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Trusted by Companies Section */}
-      <section className="bg-[#e1e1eb] dark:bg-gray-900 py-14">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+      <section className="bg-[#e1e1eb] dark:bg-gray-900">
+        <div className="container mx-auto py-8 px-4">
+          <MovingLogos />
+          <h2 className="text-3xl font-bold mt-4 text-center text-gray-900 dark:text-white">
             Trusted by Companies Worldwide
           </h2>
-          <MovingLogos />
         </div>
       </section>
 

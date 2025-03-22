@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={`${inter.className} overflow-x-hidden bg-[#e1e1eb] dark:bg-gray-900`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <GoogleAnalytics />
           <TopLoadingBar />
