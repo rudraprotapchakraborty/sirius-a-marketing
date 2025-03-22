@@ -26,7 +26,7 @@ export default function Icon() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/favicon-AH0gYpOVskyGHlqr4Q510YlpvhoN49.png"
+        src="https://i.ibb.co/YF4v6Kfc/logo-removebg-preview.png"
         alt="favicon"
         style={{
           width: "100%",
