@@ -118,25 +118,19 @@ const MovingLogos = () => {
     "/kudos.jpg",
     "/masalaking.jpg",
     "/bridgepoint.jpg",
-    "/waffletime.jpg",
-    "/zafenity.jpg",
-    "/ghuddy.jpg",
-    "/namimoon.jpg",
-    "/kudos.jpg",
-    "/masalaking.jpg",
-    "/bridgepoint.jpg",
   ];
 
-  const duplicatedLogos = [...logos, ...logos];
+  // Duplicate the logos array for seamless scrolling
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <div className="logo-scroll-wrapper">
-      <div className="logo-scroll">
+    <div className="logo-scroll-container">
+      <div className="logo-scroll-track">
         {duplicatedLogos.map((logo, index) => (
           <div key={index} className="logo-item">
             <img
               src={logo || "/placeholder.svg"}
-              alt={`Company logo ${(index % logos.length) + 1}`}
+              alt={`Company logo ${index + 1}`}
               width={100}
               height={100}
               className="object-cover rounded-full"
@@ -145,21 +139,19 @@ const MovingLogos = () => {
         ))}
       </div>
       <style jsx>{`
-        .logo-scroll-wrapper {
-          width: 100vw;  /* Full viewport width */
-          position: absolute; /* Removes influence of container */
+        .logo-scroll-container {
+          width: 100vw;
+          position: absolute;
           left: 0;
           right: 0;
-          margin-left: -16px;  /* Counteracts px-4 */
-          margin-right: -16px;
           overflow: hidden;
           padding: 25px 0;
         }
 
-        .logo-scroll {
+        .logo-scroll-track {
           display: flex;
-          width: max-content;
-          animation: scrollLogos 40s linear infinite;
+          animation: scrollLogos 20s linear infinite;
+          will-change: transform;
         }
 
         .logo-item {
@@ -173,11 +165,11 @@ const MovingLogos = () => {
         }
 
         @keyframes scrollLogos {
-          from {
+          0% {
             transform: translateX(0);
           }
-          to {
-            transform: translateX(-100%);
+          100% {
+            transform: translateX(-${logos.length * 180}px); /* Move by the original set's width */
           }
         }
       `}</style>
@@ -246,9 +238,11 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Trusted by Companies Section */}
-      <section className="bg-gray-900 py-12">
+      <section className="bg-[#e1e1eb] dark:bg-gray-900 py-14">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Trusted by Companies Worldwide</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Trusted by Companies Worldwide
+          </h2>
           <MovingLogos />
         </div>
       </section>
@@ -256,13 +250,13 @@ export default function ClientPage() {
       {/* Features Grid - Scale In */}
       <motion.section
         id="features"
-        className="container mx-auto px-4 py-20 mt-8 max-w-full"
+        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-gray-900"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerChildren}
       >
-        <motion.h2 className="text-center text-3xl font-bold" variants={scaleIn}>
+        <motion.h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white" variants={scaleIn}>
           Our Service Offerings
         </motion.h2>
         <motion.div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-full" variants={staggerChildren}>
@@ -306,17 +300,17 @@ export default function ClientPage() {
           ].map((service, index) => (
             <motion.div key={index} variants={scaleIn}>
               <Card
-                className={`feature-card border-purple-800/20 bg-gradient-to-br ${index % 3 === 0
-                  ? "from-purple-900/40 to-blue-900/40"
+                className={`feature-card border-purple-800/20 bg-[#e1e1eb] dark:bg-gradient-to-br ${index % 3 === 0
+                  ? "dark:from-purple-900/40 dark:to-blue-900/40"
                   : index % 3 === 1
-                    ? "from-blue-900/40 to-green-900/40"
-                    : "from-green-900/40 to-purple-900/40"
+                    ? "dark:from-blue-900/40 dark:to-green-900/40"
+                    : "dark:from-green-900/40 dark:to-purple-900/40"
                   }`}
               >
                 <CardContent className="p-6">
-                  <div className="mb-4 rounded-full bg-purple-600/20 p-3 w-fit">{service.icon}</div>
-                  <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
-                  <p className="text-gray-300">{service.description}</p>
+                  <div className="mb-4 rounded-full bg-purple-600/20 dark:bg-purple-600/30 p-3 w-fit">{service.icon}</div>
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -324,51 +318,14 @@ export default function ClientPage() {
         </motion.div>
       </motion.section>
 
-      {/* Feature Highlights - Slide In from Left/Right */}
-      {/* <motion.section
-        className="container mx-auto px-4 py-20 max-w-full"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerChildren}
-      >
-        <motion.div className="grid gap-8 md:grid-cols-2 max-w-full" variants={staggerChildren}>
-          <motion.div variants={slideInFromLeft}>
-            <Card className="border-purple-800/20 bg-gradient-to-br from-purple-900/40 to-purple-800/10">
-              <CardContent className="p-8">
-                <h3 className="mb-4 text-2xl font-bold">Seamless OpenAI Integration</h3>
-                <p className="text-gray-400">
-                  Built-in OpenAI integration makes it easy to add AI capabilities to your application.
-                </p>
-                <Button variant="link" className="mt-4 p-0 text-purple-400">
-                  Learn More <ChevronRight className="ml-1 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
-          <motion.div variants={slideInFromRight}>
-            <Card className="border-purple-800/20 bg-gradient-to-br from-purple-900/40 to-purple-800/10">
-              <CardContent className="p-8">
-                <h3 className="mb-4 text-2xl font-bold">Highly Customizable</h3>
-                <p className="text-gray-400">
-                  Customize every aspect of your application with our flexible configuration options.
-                </p>
-                <Button variant="link" className="mt-4 p-0 text-purple-400">
-                  Learn More <ChevronRight className="ml-1 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </motion.div>
-      </motion.section> */}
-
-      <div className="relative bg-[#e1e1eb] flex items-center justify-center h-[400px] w-full">
+      {/* What's next for your marketing? */}
+      <div className="relative border border-purple-800/20 bg-[#e1e1eb] dark:bg-gray-900 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)]">
         {/* Background Text */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 merriweather">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white merriweather">
             What's next for your marketing?
           </h2>
-          <a href="#" className="text-gray-700 underline mt-8 font-semibold inline-block">
+          <a href="#" className="text-gray-700 dark:text-gray-300 underline mt-8 font-semibold inline-block hover:text-purple-600 dark:hover:text-purple-400">
             Get in touch →
           </a>
         </div>
@@ -392,19 +349,21 @@ export default function ClientPage() {
 
       {/* Reviews Section - Fade In Up */}
       <motion.section
-        className="container mx-auto px-4 py-20 max-w-full"
+        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerChildren}
       >
-        <motion.h2 className="text-center text-3xl font-bold mb-8" variants={fadeInUp}>
+        <motion.h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-white" variants={fadeInUp}>
           What Our Users Say
         </motion.h2>
         <motion.div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12" variants={staggerChildren}>
           {reviews.map((review) => (
             <motion.div key={review.id} variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/20 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]">
+              <Card
+                className="bg-[#e1e1eb] dark:bg-gradient-to-br dark:from-purple-900/40 dark:to-blue-900/40 border-purple-500/20 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <Avatar className="h-12 w-12 mr-4">
@@ -412,11 +371,11 @@ export default function ClientPage() {
                       <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="font-semibold">{review.name}</h3>
-                      <p className="text-sm text-gray-300">{review.company}</p>
+                      <h3 className="font-semibold text-gray-900 dark:text-white">{review.name}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{review.company}</p>
                     </div>
                   </div>
-                  <p className="text-gray-200 mb-4">{review.review}</p>
+                  <p className="text-gray-600 dark:text-gray-200 mb-4">{review.review}</p>
                   <div className="flex">
                     {Array.from({ length: review.rating }).map((_, index) => (
                       <Star key={index} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -438,19 +397,19 @@ export default function ClientPage() {
 
       {/* Blog Section - Scale In */}
       <motion.section
-        className="container mx-auto px-4 py-20 max-w-full"
+        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerChildren}
       >
-        <motion.h2 className="text-center text-3xl font-bold" variants={scaleIn}>
+        <motion.h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white" variants={scaleIn}>
           Latest Blogs & News
         </motion.h2>
         <motion.div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-full" variants={staggerChildren}>
           {blogPosts.map((post, index) => (
             <motion.div key={index} variants={scaleIn}>
-              <Card className="border-purple-800/20 bg-purple-900/10 overflow-hidden">
+              <Card className="border-purple-800/20 bg-[#e1e1eb] dark:bg-purple-900/10 overflow-hidden">
                 <Link href={`/blog/${post.slug}`}>
                   <div className="relative overflow-hidden">
                     <Image
@@ -462,10 +421,10 @@ export default function ClientPage() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <Badge className="mb-4 bg-purple-600">{post.category}</Badge>
-                    <h3 className="mb-2 text-xl font-semibold">{post.title}</h3>
-                    <p className="text-gray-400">{post.excerpt}</p>
-                    <div className="mt-4 flex items-center text-sm text-gray-400">
+                    <Badge className="mb-4 bg-purple-600 text-white">{post.category}</Badge>
+                    <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{post.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400">{post.excerpt}</p>
+                    <div className="mt-4 flex items-center text-sm text-gray-600 dark:text-gray-400">
                       <span>{post.date}</span>
                       <span className="mx-2">•</span>
                       <span>{post.readTime}</span>
@@ -486,34 +445,34 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Final CTA - No Animation */}
-      <section className="container mx-auto px-4 py-20 max-w-full">
+      <section className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Call to Action</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Call to Action</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
             Partner with Sirius A Marketing to elevate your business. Schedule a complimentary consultation to discuss
             your marketing transformation.
           </p>
           <div className="mt-8 space-y-2">
-            <p className="text-lg">
+            <p className="text-lg text-gray-900 dark:text-white">
               <span role="img" aria-label="phone">
                 📞
               </span>{" "}
               Call us:{" "}
-              <a href="tel:+4407362622636" className="text-purple-400 hover:underline">
+              <a href="tel:+4407362622636" className="text-purple-600 dark:text-purple-400 hover:underline">
                 +4407362622636
               </a>
             </p>
-            <p className="text-lg">
+            <p className="text-lg text-gray-900 dark:text-white">
               <span role="img" aria-label="email">
                 📧
               </span>{" "}
               Email:{" "}
-              <a href="mailto:siriusmarketing@gmail.com" className="text-purple-400 hover:underline">
+              <a href="mailto:siriusmarketing@gmail.com" className="text-purple-600 dark:text-purple-400 hover:underline">
                 siriusmarketing@gmail.com
               </a>
             </p>
           </div>
-          <Button className="mt-8 bg-purple-600 hover:bg-purple-700">Schedule Consultation</Button>
+          <Button className="mt-8 bg-purple-600 hover:bg-purple-700 text-white">Schedule Consultation</Button>
         </div>
       </section>
       <style jsx global>{`
