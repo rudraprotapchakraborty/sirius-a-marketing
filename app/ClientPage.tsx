@@ -12,6 +12,7 @@ import { TypeAnimation } from "react-type-animation"
 import { useState, useRef } from "react"
 import MovingLogos from "./components/MovingLogos"
 import OurStory from "./components/OurStory"
+import SocialFirstAgency from "./components/SocialFirstAgency"
 
 // Sample blog post data
 const blogPosts = [
@@ -327,8 +328,9 @@ export default function ClientPage() {
           </Link>
         </motion.div>
       </motion.section>
+      
       <OurStory></OurStory>
-
+      <SocialFirstAgency></SocialFirstAgency>
       {/* Blog Section - Scale In */}
       <motion.section
         className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
