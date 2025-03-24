@@ -37,16 +37,20 @@ export function Header() {
               Home
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
-            <Link href="/services" className="text-foreground hover:text-purple-400 relative group">
+            {/* <Link href="/services" className="text-foreground hover:text-purple-400 relative group">
               Services
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-            </Link>
+            </Link> */}
             <Link href="/case-studies" className="text-foreground hover:text-purple-400 relative group">
               Case Studies
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
             <Link href="/blog" className="text-foreground hover:text-purple-400 relative group">
               Blog
+              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+            </Link>
+            <Link href="/sirius-a-visual" className="text-foreground hover:text-purple-400 relative group">
+              Sirius A Visual
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-indigo-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
             <Link href="/contact">

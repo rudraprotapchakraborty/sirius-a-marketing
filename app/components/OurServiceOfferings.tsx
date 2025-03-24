@@ -22,7 +22,7 @@ export default function OurServiceOffering() {
     { icon: DollarSign, title: "Brand Strategy & Consulting", description: "Brand positioning, storytelling, and identity building.", link: "/services/brand-strategy-and-consulting" },
     { icon: Globe, title: "Website & Funnel Optimization", description: "Landing pages that convert", link: "/services/website-and-funnel-optimization" },
     { icon: FileText, title: "Content Marketing", description: "SEO-driven blogs, video content, audio content.", link: "/services/content-marketing" },
-    { icon: Palette, title: "Sirius A Visual", description: "High-quality visual content for your brand", link: "/services/photography-video" },
+    { icon: Palette, title: "Photography & Video", description: "High-quality visual content for your brand", link: "/services/photography-video" },
   ];
 
   return (
