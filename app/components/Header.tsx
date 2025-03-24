@@ -30,7 +30,7 @@ export function Header() {
               alt="Sirius A Marketing Logo"
               className="w-16 transition-transform duration-300 hover:scale-110"
             />
-            <span className="text-xl font-extrabold tracking-tight">Sirius A Marketing</span>
+            <span className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight merriweather text-blue-400">Sirius A Marketing</span>
           </Link>
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/" className="text-foreground hover:text-purple-400 relative group">
