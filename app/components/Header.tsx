@@ -59,7 +59,7 @@ export function Header() {
                 <Sparkles className="w-4 h-4 animate-pulse" />
               </Button>
             </Link>
-            <ThemeSwitcher />
+            {/* <ThemeSwitcher /> */}
           </div>
           <div className="md:hidden flex items-center space-x-4">
             <ThemeSwitcher />

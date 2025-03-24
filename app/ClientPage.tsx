@@ -14,8 +14,11 @@ import MovingLogos from "./components/MovingLogos"
 import OurStory from "./components/OurStory"
 import SocialFirstAgency from "./components/SocialFirstAgency"
 import OurServiceOffering from "./components/OurServiceOfferings"
+import Testimonials from "./components/Testimonials"
+import WhatsNextForYourMarketing from "./components/WhatsNextForYourMarketing"
+import TrustedByCompanies from "./components/TrustedByCompanies"
+import Hero from "./components/Hero"
 
-// Sample blog post data
 const blogPosts = [
   {
     title: "Getting Started with AI in Your SaaS",
@@ -94,24 +97,6 @@ const scaleIn = {
   transition: { duration: 0.5 },
 }
 
-const slideInFromLeft = {
-  initial: { x: -100, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.5 },
-}
-
-const slideInFromRight = {
-  initial: { x: 100, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.5 },
-}
-
-const rotateIn = {
-  initial: { rotate: -10, opacity: 0 },
-  animate: { rotate: 0, opacity: 1 },
-  transition: { duration: 0.5 },
-}
-
 export default function ClientPage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -131,123 +116,11 @@ export default function ClientPage() {
   }
   return (
     <div className="min-h-screen text-white max-w-full overflow-x-hidden">
-      {/* Hero Section - Fade In Up */}
-      <motion.section className="relative w-full min-h-[80vh] text-center hero-content">
-        <div className="relative z-10">
-          <motion.h1
-            className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x pt-8"
-            variants={fadeInUp}
-          >
-            <span className="block text-white">Your Partner for</span>
-            <TypeAnimation
-              sequence={["Stellar Marketing Campaigns", 2000, "Exponential Growth", 2000, "Next-Level Branding", 2000]}
-              wrapper="span"
-              speed={50}
-              repeat={Number.POSITIVE_INFINITY}
-              className="block text-white pb-24"
-            />
-          </motion.h1>
-          <motion.p className="mx-auto mt-8 max-w-2xl text-lg text-gray-100 px-2" variants={fadeInUp}>
-            We empower businesses to thrive in today's competitive market. Our cutting-edge strategies, data-driven
-            approach, and creative campaigns strategically position your brand for industry leadership.
-          </motion.p>
-          <motion.div variants={fadeInUp}>
-            <Button className="my-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
-              Meet the Team
-            </Button>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Trusted by Companies Section */}
-      <section className="bg-white/70 dark:bg-transparent">
-        <div className="container mx-auto py-8 px-4">
-          <MovingLogos />
-          <h2 className="text-3xl font-bold mt-4 text-center text-gray-900 dark:text-white">
-            Trusted by 50+ Companies Worldwide
-          </h2>
-        </div>
-      </section>
-
+      <Hero></Hero>
+      <TrustedByCompanies></TrustedByCompanies>
       <OurServiceOffering></OurServiceOffering>
-
-      {/* What's next for your marketing? */}
-      <div className="relative bg-white/70 dark:bg-transparent border border-purple-800/20 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)]">
-        {/* Background Text */}
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white merriweather">
-            What's next for your marketing?
-          </h2>
-          <a href="#" className="text-gray-700 dark:text-gray-300 underline mt-8 font-semibold inline-block hover:text-purple-600 dark:hover:text-purple-400">
-            Get in touch →
-          </a>
-        </div>
-
-        {/* Images */}
-        <div className="absolute left-0 -bottom-10 w-[100px] md:w-[125px] lg:w-[200px]">
-          <img
-            src="/img2.webp"
-            alt="People"
-            className=""
-          />
-        </div>
-        <div className="absolute right-0 top-0 w-[100px] md:w-[125px] lg:w-[200px]">
-          <img
-            src="/img1.jpg"
-            alt="Red Appliances"
-            className=""
-          />
-        </div>
-      </div>
-
-      {/* Reviews Section - Fade In Up */}
-      <motion.section
-        className="container mx-auto px-4 py-20 max-w-full bg-white/70 dark:bg-transparent"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerChildren}
-      >
-        <motion.h2 className="text-center text-3xl font-bold mb-8 text-gray-900 dark:text-white" variants={fadeInUp}>
-          What Our Users Say
-        </motion.h2>
-        <motion.div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12" variants={staggerChildren}>
-          {reviews.map((review) => (
-            <motion.div key={review.id} variants={fadeInUp}>
-              <Card
-                className="bg-[#e1e1eb] dark:bg-gradient-to-br dark:from-purple-900/40 dark:to-blue-900/40 border-purple-500/20 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <Avatar className="h-12 w-12 mr-4">
-                      <AvatarImage src={review.avatar} alt={review.name} />
-                      <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">{review.name}</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">{review.company}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-200 mb-4">{review.review}</p>
-                  <div className="flex">
-                    {Array.from({ length: review.rating }).map((_, index) => (
-                      <Star key={index} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-        <motion.div className="text-center" variants={fadeInUp}>
-          <Link href="/reviews">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
-              Read All Reviews
-            </Button>
-          </Link>
-        </motion.div>
-      </motion.section>
-      
+      <WhatsNextForYourMarketing></WhatsNextForYourMarketing>
+      <Testimonials />
       <OurStory></OurStory>
       <SocialFirstAgency></SocialFirstAgency>
 
