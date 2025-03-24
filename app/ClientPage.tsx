@@ -176,7 +176,7 @@ export default function ClientPage() {
         <div className="container mx-auto py-8 px-4">
           <MovingLogos />
           <h2 className="text-3xl font-bold mt-4 text-center text-gray-900 dark:text-white">
-            Trusted by Companies Worldwide
+            Trusted by 50+ Companies Worldwide
           </h2>
         </div>
       </section>
