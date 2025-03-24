@@ -13,6 +13,7 @@ import { useState, useRef } from "react"
 import MovingLogos from "./components/MovingLogos"
 import OurStory from "./components/OurStory"
 import SocialFirstAgency from "./components/SocialFirstAgency"
+import OurServiceOffering from "./components/OurServiceOfferings"
 
 // Sample blog post data
 const blogPosts = [
@@ -181,76 +182,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      {/* Features Grid - Scale In */}
-      <motion.section
-        id="features"
-        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-gray-900"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerChildren}
-      >
-        <motion.h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white" variants={scaleIn}>
-          Our Service Offerings
-        </motion.h2>
-        <motion.div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-full" variants={staggerChildren}>
-          {[
-            {
-              icon: <MessageCircle className="h-6 w-6" />,
-              title: "Social Media Management",
-              description:
-                "We develop and implement impactful social media strategies to cultivate audience engagement and expand your online presence.",
-            },
-            {
-              icon: <Search className="h-6 w-6" />,
-              title: "Search Engine Optimization (SEO)",
-              description:
-                "We optimize your online visibility and search engine rankings on Google to generate high-converting organic traffic.",
-            },
-            {
-              icon: <DollarSign className="h-6 w-6" />,
-              title: "Meta & Google Ads",
-              description:
-                "We manage and optimize Google Ads, social media advertising, and display campaigns to maximize your return on investment (ROI).",
-            },
-            {
-              icon: <Palette className="h-6 w-6" />,
-              title: "Brand Strategy & Consulting",
-              description:
-                "We assist in defining your unique brand identity and crafting a compelling and consistent brand narrative.",
-            },
-            {
-              icon: <FileText className="h-6 w-6" />,
-              title: "Content Marketing",
-              description:
-                "We produce engaging visual, video, and written content tailored to resonate with your target audience.",
-            },
-            {
-              icon: <Globe className="h-6 w-6" />,
-              title: "Web Design & Development",
-              description:
-                "We design and develop visually appealing, highly functional websites for an optimal user experience.",
-            },
-          ].map((service, index) => (
-            <motion.div key={index} variants={scaleIn}>
-              <Card
-                className={`feature-card border-purple-800/20 bg-[#e1e1eb] dark:bg-gradient-to-br ${index % 3 === 0
-                  ? "dark:from-purple-900/40 dark:to-blue-900/40"
-                  : index % 3 === 1
-                    ? "dark:from-blue-900/40 dark:to-green-900/40"
-                    : "dark:from-green-900/40 dark:to-purple-900/40"
-                  }`}
-              >
-                <CardContent className="p-6">
-                  <div className="mb-4 rounded-full bg-purple-600/20 dark:bg-purple-600/30 p-3 w-fit">{service.icon}</div>
-                  <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{service.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.section>
+      <OurServiceOffering></OurServiceOffering>
 
       {/* What's next for your marketing? */}
       <div className="relative border border-purple-800/20 bg-[#e1e1eb] dark:bg-gray-900 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)]">
@@ -331,6 +263,7 @@ export default function ClientPage() {
       
       <OurStory></OurStory>
       <SocialFirstAgency></SocialFirstAgency>
+
       {/* Blog Section - Scale In */}
       <motion.section
         className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
