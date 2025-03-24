@@ -5,7 +5,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
 import Link from "next/link";
 
-// Reviews array inside the component itself
 const reviews = [
   {
     id: 1,
