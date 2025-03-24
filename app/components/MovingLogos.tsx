@@ -13,7 +13,7 @@ const MovingLogos = () => {
   const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#e1e1eb] dark:bg-gray-900 py-8">
+    <div className="relative w-full overflow-hidden py-8">
       <div className="flex space-x-8 animate-scroll">
         {duplicatedLogos.map((logo, index) => (
           <div

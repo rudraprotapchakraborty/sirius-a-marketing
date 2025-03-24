@@ -128,7 +128,7 @@ const StickyIcons = () => (
 
 export function Footer() {
   return (
-    <footer className="bg-[#e1e1eb] dark:bg-[#1A1A2E] text-gray-900 dark:text-white">
+    <footer className="text-gray-900 dark:text-white z-50 bg-white/80 dark:bg-black/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-2 sm:mb-4 text-center md:text-left">
           {/* Newsletter Section */}

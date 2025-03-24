@@ -130,22 +130,9 @@ export default function ClientPage() {
     }
   }
   return (
-    <div className="min-h-screen bg-[#0D0B21] text-white max-w-full overflow-x-hidden">
+    <div className="min-h-screen text-white max-w-full overflow-x-hidden">
       {/* Hero Section - Fade In Up */}
-      <motion.section className="relative w-full min-h-[80vh] text-center hero-bg hero-content">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-          <source
-            src="https://media-hosting.imagekit.io//b9316ab06c7543a3/CosmosR4.mp4?Expires=1837116088&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=hyYm1G0Ia-bl9H4zBf60O51IhphrGOrw9Xb~6ttKOo-o07DIWKzKltvFMQQL8XI~0PdPLxDdhBI8rurkLtVsUEm1ZLhguQ1Uw4uJxeZRsxn8wPrMCKAkMTSD8BQQtT1bRrcl2eeR0s6WY55zj6X0c08GTNnudk-lY1VdDLVZm-QnCX11KOp4T-c6Y5CyxIph-qL3PhkT081jxvXmYL4VmXrBLMlyB39BqoMjpO15~yFjIACkheh~LiLqg4ZblaPqXSEHZhddOy2MGpjF9uT8~IHz4c6El-WT-UIBIVQCRhWRPTyn2WGq~iVVzRN-wg5Hc7tYlWBHNr2-dHPk61sVMg__"
-            type="video/mp4"
-          />
-        </video>
-
+      <motion.section className="relative w-full min-h-[80vh] text-center hero-content">
         <div className="relative z-10">
           <motion.h1
             className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x pt-8"
@@ -173,7 +160,7 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Trusted by Companies Section */}
-      <section className="bg-[#e1e1eb] dark:bg-gray-900">
+      <section className="bg-white/70 dark:bg-transparent">
         <div className="container mx-auto py-8 px-4">
           <MovingLogos />
           <h2 className="text-3xl font-bold mt-4 text-center text-gray-900 dark:text-white">
@@ -185,7 +172,7 @@ export default function ClientPage() {
       <OurServiceOffering></OurServiceOffering>
 
       {/* What's next for your marketing? */}
-      <div className="relative border border-purple-800/20 bg-[#e1e1eb] dark:bg-gray-900 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)]">
+      <div className="relative bg-white/70 dark:bg-transparent border border-purple-800/20 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)]">
         {/* Background Text */}
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white merriweather">
@@ -215,7 +202,7 @@ export default function ClientPage() {
 
       {/* Reviews Section - Fade In Up */}
       <motion.section
-        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
+        className="container mx-auto px-4 py-20 max-w-full bg-white/70 dark:bg-transparent"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
@@ -266,7 +253,7 @@ export default function ClientPage() {
 
       {/* Blog Section - Scale In */}
       <motion.section
-        className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]"
+        className="container mx-auto px-4 py-20 max-w-full bg-white/70 dark:bg-transparent"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
@@ -314,7 +301,7 @@ export default function ClientPage() {
       </motion.section>
 
       {/* Final CTA - No Animation */}
-      <section className="container mx-auto px-4 py-20 max-w-full bg-[#e1e1eb] dark:bg-[#0D0B21]">
+      <section className="container mx-auto px-4 py-20 max-w-full bg-white/70 dark:bg-transparent">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Call to Action</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-400">

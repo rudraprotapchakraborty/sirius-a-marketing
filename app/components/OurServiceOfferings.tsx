@@ -28,7 +28,7 @@ export default function OurServiceOffering() {
   return (
     <motion.section
       id="features"
-      className="container mx-auto px-6 py-20 max-w-full bg-[#e1e1eb] dark:bg-gray-900 shadow-lg"
+      className="container mx-auto px-6 py-20 max-w-full shadow-lg bg-white/70 dark:bg-transparent" 
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}

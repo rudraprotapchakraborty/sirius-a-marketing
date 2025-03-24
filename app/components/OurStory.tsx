@@ -3,7 +3,7 @@ import React from "react";
 const OurStory = () => {
   return (
     <section
-      className="relative bg-[#e1e1eb] dark:bg-gray-900 py-16 px-8 text-center bg-[url('https://static.wixstatic.com/media/597a93f9b45d40dfb08c8ea244d0dfca.png/v1/fill/w_1901,h_1013,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/597a93f9b45d40dfb08c8ea244d0dfca.png')] bg-cover bg-center"
+      className="relative py-16 px-8 text-center bg-[url('https://static.wixstatic.com/media/597a93f9b45d40dfb08c8ea244d0dfca.png/v1/fill/w_1901,h_1013,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/597a93f9b45d40dfb08c8ea244d0dfca.png')] bg-cover bg-center"
     >
       {/* Overlay to maintain background color */}
       <div className="absolute inset-0 bg-[#e1e1eb] dark:bg-gray-900 opacity-80"></div>

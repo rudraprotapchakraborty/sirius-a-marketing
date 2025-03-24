@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const SocialFirstAgency = () => {
   return (
-    <div className="flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 justify-between items-center py-10 bg-white dark:bg-gray-900 min-h-screen">
+    <div className="flex flex-col bg-white/70 dark:bg-transparent md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 justify-between items-center py-10 min-h-screen">
       {/* Left Section */}
       <div className="max-w-full md:max-w-2xl mb-8 md:mb-0 text-center md:text-left">
         <p className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-300 mb-4">
