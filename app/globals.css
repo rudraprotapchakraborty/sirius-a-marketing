@@ -11,3 +11,7 @@
     0 0 150px #0ff;
 }
 
+html, body {
+  cursor: none !important;
+}
+

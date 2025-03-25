@@ -10,6 +10,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import ScrollToTopLayout from "./components/ScrollToTopLayout";
 import "@/styles/globals.css";
+import CustomCursor from "./components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`}>
+      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`} style={{ cursor: "none" }}>
         {/* Background Video */}
         <video
           autoPlay
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Content Wrapper */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="flex flex-col min-h-screen relative z-10">
+            <CustomCursor></CustomCursor>
             <GoogleAnalytics />
             <TopLoadingBar />
             <Header />
