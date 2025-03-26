@@ -1,13 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, MessageCircle } from "lucide-react"
-import { subscribe } from "@/app/actions/subscribe"
 import { useFormStatus } from "react-dom"
-import { toast } from "sonner"
 import SubscriptionForm from "./SubscriptionForm"
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 function SubscribeButton() {
   const { pending } = useFormStatus()
@@ -29,92 +27,32 @@ const StickyIcons = () => (
       {
         name: "facebook",
         url: "https://www.facebook.com/share/1CG8CPCm9s/",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-gray-900 dark:text-white"
-          >
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-          </svg>
-        ),
+        bgColor: "bg-[#1877F2]",
+        icon: <FaFacebookF className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-white" />,
       },
       {
         name: "linkedin",
         url: "https://linkedin.com",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-gray-900 dark:text-white"
-          >
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        ),
+        bgColor: "bg-[#0A66C2]",
+        icon: <FaLinkedinIn className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-white" />,
       },
       {
         name: "instagram",
         url: "https://www.instagram.com/sirius_a_marketing?igsh=MXVncTJ5dTBscmVwbQ==",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-gray-900 dark:text-white"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-        ),
+        bgColor: "bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#C13584]",
+        icon: <FaInstagram className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-white" />,
       },
       {
-        name: "twitter",
+        name: "x",
         url: "https://twitter.com",
-        icon: (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-gray-900 dark:text-white"
-          >
-            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-          </svg>
-        ),
+        bgColor: "bg-black",
+        icon: <FaXTwitter className="sm:w-[24px] sm:h-[24px] w-[18px] h-[18px] text-white" />,
       },
     ].map((social) => (
       <Link
         key={social.name}
         href={social.url}
-        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#e1e1eb] dark:bg-[#0D0B21] flex items-center justify-center hover:bg-purple-900/50 dark:hover:bg-purple-900/50 transition-colors duration-300"
+        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${social.bgColor} hover:opacity-80`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -125,6 +63,7 @@ const StickyIcons = () => (
   </div>
 );
 
+export default StickyIcons;
 
 export function Footer() {
   return (
