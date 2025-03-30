@@ -43,10 +43,10 @@ const CustomCursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="fixed pointer-events-none mix-blend-difference rounded-full bg-white z-50 transition-transform duration-200 ease-out"
+      className="fixed pointer-events-none mix-blend-difference rounded-full bg-white z-[9999] transition-transform duration-200 ease-out"
       style={{
-        width: isHovering ? "40px" : "15px",
-        height: isHovering ? "40px" : "15px",
+        width: isHovering ? "50px" : "25px",
+        height: isHovering ? "50px" : "25px",
         transition: "transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out",
         transformOrigin: "center",
       }}

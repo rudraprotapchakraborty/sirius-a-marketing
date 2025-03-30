@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/home/Footer";
 import { CookieConsent } from "./components/CookieConsent";
 import { TopLoadingBar } from "./components/TopLoadingBar";
 import { ThemeProvider } from "./components/theme-provider";
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`} style={{ cursor: "none" }}>
         {/* Background Video */}
         <video

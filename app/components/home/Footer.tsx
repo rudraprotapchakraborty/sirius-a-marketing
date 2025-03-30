@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { useFormStatus } from "react-dom"
-import SubscriptionForm from "./SubscriptionForm"
+import SubscriptionForm from "../SubscriptionForm"
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 function SubscribeButton() {

@@ -1,5 +1,5 @@
 import React from "react";
-import MovingLogos from "./MovingLogos"
+import MovingLogos from "./MovingLogos";
 
 const TrustedByCompanies: React.FC = () => {
   return (

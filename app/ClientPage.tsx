@@ -1,14 +1,15 @@
 "use client"
 
-import OurStory from "./components/OurStory"
-import SocialFirstAgency from "./components/SocialFirstAgency"
-import OurServiceOffering from "./components/OurServiceOfferings"
-import Testimonials from "./components/Testimonials"
-import WhatsNextForYourMarketing from "./components/WhatsNextForYourMarketing"
-import TrustedByCompanies from "./components/TrustedByCompanies"
-import Hero from "./components/Hero"
-import LatestBlogs from "./components/LatestBlogs"
-import CallToAction from "./components/CallToAction"
+import OurStory from "./components/home/OurStory"
+import SocialFirstAgency from "./components/home/SocialFirstAgency"
+import OurServiceOffering from "./components/home/OurServiceOfferings"
+import Testimonials from "./components/home/Testimonials"
+import WhatsNextForYourMarketing from "./components/home/WhatsNextForYourMarketing"
+import Hero from "./components/home/Hero"
+import LatestBlogs from "./components/home/LatestBlogs"
+import CallToAction from "./components/home/CallToAction"
+import TrustedByCompanies from "./components/home/TrustedByCompanies"
+import IndustriesSection from "./components/home/IndustriesSection"
 
 export default function ClientPage() {
   return (
@@ -17,6 +18,7 @@ export default function ClientPage() {
       <TrustedByCompanies></TrustedByCompanies>
       <OurServiceOffering></OurServiceOffering>
       <WhatsNextForYourMarketing></WhatsNextForYourMarketing>
+      <IndustriesSection></IndustriesSection>
       <Testimonials />
       <OurStory></OurStory>
       <SocialFirstAgency></SocialFirstAgency>
