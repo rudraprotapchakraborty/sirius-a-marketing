@@ -25,7 +25,7 @@ const IndustriesSection: FC = () => {
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4">Industries We Work With</h2>
         <p className="text-lg text-gray-400 mb-8">
-          At Bird, we extend our Digital Marketing expertise across a diverse range of industries,
+          At Sirius A, we extend our Digital Marketing expertise across a diverse range of industries,
           tailoring strategies to meet the unique demands and opportunities each sector presents.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -34,8 +34,8 @@ const IndustriesSection: FC = () => {
               key={name}
               className="flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-800 transition shadow-lg"
             >
-              <Icon className="text-yellow-400 text-2xl" />
-              <p className="text-lg font-semibold">{name} Digital Marketing</p>
+              <button className="flex justify-center items-center"><Icon className="text-yellow-400 text-2xl" />
+              <p className="text-lg font-semibold">{name} Digital Marketing</p></button>
             </div>
           ))}
         </div>
