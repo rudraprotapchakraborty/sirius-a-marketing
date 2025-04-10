@@ -9,20 +9,17 @@ const MovingLogos = () => {
     "/bridgepoint.jpg",
   ];
 
-  // Duplicate only twice for infinite effect (less DOM load)
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
-
   return (
-    <div className="relative w-full overflow-hidden py-8">
-      <div className="flex space-x-8 animate-scroll">
-        {duplicatedLogos.map((logo, index) => (
+    <div className="relative w-screen overflow-hidden py-8 bg-transparent">
+      <div className="flex animate-marquee whitespace-nowrap">
+        {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="w-28 h-28 flex items-center justify-center flex-shrink-0"
+            className="w-28 h-28 mx-4 inline-flex items-center justify-center flex-shrink-0"
           >
-            <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-800 border border-gray-700 shadow-xl transform hover:scale-110 transition-all duration-300 will-change-transform">
+            <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-800 border border-gray-700 shadow-xl transform hover:scale-110 transition-all duration-300">
               <img
-                src={logo || "/placeholder.svg"}
+                src={logo}
                 alt={`Company logo ${index + 1}`}
                 className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-300"
               />
@@ -32,27 +29,22 @@ const MovingLogos = () => {
       </div>
 
       <style jsx>{`
-        @keyframes scrollAnimation {
-          from {
-            transform: translateX(0);
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
           }
-          to {
+          100% {
             transform: translateX(-50%);
           }
         }
 
-        .animate-scroll {
-          display: flex;
-          white-space: nowrap;
-          min-width: 200%; /* Matches duplication */
-          animation: scrollAnimation 25s linear infinite;
-          will-change: transform; /* Optimize animation performance */
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
         }
 
-        /* Adjust speed for mobile */
         @media (max-width: 768px) {
-          .animate-scroll {
-            animation-duration: 12s; /* Slightly faster on mobile */
+          .animate-marquee {
+            animation-duration: 15s;
           }
         }
       `}</style>

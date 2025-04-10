@@ -1,28 +1,48 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const WhatsNextForYourMarketing: React.FC = () => {
   return (
-    <div className="relative bg-white/70 dark:bg-transparent border border-purple-800/20 flex items-center justify-center h-[400px] w-full shadow-[0_0_15px_rgba(138,43,226,0.5)] rounded-xl">
-      {/* Background Text */}
-      <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white merriweather">
+    <div className="relative my-20 w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-12 py-24 sm:py-28 border-t border-b border-purple-500/40 shadow-[0_0_40px_rgba(128,0,255,0.5)]"
+      >
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
           What's next for your marketing?
         </h2>
         <a
           href="#"
-          className="text-gray-700 dark:text-gray-300 underline mt-8 font-semibold inline-block hover:text-purple-600 dark:hover:text-purple-400"
+          className="mt-10 inline-block px-6 py-3 rounded-full bg-purple-600 text-white font-semibold text-sm tracking-wide shadow-md hover:bg-purple-700 transition"
         >
           Get in touch →
         </a>
-      </div>
+      </motion.div>
 
-      {/* Images */}
-      <div className="absolute left-0 -bottom-10 w-[100px] md:w-[125px] lg:w-[200px]">
-        <img src="/img2.webp" alt="People" />
-      </div>
-      <div className="absolute right-0 top-0 w-[100px] md:w-[125px] lg:w-[200px]">
-        <img src="/img1.jpg" alt="Red Appliances" />
-      </div>
+      {/* Floating Images */}
+      <motion.img
+        src="/img2.webp"
+        alt="People"
+        className="absolute left-0 bottom-[2px] w-[120px] sm:w-[160px] lg:w-[180px] opacity-90 z-0 rounded-lg"
+        initial={{ y: 0 }}
+        animate={{ y: [0, -15, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <motion.img
+        src="/img1.jpg"
+        alt="Red Appliances"
+        className="absolute right-0 top-[2px] w-[120px] sm:w-[160px] lg:w-[180px] opacity-90 z-0 rounded-lg"
+        initial={{ y: 0 }}
+        animate={{ y: [0, 15, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
     </div>
   );
 };

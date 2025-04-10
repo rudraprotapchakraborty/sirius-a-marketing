@@ -1,9 +1,19 @@
 import { FC } from "react";
-import { FaBuilding, FaBriefcaseMedical, FaLaptopCode, FaDumbbell, FaShoppingCart, FaLeaf, FaMoneyBillWave, FaGamepad, FaUtensils, FaProjectDiagram, FaSuitcaseRolling, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import {
+  FaBuilding,
+  FaBriefcaseMedical,
+  FaLaptopCode,
+  FaDumbbell,
+  FaShoppingCart,
+  FaGamepad,
+  FaUtensils,
+  FaProjectDiagram,
+  FaSuitcaseRolling,
+  FaPhoneAlt,
+  FaGlobe,
+} from "react-icons/fa";
 
 const industries = [
-  { name: "Cannabis & CBD", icon: FaLeaf },
-  { name: "Crypto", icon: FaMoneyBillWave },
   { name: "Dentist", icon: FaBriefcaseMedical },
   { name: "Ecommerce", icon: FaShoppingCart },
   { name: "Entertainment", icon: FaGamepad },
@@ -21,21 +31,22 @@ const industries = [
 
 const IndustriesSection: FC = () => {
   return (
-    <section className="bg-black/70 text-white py-16 px-6">
+    <section className="bg-black/70 text-white py-20 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4">Industries We Work With</h2>
-        <p className="text-lg text-gray-400 mb-8">
+        <p className="text-lg text-gray-400 mb-10">
           At Sirius A, we extend our Digital Marketing expertise across a diverse range of industries,
           tailoring strategies to meet the unique demands and opportunities each sector presents.
         </p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {industries.map(({ name, icon: Icon }) => (
             <div
               key={name}
-              className="flex items-center space-x-3 p-4 rounded-lg hover:bg-gray-800 transition shadow-lg"
+              className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-800/60 transition duration-300 shadow-md hover:shadow-purple-500/30"
             >
-              <button className="flex justify-center items-center"><Icon className="text-yellow-400 text-2xl" />
-              <p className="text-lg font-semibold">{name} Digital Marketing</p></button>
+              <Icon className="text-purple-400 text-2xl group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-base font-medium">{name} Digital Marketing</span>
             </div>
           ))}
         </div>

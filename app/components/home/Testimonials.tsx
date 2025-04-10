@@ -48,7 +48,7 @@ const staggerChildren = {
 const Testimonials = () => {
   return (
     <motion.section
-      className="container mx-auto px-6 py-24 max-w-7xl bg-white/70 dark:bg-transparent rounded-3xl shadow-lg"
+      className="container mx-auto px-6 py-24 max-w-7xl bg-white/70 dark:bg-black/60 rounded-3xl shadow-lg"
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
@@ -60,32 +60,36 @@ const Testimonials = () => {
       >
         What Our Users Say
       </motion.h2>
+
       <motion.div
         className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
         variants={staggerChildren}
       >
         {reviews.map((review) => (
           <motion.div key={review.id} variants={fadeInUp}>
-            <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-6">
-                  <Avatar className="h-14 w-14 mr-4">
-                    <AvatarImage src={review.avatar} alt={review.name} />
-                    <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
-                      {review.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {review.company}
-                    </p>
+            <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-purple-500/30">
+              <CardContent className="p-8 min-h-[340px] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center mb-6">
+                    <Avatar className="h-14 w-14 mr-4 shadow-md ring-2 ring-purple-500/40">
+                      <AvatarImage src={review.avatar} alt={review.name} />
+                      <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h3 className="font-bold text-lg text-gray-900 dark:text-white">
+                        {review.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {review.company}
+                      </p>
+                    </div>
                   </div>
+                  <p className="text-gray-700 dark:text-gray-300 italic">
+                    "{review.review}"
+                  </p>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 italic mb-4">
-                  "{review.review}"
-                </p>
-                <div className="flex gap-1">
+
+                <div className="flex gap-1 mt-6">
                   {Array.from({ length: review.rating }).map((_, index) => (
                     <Star key={index} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
@@ -95,6 +99,7 @@ const Testimonials = () => {
           </motion.div>
         ))}
       </motion.div>
+
       <motion.div className="text-center mt-12" variants={fadeInUp}>
         <Link href="/reviews">
           <Button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-lg rounded-full shadow-md transition-transform duration-300 hover:scale-105">

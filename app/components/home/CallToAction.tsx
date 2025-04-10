@@ -36,7 +36,7 @@ const CallToAction: React.FC = () => {
             href="mailto:siriusmarketing@gmail.com"
             className="text-purple-600 dark:text-purple-400 hover:underline transition-colors"
           >
-            siriusmarketing@gmail.com
+            siriusamarketing@gmail.com
           </Link>
         </p>
       </div>

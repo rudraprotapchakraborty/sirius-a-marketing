@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`} style={{ cursor: "none" }}>
+      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`}>
         {/* Background Video */}
         <video
           autoPlay

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
 
 const fadeInUp = {
@@ -11,15 +10,18 @@ const fadeInUp = {
 
 const Hero: React.FC = () => {
   return (
-    <motion.section className="relative w-full min-h-[80vh] text-center hero-content">
-      <div className="relative z-10">
+    <motion.section
+      className="relative w-full min-h-screen flex items-start justify-center text-center px-4 pt-[20vh] pb-12"
+    >
+      <div className="relative z-10 max-w-5xl">
+        {/* Heading */}
         <motion.h1
-          className="mx-auto max-w-5xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x pt-8"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
           variants={fadeInUp}
           initial="initial"
           animate="animate"
         >
-          <span className="block text-white">Your Partner for</span>
+          <span className="block text-white mb-2">Your Partner for</span>
           <TypeAnimation
             sequence={[
               "Stellar Marketing Campaigns",
@@ -32,23 +34,20 @@ const Hero: React.FC = () => {
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            className="block text-white pb-24"
+            className="block text-white"
           />
         </motion.h1>
+
+        {/* Description */}
         <motion.p
-          className="mx-auto mt-8 max-w-2xl text-lg text-gray-100 px-2"
+          className="mt-8 sm:mt-10 md:mt-12 text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto"
           variants={fadeInUp}
           initial="initial"
           animate="animate"
         >
-          We empower businesses to thrive in today's competitive market. Our cutting-edge strategies, data-driven
-          approach, and creative campaigns strategically position your brand for industry leadership.
+          We empower businesses to thrive in today's competitive market. Our cutting-edge strategies,
+          data-driven approach, and creative campaigns strategically position your brand for industry leadership.
         </motion.p>
-        <motion.div variants={fadeInUp} initial="initial" animate="animate">
-          <Button className="my-8 bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300">
-            Meet the Team
-          </Button>
-        </motion.div>
       </div>
     </motion.section>
   );

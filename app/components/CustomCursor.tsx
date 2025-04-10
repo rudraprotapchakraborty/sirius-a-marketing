@@ -4,51 +4,71 @@ import { useEffect, useRef, useState } from "react";
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+    // Detect mobile devices
+    const checkMobile = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(
+          /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+            navigator.userAgent
+          ) || window.innerWidth < 768 // Optional: treat small widths as mobile
+        );
       }
     };
-  
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
-  
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
+    const moveCursor = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${e.clientX}px`;
+        cursorRef.current.style.top = `${e.clientY}px`;
+      }
+    };
+
+    const handleHover = () => setIsHovering(true);
+    const handleLeave = () => setIsHovering(false);
+
     document.addEventListener("mousemove", moveCursor);
-    document.body.style.cursor = "none";
-  
-    // Select interactive elements and safely cast them to HTMLElement
+
     const elements = document.querySelectorAll("a, button");
     elements.forEach((el) => {
-      const htmlEl = el as HTMLElement; // Explicitly cast to HTMLElement
-      htmlEl.style.cursor = "none";
-      htmlEl.addEventListener("mouseenter", handleMouseEnter);
-      htmlEl.addEventListener("mouseleave", handleMouseLeave);
+      el.addEventListener("mouseenter", handleHover);
+      el.addEventListener("mouseleave", handleLeave);
     });
-  
+
     return () => {
       document.removeEventListener("mousemove", moveCursor);
-      document.body.style.cursor = "default";
-  
       elements.forEach((el) => {
-        const htmlEl = el as HTMLElement; // Cast again in cleanup
-        htmlEl.style.cursor = "";
-        htmlEl.removeEventListener("mouseenter", handleMouseEnter);
-        htmlEl.removeEventListener("mouseleave", handleMouseLeave);
+        el.removeEventListener("mouseenter", handleHover);
+        el.removeEventListener("mouseleave", handleLeave);
       });
     };
-  }, []);  
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div
       ref={cursorRef}
-      className="fixed pointer-events-none mix-blend-difference rounded-full bg-white z-[9999] transition-transform duration-200 ease-out"
+      className="fixed pointer-events-none z-[9999]"
       style={{
-        width: isHovering ? "50px" : "25px",
-        height: isHovering ? "50px" : "25px",
-        transition: "transform 0.1s ease-out, width 0.2s ease-out, height 0.2s ease-out",
-        transformOrigin: "center",
+        width: isHovering ? "40px" : "30px",
+        height: isHovering ? "40px" : "30px",
+        backgroundColor: "rgba(192, 132, 252, 0.6)",
+        borderRadius: "50%",
+        position: "fixed",
+        transform: "translate(-50%, -50%)",
+        transition: "width 0.2s ease, height 0.2s ease, background-color 0.2s ease",
+        boxShadow: "0 0 12px rgba(140, 80, 255, 0.7)",
       }}
     />
   );

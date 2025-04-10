@@ -22,7 +22,7 @@ export default function ClientPage() {
       <Testimonials />
       <OurStory></OurStory>
       <SocialFirstAgency></SocialFirstAgency>
-      <LatestBlogs></LatestBlogs>
+      {/* <LatestBlogs></LatestBlogs> */}
       <CallToAction></CallToAction>
     </div>
   )

@@ -11,11 +11,11 @@
     0 0 150px #0ff;
 }
 
-body, html {
+/* body, html {
     cursor: none;
-}
+} */
 
-button, a, .hover-target, input, form, input[type="checkbox"], input[type="email"],label, input, textarea {
+/* button, a, .hover-target, input, form, input[type="checkbox"], input[type="email"],label, input, textarea {
     cursor: none !important;
-}
+} */
 
