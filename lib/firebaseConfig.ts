@@ -1,15 +1,14 @@
-// firebaseConfig.ts
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAKsvfvwj1xqFlKKEhEX9HOigFARe32iKw",
-    authDomain: "sirius-a-31cc8.firebaseapp.com",
-    projectId: "sirius-a-31cc8",
-    storageBucket: "sirius-a-31cc8.firebasestorage.app",
-    messagingSenderId: "689671340844",
-    appId: "1:689671340844:web:a8b47d28debc656121e289"
-  };
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

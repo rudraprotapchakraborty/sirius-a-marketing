@@ -4,7 +4,6 @@ import "@/styles/globals.css"
 import { Button } from "@/components/ui/button"
 import { Sparkles } from "lucide-react"
 import { MobileNav } from "./MobileNav"
-import { ThemeSwitcher } from "./theme-switcher"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
@@ -49,7 +48,6 @@ export function Header() {
               {[
                 { name: "Home", href: "/" },
                 { name: "Case Studies", href: "/case-studies" },
-                { name: "Blog", href: "/blog" },
                 { name: "Sirius A Visual", href: "/sirius-a-visual" },
               ].map(({ name, href }) => (
                 <Link
