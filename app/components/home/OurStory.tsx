@@ -30,7 +30,7 @@ const OurStory = () => {
       title: "Nurture",
       subtitle: "IS OUR BUSINESS",
       videoSrc: "https://videos.pexels.com/video-files/3251846/3251846-uhd_2560_1440_25fps.mp4",
-      textColor: "text-black dark:text-white",
+      textColor: "text-black",
       content: (
         <>
           <span className="text-lg italic font-medium">
