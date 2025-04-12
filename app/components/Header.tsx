@@ -60,7 +60,7 @@ export function Header() {
                   priority
                 />
               </motion.div>
-              <span className="font-merriweather text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-blue-600 transition-colors">
+              <span className="font-merriweather text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-blue-400 transition-colors">
                 Sirius A Marketing
               </span>
             </Link>
