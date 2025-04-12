@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { MessageCircle } from "lucide-react"
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6"
@@ -36,7 +37,7 @@ const socialLinks = [
 
 const StickyIcons = () => (
   <motion.div
-    className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4"
+    className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 hidden md:flex"
     initial={{ x: 100, opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
     transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
@@ -59,7 +60,7 @@ const StickyIcons = () => (
 
 export function Footer() {
   return (
-    <footer className="relative bg-white/80 dark:bg-black/80 text-gray-900 dark:text-white z-50 overflow-hidden">
+    <footer className="relative bg-white/80 dark:bg-black/80 text-gray-900 dark:text-white z-50 overflow-hidden backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* ✨ Background Glow */}
         <motion.div
@@ -67,6 +68,22 @@ export function Footer() {
           animate={{ opacity: [0, 0.2, 0.1] }}
           transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
         />
+
+        {/* Logo and tagline */}
+        <div className="flex flex-col items-center mb-12">
+          <Link href="/">
+            <Image 
+              src="/logo.png" 
+              alt="Sirius A Marketing" 
+              width={120} 
+              height={40} 
+              className="mb-3"
+            />
+          </Link>
+          <p className="text-sm text-gray-600 dark:text-gray-400 text-center max-w-md">
+            Elevating brands through strategic digital marketing and creative solutions
+          </p>
+        </div>
 
         <motion.div
           className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-10"
@@ -107,13 +124,13 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <p>
                 <span className="text-purple-600 dark:text-purple-400">UK –</span>{" "}
-                <a href="mailto:hello@siriusamarketing.com" className="hover:underline">
+                <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
                   contact@siriusamarketing.com
                 </a>
               </p>
               <p>
                 <span className="text-purple-600 dark:text-purple-400">BD –</span>{" "}
-                <a href="mailto:bd@siriusamarketing.com" className="hover:underline">
+                <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
                   contact@siriusamarketing.com
                 </a>
               </p>
@@ -125,6 +142,23 @@ export function Footer() {
             </div>
           </div>
         </motion.div>
+
+        {/* Social Media - Mobile Only */}
+        <div className="mt-10 flex justify-center md:hidden">
+          <div className="flex gap-4">
+            {socialLinks.map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`rounded-full w-10 h-10 flex items-center justify-center text-white shadow-md ${s.bgColor}`}
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
+        </div>
 
         {/* Bottom Bar */}
         <motion.div
@@ -154,7 +188,7 @@ export function Footer() {
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 120 }}
       >
-        <Link href="https://wa.me/15551234567" target="_blank">
+        <Link href="https://wa.me/447362622636" target="_blank">
           <Button size="icon" className="bg-purple-600 hover:bg-purple-700 rounded-full shadow-xl text-white">
             <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
             <span className="sr-only">Chat on WhatsApp</span>
