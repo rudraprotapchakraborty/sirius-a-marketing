@@ -12,13 +12,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
 } from "@/components/ui/form"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -50,23 +50,34 @@ export default function ContactPage() {
   })
 
   const onSubmit = async (data: FormValues) => {
-    setFormStatus("submitting")
-    
-    // Simulate API call
+    setFormStatus("submitting");
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      console.log("Form submitted:", data)
-      setFormStatus("success")
-      form.reset()
-      setPhone("+44")
-      
-      // Auto switch to success message
-      setTimeout(() => {
-        setActiveTab("success")
-      }, 300)
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        form.reset();
+        setPhone("+44");
+
+        // Auto switch to success message
+        setTimeout(() => {
+          setActiveTab("success");
+        }, 300);
+      } else {
+        const errorData = await response.json();
+        console.error("Error:", errorData.error);
+        setFormStatus("error");
+      }
     } catch (error) {
-      console.error("Error submitting form:", error)
-      setFormStatus("error")
+      console.error("Error submitting form:", error);
+      setFormStatus("error");
     }
   }
 
@@ -89,7 +100,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-xl text-gray-300">Let's Build Something Great Together</p>
         </motion.div>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -106,7 +117,7 @@ export default function ContactPage() {
                     <TabsTrigger value="form">Contact Form</TabsTrigger>
                     <TabsTrigger value="success">Message Status</TabsTrigger>
                   </TabsList>
-                  
+
                   <TabsContent value="form">
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -127,7 +138,7 @@ export default function ContactPage() {
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="email"
@@ -146,7 +157,7 @@ export default function ContactPage() {
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="phone"
@@ -183,7 +194,7 @@ export default function ContactPage() {
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="subject"
@@ -201,7 +212,7 @@ export default function ContactPage() {
                             </FormItem>
                           )}
                         />
-                        
+
                         <FormField
                           control={form.control}
                           name="message"
@@ -219,9 +230,9 @@ export default function ContactPage() {
                             </FormItem>
                           )}
                         />
-                        
-                        <Button 
-                          type="submit" 
+
+                        <Button
+                          type="submit"
                           disabled={formStatus === "submitting"}
                           className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300 mt-2"
                         >
@@ -235,7 +246,7 @@ export default function ContactPage() {
                       </form>
                     </Form>
                   </TabsContent>
-                  
+
                   <TabsContent value="success">
                     <AnimatePresence mode="wait">
                       {formStatus === "success" ? (
@@ -253,7 +264,7 @@ export default function ContactPage() {
                             </AlertDescription>
                           </Alert>
                           <div className="mt-6 text-center">
-                            <Button 
+                            <Button
                               onClick={() => {
                                 setActiveTab("form");
                                 setFormStatus("idle");
@@ -280,7 +291,7 @@ export default function ContactPage() {
                             </AlertDescription>
                           </Alert>
                           <div className="mt-6 text-center">
-                            <Button 
+                            <Button
                               onClick={() => {
                                 setActiveTab("form");
                                 setFormStatus("idle");
@@ -304,7 +315,9 @@ export default function ContactPage() {
                       )}
                     </AnimatePresence>
                   </TabsContent>
+
                 </Tabs>
+
               </CardContent>
             </Card>
           </motion.div>
@@ -332,7 +345,7 @@ export default function ContactPage() {
                         text: "123 AI Street, Tech City, London, UK TC1 2AB",
                       },
                       { icon: <Phone className="text-purple-500" />, text: "+44 20 1234 5678" },
-                      { icon: <Mail className="text-purple-500" />, text: "uk@siriusamarketing.com" },
+                      { icon: <Mail className="text-purple-500" />, text: "contact@siriusamarketing.com" },
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -361,7 +374,7 @@ export default function ContactPage() {
                         text: "456 Innovation Road, Dhaka, Bangladesh 1000",
                       },
                       { icon: <Phone className="text-purple-500" />, text: "+880 2 1234 5678" },
-                      { icon: <Mail className="text-purple-500" />, text: "bd@siriusamarketing.com" },
+                      { icon: <Mail className="text-purple-500" />, text: "contact@siriusamarketing.com" },
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -380,7 +393,7 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-xl shadow-purple-900/10 flex-grow">
               <CardHeader className="border-b border-purple-800/20 pb-4">
                 <CardTitle className="text-2xl font-bold">Business Hours</CardTitle>
@@ -410,17 +423,17 @@ export default function ContactPage() {
             </Card>
           </motion.div>
         </div>
-        
-        <Card className="mt-10 border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-xl shadow-purple-900/10">
-          <CardHeader className="border-b border-purple-800/20 pb-4">
-            <CardTitle className="text-2xl font-bold">Our Locations</CardTitle>
+
+        <Card className="max-w-md border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-lg shadow-purple-900/10">
+          <CardHeader className="border-b border-purple-800/20 pb-3 px-4">
+            <CardTitle className="text-xl font-semibold">Our Locations</CardTitle>
           </CardHeader>
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 px-4 pb-4">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.5 }}
-              className="aspect-video w-full rounded-lg overflow-hidden"
+              className="aspect-video w-full rounded-md overflow-hidden"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648718453!2d-73.98823492404069!3d40.75889083441755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1706104000000!5m2!1sen!2sus"
@@ -434,7 +447,8 @@ export default function ContactPage() {
             </motion.div>
           </CardContent>
         </Card>
+
       </div>
     </motion.div>
   )
-}g
+}

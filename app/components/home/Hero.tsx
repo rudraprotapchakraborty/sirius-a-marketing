@@ -25,35 +25,6 @@ const Hero: React.FC = () => {
       initial="initial"
       animate="animate"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-indigo-900/20 to-gray-900/90 z-0"></div>
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-r from-purple-500/20 to-teal-500/20 blur-3xl"
-            style={{
-              width: `${Math.random() * 30 + 10}rem`,
-              height: `${Math.random() * 30 + 10}rem`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
-            }}
-            transition={{
-              duration: Math.random() * 20 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 max-w-5xl">
         {/* Heading */}
         <motion.h1
@@ -63,7 +34,7 @@ const Hero: React.FC = () => {
           <span className="block text-white mb-2">Your Partner for</span>
           <TypeAnimation
             sequence={[
-              "Stellar Marketing Campaigns",
+              "Marketing Campaigns",
               2000,
               "Exponential Growth",
               2000,

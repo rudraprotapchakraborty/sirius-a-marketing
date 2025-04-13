@@ -15,7 +15,7 @@ const TrustedByCompanies: React.FC = () => {
           viewport={{ once: true }}
           className="text-center text-4xl sm:text-5xl font-extrabold mt-8 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 text-transparent bg-clip-text"
         >
-          Trusted by <span className="underline decoration-wavy decoration-blue-400">50+</span> Companies Worldwide
+          Trusted by <span className="underline decoration-wavy decoration-purple-600">50+</span> Companies Worldwide
           </motion.h2>
       </div>
     </section>

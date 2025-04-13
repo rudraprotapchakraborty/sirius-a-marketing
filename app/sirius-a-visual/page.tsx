@@ -278,15 +278,6 @@ export default function SiriusAVisual() {
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed">
               Everyone has a story, and people connect with stories that feel real. We don't just create videos and photos—we capture emotions, moments, and the essence of what makes your brand unique.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg shadow-lg shadow-purple-600/20">
-                View Our Portfolio
-              </Button>
-              <Button variant="outline" className="border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-8 py-6 rounded-full text-lg">
-                Get a Quote
-              </Button>
-            </div>
           </motion.div>
           
           <motion.div
@@ -454,7 +445,7 @@ export default function SiriusAVisual() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl overflow-hidden shadow-2xl shadow-purple-600/20"
+            className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-3xl overflow-hidden shadow-2xl shadow-purple-600/20"
           >
             <div className="relative p-12 md:p-16">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
