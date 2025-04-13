@@ -9,7 +9,6 @@ import { ThemeProvider } from "./components/theme-provider";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import ScrollToTopLayout from "./components/ScrollToTopLayout";
 import "@/styles/globals.css";
-import CustomCursor from "./components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Page Content */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="flex flex-col min-h-screen relative z-10">
-            <CustomCursor />
             <GoogleAnalytics />
             <TopLoadingBar />
             <Header />
