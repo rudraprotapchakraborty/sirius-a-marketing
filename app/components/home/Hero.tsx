@@ -20,13 +20,13 @@ const staggerContainer = {
 const Hero: React.FC = () => {
   return (
     <motion.section
-      className="relative w-full min-h-screen flex items-center justify-center text-center px-4 py-16 md:py-24 overflow-hidden"
+      className="relative w-full min-h-screen flex items-end justify-center text-center px-4 py-16 md:py-24 overflow-hidden"
       variants={staggerContainer}
       initial="initial"
       animate="animate"
     >
       <div className="relative z-10 max-w-5xl">
-        {/* Heading */}
+        {/* Heading
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
           variants={fadeInUp}
@@ -46,16 +46,16 @@ const Hero: React.FC = () => {
             repeat={Infinity}
             className="block text-white"
           />
-        </motion.h1>
+        </motion.h1> */}
 
-        {/* Description */}
+        {/* Description
         <motion.p
           className="mt-8 sm:mt-10 md:mt-12 text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto"
           variants={fadeInUp}
         >
           We empower businesses to thrive in today's competitive market. Our cutting-edge strategies,
           data-driven approach, and creative campaigns strategically position your brand for industry leadership.
-        </motion.p>
+        </motion.p> */}
         
         {/* CTA Buttons */}
         <motion.div 
