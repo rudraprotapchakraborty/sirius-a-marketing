@@ -74,7 +74,7 @@ const Testimonials = () => {
         className="absolute inset-0 -z-10 rounded-3xl overflow-hidden"
         style={{ y: backgroundY }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/40 dark:from-black/60 dark:to-black/40 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm"></div>
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/40 via-indigo-500/40 to-purple-500/40"></div>
         <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl"></div>
@@ -82,7 +82,7 @@ const Testimonials = () => {
       
       <div className="relative z-10">
         <motion.div className="text-center mb-16" variants={fadeInUp}>
-          <span className="inline-block px-3 py-1 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full mb-4">
             Client Success Stories
           </span>
           <motion.h2
@@ -91,7 +91,7 @@ const Testimonials = () => {
           >
             What Our Clients Say
           </motion.h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
             Don't just take our word for it. Here's what our clients have to say about their experience working with Sirius A Marketing.
           </p>
         </motion.div>
@@ -102,16 +102,16 @@ const Testimonials = () => {
         >
           {reviews.map((review) => (
             <motion.div key={review.id} variants={fadeInUp}>
-              <Card className="group h-full bg-white/90 dark:bg-gray-800/90 border border-gray-200/50 dark:border-gray-700/50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
+              <Card className="group h-full bg-gray-800/90 border border-gray-700/50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
                 <CardContent className="p-8 flex flex-col h-full">
                   <div className="mb-6">
                     <Quote className="h-8 w-8 text-purple-400/30 mb-4" />
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                    <p className="text-gray-300 text-lg leading-relaxed">
                       "{review.review}"
                     </p>
                   </div>
                   
-                  <div className="mt-auto pt-6 border-t border-gray-200 dark:border-gray-700/50">
+                  <div className="mt-auto pt-6 border-t border-gray-700/50">
                     <div className="flex items-center">
                       <Avatar className="h-14 w-14 mr-4 shadow-md ring-2 ring-purple-500/40 group-hover:ring-purple-500/60 transition-all duration-300">
                         <AvatarImage src={review.avatar} alt={review.name} />
@@ -120,10 +120,10 @@ const Testimonials = () => {
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <h3 className="font-bold text-lg text-gray-900 dark:text-white">
+                        <h3 className="font-bold text-lg text-white">
                           {review.name}
                         </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-400">
                           {review.position}, {review.company}
                         </p>
                         <div className="flex gap-1 mt-1">
@@ -133,7 +133,7 @@ const Testimonials = () => {
                               className={`h-4 w-4 ${
                                 index < review.rating 
                                   ? "text-yellow-400 fill-current" 
-                                  : "text-gray-300 dark:text-gray-600"
+                                  : "text-gray-600"
                               }`} 
                             />
                           ))}

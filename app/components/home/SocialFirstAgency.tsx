@@ -21,7 +21,7 @@ const SocialFirstAgency = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-gray-800 opacity-70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-70"></div>
       <div className="absolute top-20 right-0 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-20 w-96 h-96 bg-indigo-300/10 rounded-full blur-3xl"></div>
       
@@ -33,7 +33,7 @@ const SocialFirstAgency = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-full md:max-w-2xl mb-16 md:mb-0 text-center md:text-left z-10"
         >
-          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30 rounded-full">
+          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full">
             Digital Marketing Experts
           </div>
           
@@ -45,7 +45,7 @@ const SocialFirstAgency = () => {
             you've been looking for
           </h1>
           
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
+          <p className="text-lg text-gray-300 mb-8 max-w-xl">
             We help brands connect with their audience through strategic digital marketing that drives real business growth.
           </p>
           
@@ -65,7 +65,7 @@ const SocialFirstAgency = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-4 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                className="group flex items-center justify-center gap-2 bg-gray-800 text-white border border-gray-700 px-8 py-4 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
               >
                 Sirius A Visual
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -75,12 +75,12 @@ const SocialFirstAgency = () => {
           
           {/* Brand logos */}
           <div className="mt-12">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 font-medium">Trusted by 50+ leading brands worldwide</p>
+            <p className="text-sm text-gray-400 mb-4 font-medium">Trusted by 50+ leading brands worldwide</p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {logos.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="w-14 h-14 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md transform hover:scale-110 transition-all duration-300"
+                  className="w-14 h-14 rounded-full overflow-hidden bg-gray-800 border border-gray-700 shadow-md transform hover:scale-110 transition-all duration-300"
                 >
                   <Image
                     src={logo}

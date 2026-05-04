@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { generateMetadata } from "../lib/metadata"
 
 export const metadata: Metadata = generateMetadata({
@@ -7,6 +7,11 @@ export const metadata: Metadata = generateMetadata({
   description: "Join our team of digital marketing experts and shape the future of online business growth.",
   path: "/careers",
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export default function CareersLayout({
   children,

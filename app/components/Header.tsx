@@ -39,7 +39,7 @@ export function Header() {
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
         className={`sticky top-0 z-[9999] ${
           isScrolled 
-            ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-lg shadow-purple-900/10" 
+            ? "bg-black/80 backdrop-blur-md shadow-lg shadow-purple-900/10" 
             : "bg-transparent"
         } transition-all duration-300 py-3`}
       >
@@ -73,8 +73,8 @@ export function Header() {
                   href={href}
                   className={`relative group transition-all duration-300 ${
                     pathname === href 
-                      ? "text-purple-600 dark:text-purple-400" 
-                      : "text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                      ? "text-purple-400" 
+                      : "text-gray-300 hover:text-purple-400"
                   }`}
                 >
                   {name}

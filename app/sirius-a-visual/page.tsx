@@ -82,7 +82,7 @@ export default function SiriusAVisual() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-purple-950/20 text-gray-900 dark:text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-purple-950/20 text-white">
 
       <div className="relative flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 justify-between items-center py-16 md:py-24 min-h-screen max-w-7xl mx-auto">
         {/* Text Content */}
@@ -92,7 +92,7 @@ export default function SiriusAVisual() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-full md:max-w-2xl mb-16 md:mb-0 text-center md:text-left z-10"
         >
-          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30 rounded-full">
+          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full">
             Sirius A Visual
           </div>
           
@@ -104,7 +104,7 @@ export default function SiriusAVisual() {
             you've been looking for
           </h1>
           
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
+          <p className="text-lg text-gray-300 mb-8 max-w-xl">
           We use cinematic-grade cameras and equipment that deliver international-standard results for businesses of all sizes.
           </p>
         
@@ -144,7 +144,7 @@ export default function SiriusAVisual() {
       </div>
 
       {/* Services Section */}
-      <section className="py-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+      <section className="py-20 bg-gray-900/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <motion.h2
@@ -168,7 +168,7 @@ export default function SiriusAVisual() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="h-full"
               >
-                <Card className="h-full flex flex-col bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0">
+                <Card className="h-full flex flex-col bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0">
                   <div className="relative">
                     <div className="aspect-[16/9] relative overflow-hidden">
                       <Image
@@ -178,18 +178,18 @@ export default function SiriusAVisual() {
                         className="object-cover transition-transform duration-700 hover:scale-105"
                       />
                     </div>
-                    <div className="absolute top-4 left-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md">
+                    <div className="absolute top-4 left-4 bg-gray-800 p-2 rounded-full shadow-md">
                       {service.icon}
                     </div>
                   </div>
                   <CardContent className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{service.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{service.description}</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
+                    <p className="text-gray-400 mb-4">{service.description}</p>
 
                     <div className="mt-auto">
                       <ul className="space-y-2 mb-4">
                         {service.features.map((feature, i) => (
-                          <li key={i} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                          <li key={i} className="flex items-center text-sm text-gray-400">
                             <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
                             {feature}
                           </li>
@@ -197,7 +197,7 @@ export default function SiriusAVisual() {
                       </ul>
 
                       <Link href={`/sirius-a-visual/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <Button variant="ghost" className="text-purple-600 dark:text-purple-400 p-0 hover:bg-transparent hover:text-purple-700 dark:hover:text-purple-300 flex items-center gap-1 text-sm">
+                        <Button variant="ghost" className="text-purple-400 p-0 hover:bg-transparent hover:text-purple-300 flex items-center gap-1 text-sm">
                           Learn more <ArrowRight className="h-4 w-4" />
                         </Button>
                       </Link>
@@ -211,7 +211,7 @@ export default function SiriusAVisual() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-900 dark:to-purple-950/30">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-purple-950/30">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -221,7 +221,7 @@ export default function SiriusAVisual() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               We've helped businesses and individuals tell their stories through powerful visuals.
             </p>
           </motion.div>
@@ -240,7 +240,7 @@ export default function SiriusAVisual() {
                   className="absolute inset-0"
                   style={{ display: activeTestimonial === index ? 'block' : 'none' }}
                 >
-                  <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl flex flex-col md:flex-row gap-6 h-full">
+                  <div className="bg-gray-800 p-8 rounded-2xl shadow-xl flex flex-col md:flex-row gap-6 h-full">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
                       <Image
                         src={testimonial.image || "/images/avatar-placeholder.jpg"}
@@ -251,9 +251,9 @@ export default function SiriusAVisual() {
                       />
                     </div>
                     <div className="flex-grow">
-                      <p className="text-gray-700 dark:text-gray-300 text-lg italic mb-6">"{testimonial.quote}"</p>
+                      <p className="text-gray-300 text-lg italic mb-6">"{testimonial.quote}"</p>
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">{testimonial.author}</p>
+                        <p className="font-semibold text-white">{testimonial.author}</p>
                         <p className="text-purple-600 dark:text-purple-400">{testimonial.position}</p>
                       </div>
                     </div>
@@ -269,7 +269,7 @@ export default function SiriusAVisual() {
                   onClick={() => setActiveTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${activeTestimonial === index
                     ? 'bg-purple-600 w-6'
-                    : 'bg-gray-300 dark:bg-gray-700'
+                    : 'bg-gray-700'
                     }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />
@@ -301,7 +301,7 @@ export default function SiriusAVisual() {
                   Let's create visual content that captures your brand's essence and connects with your audience on a deeper level.
                 </p>
                 <Link href="/contact">
-                  <Button className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-6 rounded-full text-lg shadow-lg">
+                  <Button className="bg-white/10 text-white hover:bg-white/20 px-8 py-6 rounded-full text-lg shadow-lg">
                     Get Started Today
                   </Button>
                 </Link>

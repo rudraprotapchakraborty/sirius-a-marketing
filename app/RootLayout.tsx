@@ -26,24 +26,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative`}>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative bg-[#05030d] text-white`}>
         {/* Background Video — Visible on all devices */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
+          aria-hidden="true"
+          disablePictureInPicture
           className="fixed top-0 left-0 w-full h-full object-cover z-0 transition-all duration-300"
           style={{ filter: `blur(${blur}px)` }}
         >
           <source
-            src="/cosmos.mp4"
+            src="/cosmos-h264.mp4"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
+        <div className="fixed inset-0 z-0 bg-[#05030d]/55" aria-hidden="true" />
 
         {/* Page Content */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

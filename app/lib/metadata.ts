@@ -14,9 +14,9 @@ export function generateMetadata({ title, description, image, path }: MetadataPr
   const ogImage = image || `${baseUrl}/og-default.jpg`;
 
   return {
+    metadataBase: new URL(baseUrl),
     title: fullTitle,
     description: fullDescription,
-    viewport: "width=device-width, initial-scale=1", // ✅ Add this line
     openGraph: {
       title: fullTitle,
       description: fullDescription,

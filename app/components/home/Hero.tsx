@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 
 const fadeInUp = {
@@ -17,7 +16,7 @@ const staggerContainer = {
   }
 };
 
-const Hero: React.FC = () => {
+export default function Hero() {
   return (
     <motion.section
       className="relative w-full min-h-screen flex items-end justify-center text-center px-4 py-16 md:py-24 overflow-hidden"
@@ -25,45 +24,36 @@ const Hero: React.FC = () => {
       initial="initial"
       animate="animate"
     >
-      <div className="relative z-10 max-w-5xl">
-        {/* Heading
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-fuchsia-500 to-teal-600 animate-gradient-x"
-          variants={fadeInUp}
-        >
-          <span className="block text-white mb-2">Your Partner for</span>
-          <TypeAnimation
-            sequence={[
-              "Marketing Campaigns",
-              2000,
-              "Exponential Growth",
-              2000,
-              "Next-Level Branding",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            className="block text-white"
-          />
-        </motion.h1> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" aria-hidden="true" />
 
-        {/* Description
-        <motion.p
-          className="mt-8 sm:mt-10 md:mt-12 text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto"
+      <div className="relative z-10 flex min-h-[calc(100vh-7rem)] max-w-5xl flex-col items-center justify-center pt-16">
+        <motion.div
+          className="mb-6 inline-flex items-center rounded-full border border-purple-400/30 bg-black/30 px-4 py-2 text-sm font-medium text-purple-100 shadow-lg backdrop-blur-md"
           variants={fadeInUp}
         >
-          We empower businesses to thrive in today's competitive market. Our cutting-edge strategies,
-          data-driven approach, and creative campaigns strategically position your brand for industry leadership.
-        </motion.p> */}
-        
-        {/* CTA Buttons */}
-        <motion.div 
+          Digital marketing that moves brands forward
+        </motion.div>
+
+        <motion.h1
+          className="max-w-5xl text-balance text-5xl font-extrabold leading-tight tracking-normal text-white sm:text-6xl md:text-7xl lg:text-8xl"
+          variants={fadeInUp}
+        >
+          Turn your brand into the brightest signal online.
+        </motion.h1>
+
+        <motion.p
+          className="mt-6 max-w-2xl text-balance text-lg leading-8 text-gray-200 sm:text-xl"
+          variants={fadeInUp}
+        >
+          Sirius A Marketing builds performance-led social, content, ads, and creative strategies for brands ready to grow with clarity.
+        </motion.p>
+
+        <motion.div
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           variants={fadeInUp}
         >
           <Link href="/contact" className="group">
-            <motion.button 
+            <motion.button
               className="px-8 py-3 bg-gradient-to-r from-purple-500 to-fuchsia-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -73,7 +63,7 @@ const Hero: React.FC = () => {
             </motion.button>
           </Link>
           <Link href="/services" className="group">
-            <motion.button 
+            <motion.button
               className="px-8 py-3 bg-transparent border border-gray-400 text-white font-medium rounded-full hover:border-purple-400 hover:bg-purple-900/20 transition-all duration-300 transform hover:-translate-y-1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -85,6 +75,4 @@ const Hero: React.FC = () => {
       </div>
     </motion.section>
   );
-};
-
-export default Hero;
+}

@@ -60,7 +60,7 @@ const StickyIcons = () => (
 
 export function Footer() {
   return (
-    <footer className="relative bg-white/80 dark:bg-black/80 text-gray-900 dark:text-white z-50 overflow-hidden backdrop-blur-sm">
+    <footer className="relative bg-black/80 text-white z-50 overflow-hidden backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* ✨ Background Glow */}
         <motion.div
@@ -80,7 +80,7 @@ export function Footer() {
               className="mb-3"
             />
           </Link>
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center max-w-md">
+          <p className="text-sm text-gray-400 text-center max-w-md">
             Elevating brands through strategic digital marketing and creative solutions
           </p>
         </div>
@@ -107,7 +107,7 @@ export function Footer() {
                     <li key={label}>
                       <Link
                         href={`/${label.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                        className="hover:text-purple-400 transition-colors"
                       >
                         {label}
                       </Link>
@@ -123,13 +123,13 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-gray-500 mb-4">Don't be a stranger</h4>
             <div className="space-y-2 text-sm">
               <p>
-                <span className="text-purple-600 dark:text-purple-400">UK –</span>{" "}
+                <span className="text-purple-400">UK –</span>{" "}
                 <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
                   contact@siriusamarketing.com
                 </a>
               </p>
               <p>
-                <span className="text-purple-600 dark:text-purple-400">BD –</span>{" "}
+                <span className="text-purple-400">BD –</span>{" "}
                 <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
                   contact@siriusamarketing.com
                 </a>
@@ -169,10 +169,10 @@ export function Footer() {
         >
           <p>© {new Date().getFullYear()} Sirius A Marketing. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-purple-600 dark:hover:text-purple-400">
+            <Link href="/privacy" className="hover:text-purple-400">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-purple-600 dark:hover:text-purple-400">
+            <Link href="/terms" className="hover:text-purple-400">
               Terms and Conditions
             </Link>
           </div>

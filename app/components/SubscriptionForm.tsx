@@ -57,7 +57,7 @@ const SubscriptionForm = () => {
 
     return (
         <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <p className="text-lg font-light mb-4 text-gray-900 dark:text-white">
+            <p className="text-lg font-light mb-4 text-white">
                 Stay in touch with the herd and receive up-to-date insights, strategies, and news.
             </p>
             <form onSubmit={sendEmail} className="gap-2 max-w-md mt-4 flex">
@@ -66,12 +66,12 @@ const SubscriptionForm = () => {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-[#e1e1eb] dark:bg-[#1A1A2E] border border-purple-800/20 px-4 py-2 rounded-md text-gray-900 dark:text-white w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="bg-[#1A1A2E] border border-purple-800/20 px-4 py-2 rounded-md text-white placeholder:text-gray-500 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
                     required
                 />
                 <SubscribeButton loading={loading} />
             </form>
-            {message && <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{message}</p>}
+            {message && <p className="text-sm text-gray-400 mt-2">{message}</p>}
         </div>
     );
 };

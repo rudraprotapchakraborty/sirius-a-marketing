@@ -30,7 +30,7 @@ const OurStory = () => {
       title: "Nurture",
       subtitle: "IS OUR BUSINESS",
       videoSrc: "https://videos.pexels.com/video-files/3251846/3251846-uhd_2560_1440_25fps.mp4",
-      textColor: "text-black",
+      textColor: "text-white",
       content: (
         <>
           <span className="text-lg italic font-medium">
@@ -73,13 +73,13 @@ const OurStory = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
+          <span className="inline-block px-3 py-1 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full mb-4">
             About Us
           </span>
-          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-transparent bg-clip-text mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 text-transparent bg-clip-text mb-6">
             Our Story
           </h2>
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+          <p className="max-w-2xl mx-auto text-gray-300">
             Discover the philosophy and values that drive our approach to marketing and client success
           </p>
         </motion.div>
@@ -96,7 +96,7 @@ const OurStory = () => {
               onHoverStart={() => setActiveCard(idx)}
               onHoverEnd={() => setActiveCard(null)}
             >
-              <div className="relative h-[450px] rounded-t-full overflow-hidden shadow-2xl group bg-transparent border border-gray-200/50 dark:border-gray-700/50">
+              <div className="relative h-[450px] rounded-t-full overflow-hidden shadow-2xl group bg-transparent border border-gray-700/50">
                 {/* Video background */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden rounded-t-full">
                   <video
@@ -130,7 +130,7 @@ const OurStory = () => {
                   
                   {/* Content visible when hovered */}
                   <motion.div 
-                    className={`text-gray-800 dark:text-gray-200 text-left transition-all duration-500 ${
+                    className={`text-gray-200 text-left transition-all duration-500 ${
                       activeCard === idx ? "opacity-100 scale-100" : "opacity-0 scale-95"
                     }`}
                   >

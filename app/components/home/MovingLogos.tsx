@@ -1,3 +1,5 @@
+"use client";
+
 const MovingLogos = () => {
   const logos = [
     "/waffletime.jpg",

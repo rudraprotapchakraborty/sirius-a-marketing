@@ -49,17 +49,17 @@ const scaleIn = {
   animate: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-const LatestBlogs: React.FC = () => {
+const LatestBlogs = () => {
   return (
     <motion.section
-      className="container mx-auto px-6 py-20 max-w-7xl bg-white/70 dark:bg-transparent backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700"
+      className="container mx-auto px-6 py-20 max-w-7xl bg-transparent backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-700"
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
       variants={staggerChildren}
     >
       <motion.h2
-        className="text-center text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+        className="text-center text-4xl font-extrabold text-white tracking-tight"
         variants={fadeInUp}
       >
         Latest Blogs & News
@@ -70,7 +70,7 @@ const LatestBlogs: React.FC = () => {
       >
         {blogPosts.map((post, index) => (
           <motion.div key={index} variants={scaleIn} className="flex">
-            <Card className="group border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col min-h-full">
+            <Card className="group border border-gray-700 bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col min-h-full">
               <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="relative overflow-hidden">
                   <Image
@@ -85,11 +85,11 @@ const LatestBlogs: React.FC = () => {
                   <Badge className="mb-4 bg-purple-600 text-white px-3 py-1 text-sm font-medium rounded-full">
                     {post.category}
                   </Badge>
-                  <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors duration-300">
+                  <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-purple-400 transition-colors duration-300">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 flex-grow">{post.excerpt}</p>
-                  <div className="mt-4 flex items-center text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-400 flex-grow">{post.excerpt}</p>
+                  <div className="mt-4 flex items-center text-sm text-gray-400">
                     <span>{post.date}</span>
                     <span className="mx-2">•</span>
                     <span>{post.readTime}</span>

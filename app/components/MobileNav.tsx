@@ -29,7 +29,7 @@ export function MobileNav({ items }) {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
+          className="md:hidden text-gray-100 hover:bg-gray-800"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
@@ -37,7 +37,7 @@ export function MobileNav({ items }) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="w-[300px] bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-gray-200 dark:border-gray-800"
+        className="w-[300px] bg-gray-950/95 text-white backdrop-blur-md border-gray-800"
       >
         <SheetHeader>
           <SheetTitle>
@@ -55,7 +55,7 @@ export function MobileNav({ items }) {
                     className="object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </div>
-                <span className="text-lg font-bold text-purple-600 dark:text-purple-400">
+                <span className="text-lg font-bold text-purple-400">
                   Sirius A Marketing
                 </span>
               </Link>
@@ -76,8 +76,8 @@ export function MobileNav({ items }) {
                 onClick={handleLinkClick}
                 className={`text-lg font-medium relative group transition-all duration-300 ${
                   pathname === href 
-                    ? "text-purple-600 dark:text-purple-400" 
-                    : "text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                    ? "text-purple-400" 
+                    : "text-gray-300 hover:text-purple-400"
                 }`}
               >
                 {name}
@@ -111,12 +111,12 @@ export function MobileNav({ items }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-400">
             <p>Need help with your marketing?</p>
             <p className="mt-1">
               <a 
                 href="tel:+4407362622636" 
-                className="text-purple-600 dark:text-purple-400 hover:underline"
+                className="text-purple-400 hover:underline"
               >
                 +44 07362 622636
               </a>

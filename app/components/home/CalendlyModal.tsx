@@ -36,7 +36,7 @@ const CalendlyModal = () => {
 
             {/* Modal Content */}
             <motion.div
-              className="fixed z-[99999] top-1/2 left-1/2 w-[90%] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6"
+              className="fixed z-[99999] top-1/2 left-1/2 w-[90%] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-gray-900 text-white rounded-2xl shadow-2xl p-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
@@ -44,12 +44,12 @@ const CalendlyModal = () => {
             >
               {/* Modal Header */}
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h2 className="text-xl font-semibold text-white">
                   Book Your Free Consultation
                 </h2>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                  className="text-gray-500 hover:text-white"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -60,7 +60,7 @@ const CalendlyModal = () => {
                 src="https://calendly.com/siriusamarketing/consultation"
                 width="100%"
                 height="600"
-                className="rounded-lg border border-gray-200 dark:border-gray-700"
+                className="rounded-lg border border-gray-700"
                 frameBorder="0"
               />
             </motion.div>
