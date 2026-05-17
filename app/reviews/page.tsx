@@ -60,7 +60,7 @@ export default function ReviewsPage() {
         <motion.div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" variants={staggerChildren}>
           {reviews.map((review) => (
             <motion.div key={review.id} variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 border-purple-500/20 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]">
+              <Card className="bg-gradient-to-br from-cobalt/40 to-ice/40 border-cobalt-glow/20 overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <Avatar className="h-12 w-12 mr-4">

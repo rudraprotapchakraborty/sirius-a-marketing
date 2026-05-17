@@ -1,20 +1,25 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
-      <div className="text-center">
-        <h1 className="text-6xl md:text-8xl font-bold mb-8">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">404</span>
+    <div className="relative flex min-h-[80vh] items-center justify-center px-4 py-24">
+      <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <span className="eyebrow">Lost in orbit</span>
+        <h1 className="mt-8 font-display text-[clamp(5rem,18vw,12rem)] leading-none tracking-[-0.04em]">
+          <span className="text-cobalt-grad">404</span>
         </h1>
-        <p className="text-2xl md:text-3xl text-gray-300 mb-8">Oops! The page you're looking for doesn't exist.</p>
-        <Link href="/">
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg rounded-full">
-            Go Back Home
-          </Button>
+        <p className="mt-6 font-display text-3xl leading-tight tracking-tight sm:text-4xl">
+          <span className="text-stellar">This star isn&apos;t on the map.</span>
+        </p>
+        <p className="mx-auto mt-5 max-w-md text-text-dim">
+          The page you&apos;re looking for has drifted out of frame — or never was.
+        </p>
+        <Link href="/" className="btn-stellar group mt-10 inline-flex">
+          Back to home
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
         </Link>
       </div>
     </div>
-  )
+  );
 }

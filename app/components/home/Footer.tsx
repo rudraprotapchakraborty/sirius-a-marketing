@@ -1,115 +1,100 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { MessageCircle } from "lucide-react"
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6"
-import { motion } from "framer-motion"
-import SubscriptionForm from "../SubscriptionForm"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, ArrowUpRight } from "lucide-react";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import SubscriptionForm from "../SubscriptionForm";
 
 const socialLinks = [
-  {
-    name: "facebook",
-    url: "https://www.facebook.com/share/1CG8CPCm9s/",
-    bgColor: "bg-[#1877F2]",
-    icon: <FaFacebookF />,
-  },
-  {
-    name: "linkedin",
-    url: "https://linkedin.com",
-    bgColor: "bg-[#0A66C2]",
-    icon: <FaLinkedinIn />,
-  },
-  {
-    name: "instagram",
-    url: "https://www.instagram.com/sirius_a_marketing",
-    bgColor: "bg-gradient-to-r from-[#FCAF45] via-[#E1306C] to-[#C13584]",
-    icon: <FaInstagram />,
-  },
-  {
-    name: "x",
-    url: "https://twitter.com",
-    bgColor: "bg-black",
-    icon: <FaXTwitter />,
-  },
-]
+  { name: "facebook", url: "https://www.facebook.com/share/1CG8CPCm9s/", icon: <FaFacebookF /> },
+  { name: "linkedin", url: "https://linkedin.com", icon: <FaLinkedinIn /> },
+  { name: "instagram", url: "https://www.instagram.com/sirius_a_marketing", icon: <FaInstagram /> },
+  { name: "x", url: "https://twitter.com", icon: <FaXTwitter /> },
+];
 
 const StickyIcons = () => (
   <motion.div
-    className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 hidden md:flex"
-    initial={{ x: 100, opacity: 0 }}
+    className="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-3 md:flex"
+    initial={{ x: 60, opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
-    transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
+    transition={{ type: "spring", stiffness: 90, delay: 0.8 }}
   >
-    {socialLinks.map((s, i) => (
+    {socialLinks.map((s) => (
       <motion.a
         key={s.name}
         href={s.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`rounded-full w-10 h-10 flex items-center justify-center text-white shadow-md transition-transform hover:scale-110 ${s.bgColor}`}
-        whileHover={{ rotate: [0, 5, -5, 0] }}
-        transition={{ duration: 0.5 }}
+        whileHover={{ y: -2 }}
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline/60 bg-surface/70 text-text-dim backdrop-blur-md transition-colors duration-500 hover:border-cobalt-glow/60 hover:text-foreground"
+        aria-label={s.name}
       >
         {s.icon}
       </motion.a>
     ))}
   </motion.div>
-)
+);
 
 export function Footer() {
   return (
-    <footer className="relative bg-black/80 text-white z-50 overflow-hidden backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        {/* ✨ Background Glow */}
-        <motion.div
-          className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/10 via-transparent to-indigo-500/10 blur-2xl z-0"
-          animate={{ opacity: [0, 0.2, 0.1] }}
-          transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
-        />
+    <footer className="relative z-20 mt-24 border-t border-hairline/40 bg-ink/90 backdrop-blur-md">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cobalt-glow/40 to-transparent" />
 
-        {/* Logo and tagline */}
-        <div className="flex flex-col items-center mb-12">
-          <Link href="/">
-            <Image 
-              src="/logo.png" 
-              alt="Sirius A Marketing" 
-              width={120} 
-              height={40} 
-              className="mb-3"
-            />
-          </Link>
-          <p className="text-sm text-gray-400 text-center max-w-md">
-            Elevating brands through strategic digital marketing and creative solutions
-          </p>
-        </div>
-
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <motion.div
-          className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-10"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
+          className="grid gap-16 lg:grid-cols-12"
         >
-          <SubscriptionForm />
+          <div className="lg:col-span-5">
+            <Link href="/" className="group inline-flex items-center gap-3">
+              <Image src="/logo.png" alt="Sirius A" width={44} height={44} />
+              <div className="flex flex-col leading-none">
+                <span className="font-display text-2xl tracking-tight">Sirius A</span>
+                <span className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-text-dim">
+                  Marketing
+                </span>
+              </div>
+            </Link>
+            <p className="mt-6 max-w-sm font-display text-2xl leading-[1.25] text-foreground/85">
+              The brightest signal in your category — engineered, not improvised.
+            </p>
+            <div className="mt-8 max-w-sm">
+              <SubscriptionForm />
+            </div>
+          </div>
 
-          {/* Explore + Company */}
-          <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-8 lg:col-span-4 lg:grid-cols-2">
             {[
-              { title: "Explore", links: ["Case Studies", "Resources", "Blog", "Events", "Careers"] },
-              { title: "Company", links: ["About Us", "Blog", "Case Studies", "Reviews", "Contact"] },
+              { title: "Explore", links: [
+                { label: "Case Studies", href: "/case-studies" },
+                { label: "Blog", href: "/blog" },
+                { label: "Reviews", href: "/reviews" },
+                { label: "Careers", href: "/careers" },
+              ]},
+              { title: "Company", links: [
+                { label: "About", href: "/about" },
+                { label: "Services", href: "/services" },
+                { label: "Contact", href: "/contact" },
+                { label: "Sirius A Visual", href: "/sirius-a-visual" },
+              ]},
             ].map((section) => (
               <div key={section.title}>
-                <h4 className="text-sm font-semibold text-gray-500 mb-4">{section.title}</h4>
-                <ul className="space-y-2">
-                  {section.links.map((label) => (
+                <h4 className="eyebrow mb-5">{section.title}</h4>
+                <ul className="space-y-3">
+                  {section.links.map(({ label, href }) => (
                     <li key={label}>
                       <Link
-                        href={`/${label.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="hover:text-purple-400 transition-colors"
+                        href={href}
+                        className="group inline-flex items-center gap-2 text-text-dim transition-colors duration-300 hover:text-foreground"
                       >
-                        {label}
+                        <span>{label}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100" />
                       </Link>
                     </li>
                   ))}
@@ -118,83 +103,90 @@ export function Footer() {
             ))}
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold text-gray-500 mb-4">Don't be a stranger</h4>
-            <div className="space-y-2 text-sm">
-              <p>
-                <span className="text-purple-400">UK –</span>{" "}
-                <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
+          <div className="lg:col-span-3">
+            <h4 className="eyebrow mb-5">Reach us</h4>
+            <div className="space-y-3 text-sm">
+              <div>
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-text-muted">UK</span>
+                <a
+                  href="mailto:contact@siriusamarketing.com"
+                  className="mt-1 block text-text-dim transition-colors hover:text-foreground"
+                >
                   contact@siriusamarketing.com
                 </a>
-              </p>
-              <p>
-                <span className="text-purple-400">BD –</span>{" "}
-                <a href="mailto:contact@siriusamarketing.com" className="hover:underline">
+              </div>
+              <div>
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-text-muted">BD</span>
+                <a
+                  href="mailto:contact@siriusamarketing.com"
+                  className="mt-1 block text-text-dim transition-colors hover:text-foreground"
+                >
                   contact@siriusamarketing.com
                 </a>
-              </p>
+              </div>
               <Link href="/careers">
-                <Button variant="outline" className="mt-4 border-purple-800/20 hover:bg-purple-900/50">
+                <Button
+                  variant="outline"
+                  className="mt-5 rounded-full border-hairline bg-transparent text-text-dim hover:border-cobalt-glow/60 hover:bg-surface-2/60 hover:text-foreground"
+                >
                   We're Hiring
+                  <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
                 </Button>
               </Link>
             </div>
           </div>
         </motion.div>
 
-        {/* Social Media - Mobile Only */}
-        <div className="mt-10 flex justify-center md:hidden">
-          <div className="flex gap-4">
-            {socialLinks.map((s) => (
-              <a
-                key={s.name}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`rounded-full w-10 h-10 flex items-center justify-center text-white shadow-md ${s.bgColor}`}
-              >
-                {s.icon}
-              </a>
-            ))}
-          </div>
+        {/* mobile social */}
+        <div className="mt-14 flex justify-center gap-3 md:hidden">
+          {socialLinks.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline/60 bg-surface/70 text-text-dim transition-colors hover:border-cobalt-glow/60 hover:text-foreground"
+              aria-label={s.name}
+            >
+              {s.icon}
+            </a>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
         <motion.div
-          className="mt-10 border-t border-purple-800/20 pt-6 flex flex-col md:flex-row justify-between text-center md:text-left items-center text-sm gap-4"
+          className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-hairline/40 pt-6 text-center text-sm text-text-dim md:flex-row md:text-left"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
         >
-          <p>© {new Date().getFullYear()} Sirius A Marketing. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-purple-400">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-purple-400">
-              Terms and Conditions
-            </Link>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em]">
+            © {new Date().getFullYear()} · Sirius A Marketing · All rights reserved
+          </p>
+          <div className="flex gap-6 font-mono text-[0.7rem] uppercase tracking-[0.18em]">
+            <Link href="/privacy" className="hover:text-foreground">Privacy</Link>
+            <Link href="/terms" className="hover:text-foreground">Terms</Link>
           </div>
         </motion.div>
       </div>
 
       <StickyIcons />
 
-      {/* WhatsApp Chat */}
+      {/* WhatsApp */}
       <motion.div
-        className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-50"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1, type: "spring", stiffness: 120 }}
+        className="fixed bottom-6 right-6 z-50 sm:bottom-8 sm:right-8"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.1, type: "spring", stiffness: 110 }}
       >
         <Link href="https://wa.me/447362622636" target="_blank">
-          <Button size="icon" className="bg-purple-600 hover:bg-purple-700 rounded-full shadow-xl text-white">
-            <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+          <button className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cobalt-glow to-cobalt text-white shadow-[0_8px_32px_-6px_hsl(var(--cobalt)/0.7)] transition-transform duration-500 hover:scale-110">
+            <span className="absolute inset-0 rounded-full bg-cobalt/40 blur-xl opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
+            <MessageCircle className="relative h-5 w-5" />
             <span className="sr-only">Chat on WhatsApp</span>
-          </Button>
+          </button>
         </Link>
       </motion.div>
     </footer>
-  )
+  );
 }

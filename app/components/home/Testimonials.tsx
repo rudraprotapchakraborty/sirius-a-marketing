@@ -1,163 +1,146 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Star, Quote, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
+import { useState } from "react";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 const reviews = [
   {
     id: 1,
     name: "Alice Johnson",
     company: "Tech Innovators Inc.",
-    avatar: "/placeholder.svg",
-    review:
-      "Sirius A Marketing transformed our online presence. Their strategic approach and creative solutions helped us reach new heights in customer engagement.",
-    rating: 5,
     position: "Marketing Director",
+    avatar: "/placeholder.svg",
+    rating: 5,
+    review:
+      "Sirius A transformed our presence in eight weeks. The work was sharp, the meetings were short, and the numbers moved every cycle.",
   },
   {
     id: 2,
     name: "Bob Smith",
     company: "Global Solutions Ltd.",
-    avatar: "/placeholder.svg",
-    review:
-      "The team at Sirius A Marketing is exceptional. Their data-driven strategies and innovative campaigns have significantly boosted our ROI.",
-    rating: 5,
     position: "CEO",
+    avatar: "/placeholder.svg",
+    rating: 5,
+    review:
+      "Their data discipline is rare in this industry. We finally understand what's working and why — and the creative is the best we've shipped.",
   },
   {
     id: 3,
     name: "Carol Davis",
     company: "Eco Friendly Co.",
-    avatar: "/placeholder.svg",
-    review:
-      "Working with Sirius A Marketing has been a game-changer for our brand. Their expertise in digital marketing is unparalleled.",
-    rating: 4,
     position: "Brand Manager",
+    avatar: "/placeholder.svg",
+    rating: 5,
+    review:
+      "They came in with a point of view, not a slide deck. Twelve months later we're the category leader in our segment.",
   },
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+export default function Testimonials() {
+  const [active, setActive] = useState(0);
 
-const staggerChildren = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
-
-const Testimonials = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  
   return (
-    <motion.section
-      ref={sectionRef}
-      className="relative container mx-auto px-6 py-24 md:py-32 max-w-7xl overflow-hidden"
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerChildren}
-    >
-      {/* Background elements */}
-      <motion.div 
-        className="absolute inset-0 -z-10 rounded-3xl overflow-hidden"
-        style={{ y: backgroundY }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/40 via-indigo-500/40 to-purple-500/40"></div>
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl"></div>
-      </motion.div>
-      
-      <div className="relative z-10">
-        <motion.div className="text-center mb-16" variants={fadeInUp}>
-          <span className="inline-block px-3 py-1 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full mb-4">
-            Client Success Stories
-          </span>
-          <motion.h2
-            className="text-center text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-transparent bg-clip-text"
-            variants={fadeInUp}
-          >
-            What Our Clients Say
-          </motion.h2>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about their experience working with Sirius A Marketing.
-          </p>
-        </motion.div>
-
+    <section className="relative z-10 mx-auto w-full max-w-7xl overflow-hidden px-4 py-28 sm:px-8">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
         <motion.div
-          className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          variants={staggerChildren}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="md:col-span-5"
         >
-          {reviews.map((review) => (
-            <motion.div key={review.id} variants={fadeInUp}>
-              <Card className="group h-full bg-gray-800/90 border border-gray-700/50 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
-                <CardContent className="p-8 flex flex-col h-full">
-                  <div className="mb-6">
-                    <Quote className="h-8 w-8 text-purple-400/30 mb-4" />
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      "{review.review}"
-                    </p>
-                  </div>
-                  
-                  <div className="mt-auto pt-6 border-t border-gray-700/50">
-                    <div className="flex items-center">
-                      <Avatar className="h-14 w-14 mr-4 shadow-md ring-2 ring-purple-500/40 group-hover:ring-purple-500/60 transition-all duration-300">
-                        <AvatarImage src={review.avatar} alt={review.name} />
-                        <AvatarFallback className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white">
-                          {review.name.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <h3 className="font-bold text-lg text-white">
-                          {review.name}
-                        </h3>
-                        <p className="text-sm text-gray-400">
-                          {review.position}, {review.company}
-                        </p>
-                        <div className="flex gap-1 mt-1">
-                          {Array.from({ length: 5 }).map((_, index) => (
-                            <Star 
-                              key={index} 
-                              className={`h-4 w-4 ${
-                                index < review.rating 
-                                  ? "text-yellow-400 fill-current" 
-                                  : "text-gray-600"
-                              }`} 
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+          <span className="eyebrow">Operators · 04</span>
+          <h2 className="mt-5 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
+            <span className="text-stellar">In their</span>
+            <span className="block italic text-cobalt-grad">own words.</span>
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-text-dim">
+            Founders, marketers, and operators who trusted us with the next chapter. The
+            shortest path to knowing what we&apos;re like is to hear from them.
+          </p>
 
-        <motion.div className="text-center mt-16" variants={fadeInUp}>
-          <Link href="/reviews">
-            <Button className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-medium text-base rounded-full shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300">
-              Read All Reviews
-              <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+          <Link href="/reviews" className="btn-ghost group mt-10 inline-flex">
+            Read all reviews
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
           </Link>
         </motion.div>
-      </div>
-    </motion.section>
-  );
-};
 
-export default Testimonials;
+        <div className="md:col-span-7">
+          <motion.div
+            key={reviews[active].id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE }}
+            className="surface-card relative p-10 sm:p-12"
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-[1.25rem] [background:radial-gradient(circle_at_top_right,hsl(var(--cobalt)/0.12),transparent_60%)]"
+            />
+            <div className="relative">
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-4 w-4 ${
+                      i < reviews[active].rating
+                        ? "fill-gold text-gold"
+                        : "text-text-muted"
+                    }`}
+                  />
+                ))}
+              </div>
+              <blockquote className="mt-8 font-display text-3xl leading-[1.2] text-foreground sm:text-4xl">
+                &ldquo;{reviews[active].review}&rdquo;
+              </blockquote>
+              <div className="mt-10 flex items-center gap-4">
+                <Avatar className="h-12 w-12 border border-hairline/60">
+                  <AvatarImage src={reviews[active].avatar} alt={reviews[active].name} />
+                  <AvatarFallback className="bg-cobalt/20 text-cobalt-glow">
+                    {reviews[active].name.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="font-medium text-foreground">{reviews[active].name}</div>
+                  <div className="text-sm text-text-dim">
+                    {reviews[active].position} · {reviews[active].company}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="mt-8 flex gap-2">
+            {reviews.map((r, i) => (
+              <button
+                key={r.id}
+                onClick={() => setActive(i)}
+                className="group relative flex-1 py-3"
+                aria-label={`Show review from ${r.name}`}
+              >
+                <span className="absolute inset-x-0 top-3 h-px bg-hairline" />
+                <span
+                  className={`absolute inset-x-0 top-3 h-px bg-gradient-to-r from-cobalt-glow to-ice transition-transform duration-700 ease-out-expo ${
+                    active === i ? "scale-x-100" : "scale-x-0"
+                  } origin-left`}
+                />
+                <span
+                  className={`mt-2 block text-left font-mono text-[0.7rem] uppercase tracking-[0.2em] transition-colors ${
+                    active === i ? "text-foreground" : "text-text-muted group-hover:text-text-dim"
+                  }`}
+                >
+                  0{i + 1} · {r.name.split(" ")[0]}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

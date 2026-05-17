@@ -14,7 +14,7 @@ const CalendlyModal = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setIsOpen(true)}
-        className="group flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-full shadow-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white transition-all duration-300"
+        className="group flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-full shadow-lg bg-gradient-to-r from-cobalt-glow to-cobalt hover:from-cobalt-glow hover:to-cobalt text-white transition-all duration-300"
       >
         <Calendar className="w-5 h-5" />
         Schedule Consultation

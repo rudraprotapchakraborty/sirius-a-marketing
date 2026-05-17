@@ -1,65 +1,54 @@
 "use client";
-import { useState, useEffect } from "react";
-import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/home/Footer";
 import { CookieConsent } from "./components/CookieConsent";
 import { TopLoadingBar } from "./components/TopLoadingBar";
-import { ThemeProvider } from "./components/theme-provider";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import ScrollToTopLayout from "./components/ScrollToTopLayout";
 import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const [blur, setBlur] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setBlur(Math.min(scrollY / 50, 10)); // Smooth blur up to 10px
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} overflow-x-hidden flex flex-col min-h-screen relative bg-[#05030d] text-white`}>
-        {/* Background Video — Visible on all devices */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-          disablePictureInPicture
-          className="fixed top-0 left-0 w-full h-full object-cover z-0 transition-all duration-300"
-          style={{ filter: `blur(${blur}px)` }}
-        >
-          <source
-            src="/cosmos-h264.mp4"
-            type="video/mp4"
+      <body className="flex min-h-screen flex-col overflow-x-hidden bg-ink text-foreground antialiased">
+        {/* ── Stellar backdrop ── */}
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+          {/* base */}
+          <div className="absolute inset-0 bg-ink" />
+          {/* nebula glows */}
+          <div className="absolute inset-0 bg-nebula opacity-90" />
+          {/* parallax starfield */}
+          <div
+            className="starfield animate-twinkle"
+            style={{ transform: `translateY(${scrollY * -0.05}px)` }}
           />
-        </video>
-        <div className="fixed inset-0 z-0 bg-[#05030d]/55" aria-hidden="true" />
+          {/* deep gradient at base for content legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-ink via-ink/60 to-transparent" />
+          {/* soft noise */}
+          <div className="absolute inset-0 bg-stellar-noise opacity-50" />
+          {/* vignette */}
+          <div className="absolute inset-0 [background:radial-gradient(ellipse_at_center,transparent_55%,hsl(var(--ink))_120%)]" />
+        </div>
 
-        {/* Page Content */}
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <div className="flex flex-col min-h-screen relative z-10">
-            <GoogleAnalytics />
-            <TopLoadingBar />
-            <Header />
-            <ScrollToTopLayout>
-              <main className="flex-grow">{children}</main>
-            </ScrollToTopLayout>
-            <Footer />
-          </div>
-          <CookieConsent />
-        </ThemeProvider>
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <GoogleAnalytics />
+          <TopLoadingBar />
+          <Header />
+          <ScrollToTopLayout>
+            <main className="flex-grow">{children}</main>
+          </ScrollToTopLayout>
+          <Footer />
+        </div>
+        <CookieConsent />
       </body>
     </html>
   );

@@ -37,7 +37,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-white focus:bg-purple-900/50 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-purple-900/50 data-[state=open]:bg-purple-900/50 relative",
+  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-white focus:bg-cobalt/50 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-cobalt/50 data-[state=open]:bg-cobalt/50 relative",
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -54,7 +54,7 @@ const NavigationMenuTrigger = React.forwardRef<
       className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
       aria-hidden="true"
     />
-    <span className="absolute left-0 bottom-0 w-full h-0.5 bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+    <span className="absolute left-0 bottom-0 w-full h-0.5 bg-cobalt transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
   </NavigationMenuPrimitive.Trigger>
 ))
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
@@ -83,7 +83,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className={cn("absolute left-0 top-full flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-purple-800/20 bg-[#1A1A2E] text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
+        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-cobalt-glow/20 bg-[#1A1A2E] text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
         className,
       )}
       ref={ref}

@@ -85,20 +85,25 @@ export default function ContactPage() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gradient-to-b from-[#0D0B21] to-[#1A1A2E] text-white py-12"
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen text-foreground"
     >
-      <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-8 sm:pt-40">
         <motion.div
-          initial={{ y: -50, opacity: 0 }}
+          initial={{ y: 28, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-center mb-12"
+          transition={{ delay: 0.1, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 max-w-4xl"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
-            Your Story Deserves More Than Words
+          <span className="eyebrow">Contact · 01</span>
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] tracking-[-0.02em]">
+            <span className="text-stellar">Your story deserves</span>{" "}
+            <span className="italic text-cobalt-grad">more than words.</span>
           </h1>
-          <p className="text-xl text-gray-300">Let's Build Something Great Together</p>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-dim">
+            Tell us where you are, where you want to go, and what&apos;s in the way. We&apos;ll
+            be back within one business day.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -107,13 +112,13 @@ export default function ContactPage() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <Card className="border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-xl shadow-purple-900/10">
-              <CardHeader className="border-b border-purple-800/20 pb-4">
-                <CardTitle className="text-2xl font-bold">Get in Touch</CardTitle>
+            <Card className="surface-card border-hairline/60 bg-surface/60 backdrop-blur-md">
+              <CardHeader className="border-b border-cobalt-glow/20 pb-4">
+                <CardTitle className="font-display text-3xl tracking-tight">Get in touch</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <Tabs value={activeTab} onValueChange={setActiveTab}>
-                  <TabsList className="grid grid-cols-2 mb-6 bg-purple-900/20">
+                  <TabsList className="grid grid-cols-2 mb-6 bg-cobalt/20">
                     <TabsTrigger value="form">Contact Form</TabsTrigger>
                     <TabsTrigger value="success">Message Status</TabsTrigger>
                   </TabsList>
@@ -131,7 +136,7 @@ export default function ContactPage() {
                                 <Input
                                   {...field}
                                   placeholder="Your name"
-                                  className="border-purple-800/20 bg-purple-900/10 text-white focus:border-purple-500"
+                                  className="border-cobalt-glow/20 bg-cobalt/10 text-white focus:border-cobalt"
                                 />
                               </FormControl>
                               <FormMessage className="text-red-400 text-xs" />
@@ -150,7 +155,7 @@ export default function ContactPage() {
                                   {...field}
                                   type="email"
                                   placeholder="Your email"
-                                  className="border-purple-800/20 bg-purple-900/10 text-white focus:border-purple-500"
+                                  className="border-cobalt-glow/20 bg-cobalt/10 text-white focus:border-cobalt"
                                 />
                               </FormControl>
                               <FormMessage className="text-red-400 text-xs" />
@@ -176,17 +181,17 @@ export default function ContactPage() {
                                     width: "100%",
                                     height: "40px",
                                     fontSize: "16px",
-                                    backgroundColor: "rgba(124, 58, 237, 0.1)",
-                                    border: "1px solid rgba(124, 58, 237, 0.2)",
+                                    backgroundColor: "rgba(46, 124, 246, 0.08)",
+                                    border: "1px solid rgba(46, 124, 246, 0.2)",
                                     color: "white",
                                   }}
                                   dropdownStyle={{
-                                    backgroundColor: "#1A1A2E",
+                                    backgroundColor: "#0F1422",
                                     color: "white",
                                   }}
                                   buttonStyle={{
-                                    backgroundColor: "rgba(124, 58, 237, 0.1)",
-                                    borderColor: "rgba(124, 58, 237, 0.2)",
+                                    backgroundColor: "rgba(46, 124, 246, 0.08)",
+                                    borderColor: "rgba(46, 124, 246, 0.2)",
                                   }}
                                 />
                               </FormControl>
@@ -205,7 +210,7 @@ export default function ContactPage() {
                                 <Input
                                   {...field}
                                   placeholder="What is this regarding?"
-                                  className="border-purple-800/20 bg-purple-900/10 text-white focus:border-purple-500"
+                                  className="border-cobalt-glow/20 bg-cobalt/10 text-white focus:border-cobalt"
                                 />
                               </FormControl>
                               <FormMessage className="text-red-400 text-xs" />
@@ -223,7 +228,7 @@ export default function ContactPage() {
                                 <Textarea
                                   {...field}
                                   placeholder="Your message"
-                                  className="min-h-[120px] border-purple-800/20 bg-purple-900/10 text-white focus:border-purple-500"
+                                  className="min-h-[120px] border-cobalt-glow/20 bg-cobalt/10 text-white focus:border-cobalt"
                                 />
                               </FormControl>
                               <FormMessage className="text-red-400 text-xs" />
@@ -234,7 +239,7 @@ export default function ContactPage() {
                         <Button
                           type="submit"
                           disabled={formStatus === "submitting"}
-                          className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300 mt-2"
+                          className="mt-3 w-full rounded-full bg-gradient-to-b from-cobalt-glow to-cobalt py-6 font-medium text-white shadow-[0_8px_28px_-8px_hsl(var(--cobalt)/0.6)] transition-all duration-500 hover:shadow-[0_14px_38px_-10px_hsl(var(--cobalt)/0.75)] hover:-translate-y-px"
                         >
                           {formStatus === "submitting" ? (
                             <div className="flex items-center gap-2">
@@ -270,7 +275,7 @@ export default function ContactPage() {
                                 setFormStatus("idle");
                               }}
                               variant="outline"
-                              className="border-purple-500/30 text-purple-300 hover:bg-purple-900/20"
+                              className="border-cobalt-glow/30 text-cobalt-glow hover:bg-cobalt/20"
                             >
                               Send Another Message
                             </Button>
@@ -328,24 +333,24 @@ export default function ContactPage() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="flex flex-col gap-8"
           >
-            <Card className="border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-xl shadow-purple-900/10">
-              <CardHeader className="border-b border-purple-800/20 pb-4">
-                <CardTitle className="text-2xl font-bold">Contact Information</CardTitle>
+            <Card className="surface-card border-hairline/60 bg-surface/60 backdrop-blur-md">
+              <CardHeader className="border-b border-cobalt-glow/20 pb-4">
+                <CardTitle className="font-display text-3xl tracking-tight">Contact information</CardTitle>
               </CardHeader>
               <CardContent className="pt-6 space-y-8">
                 <div>
                   <h3 className="text-lg font-semibold mb-3 flex items-center">
-                    <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                    <span className="inline-block w-2 h-2 bg-cobalt rounded-full mr-2"></span>
                     UK Office
                   </h3>
-                  <div className="space-y-3 pl-4 border-l border-purple-800/20">
+                  <div className="space-y-3 pl-4 border-l border-cobalt-glow/20">
                     {[
                       {
-                        icon: <MapPin className="text-purple-500" />,
+                        icon: <MapPin className="text-cobalt-glow" />,
                         text: "123 AI Street, Tech City, London, UK TC1 2AB",
                       },
-                      { icon: <Phone className="text-purple-500" />, text: "+44 20 1234 5678" },
-                      { icon: <Mail className="text-purple-500" />, text: "contact@siriusamarketing.com" },
+                      { icon: <Phone className="text-cobalt-glow" />, text: "+44 20 1234 5678" },
+                      { icon: <Mail className="text-cobalt-glow" />, text: "contact@siriusamarketing.com" },
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -354,7 +359,7 @@ export default function ContactPage() {
                         transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                         className="flex items-center space-x-3 group"
                       >
-                        <div className="p-2 bg-purple-900/20 rounded-full group-hover:bg-purple-900/40 transition-colors duration-300">
+                        <div className="p-2 bg-cobalt/20 rounded-full group-hover:bg-cobalt/40 transition-colors duration-300">
                           {item.icon}
                         </div>
                         <p className="text-gray-300">{item.text}</p>
@@ -364,17 +369,17 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-3 flex items-center">
-                    <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                    <span className="inline-block w-2 h-2 bg-cobalt rounded-full mr-2"></span>
                     Bangladesh Office
                   </h3>
-                  <div className="space-y-3 pl-4 border-l border-purple-800/20">
+                  <div className="space-y-3 pl-4 border-l border-cobalt-glow/20">
                     {[
                       {
-                        icon: <MapPin className="text-purple-500" />,
+                        icon: <MapPin className="text-cobalt-glow" />,
                         text: "456 Innovation Road, Dhaka, Bangladesh 1000",
                       },
-                      { icon: <Phone className="text-purple-500" />, text: "+880 2 1234 5678" },
-                      { icon: <Mail className="text-purple-500" />, text: "contact@siriusamarketing.com" },
+                      { icon: <Phone className="text-cobalt-glow" />, text: "+880 2 1234 5678" },
+                      { icon: <Mail className="text-cobalt-glow" />, text: "contact@siriusamarketing.com" },
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -383,7 +388,7 @@ export default function ContactPage() {
                         transition={{ delay: 1.1 + index * 0.1, duration: 0.5 }}
                         className="flex items-center space-x-3 group"
                       >
-                        <div className="p-2 bg-purple-900/20 rounded-full group-hover:bg-purple-900/40 transition-colors duration-300">
+                        <div className="p-2 bg-cobalt/20 rounded-full group-hover:bg-cobalt/40 transition-colors duration-300">
                           {item.icon}
                         </div>
                         <p className="text-gray-300">{item.text}</p>
@@ -394,9 +399,9 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-xl shadow-purple-900/10 flex-grow">
-              <CardHeader className="border-b border-purple-800/20 pb-4">
-                <CardTitle className="text-2xl font-bold">Business Hours</CardTitle>
+            <Card className="surface-card border-hairline/60 bg-surface/60 backdrop-blur-md flex-grow">
+              <CardHeader className="border-b border-cobalt-glow/20 pb-4">
+                <CardTitle className="font-display text-3xl tracking-tight">Business hours</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="space-y-3">
@@ -410,7 +415,7 @@ export default function ContactPage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.3 + index * 0.1, duration: 0.5 }}
-                      className="flex justify-between items-center py-2 border-b border-purple-800/10 last:border-0"
+                      className="flex justify-between items-center py-2 border-b border-cobalt-glow/10 last:border-0"
                     >
                       <span className="font-medium">{item.day}</span>
                       <span className={`${item.hours === "Closed" ? "text-red-400" : "text-green-400"}`}>
@@ -424,9 +429,9 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        <Card className="max-w-md border-purple-800/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-lg shadow-purple-900/10">
-          <CardHeader className="border-b border-purple-800/20 pb-3 px-4">
-            <CardTitle className="text-xl font-semibold">Our Locations</CardTitle>
+        <Card className="max-w-md border-cobalt-glow/20 bg-[#1A1A2E]/80 backdrop-blur-sm shadow-lg shadow-cobalt/10">
+          <CardHeader className="border-b border-cobalt-glow/20 pb-3 px-4">
+            <CardTitle className="font-display text-2xl tracking-tight">Our locations</CardTitle>
           </CardHeader>
           <CardContent className="pt-4 px-4 pb-4">
             <motion.div

@@ -93,7 +93,7 @@ export default function CaseStudiesPage() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cobalt-glow to-cobalt bg-clip-text text-transparent">
             Our Success Stories
           </h1>
           <p className="text-lg text-gray-300 mb-8">
@@ -121,7 +121,7 @@ export default function CaseStudiesPage() {
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
                   className={selectedCategory === category 
-                    ? "bg-purple-600 hover:bg-purple-700 border-none" 
+                    ? "bg-cobalt hover:bg-cobalt border-none" 
                     : "border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
                   }
                 >
@@ -141,7 +141,7 @@ export default function CaseStudiesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="border-purple-800/20 bg-gray-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-purple-900/20 hover:shadow-lg hover:shadow-purple-500/10 overflow-hidden group h-full">
+                <Card className="border-cobalt-glow/20 bg-gray-800/30 backdrop-blur-sm transition-all duration-300 hover:bg-cobalt/20 hover:shadow-lg hover:shadow-cobalt/10 overflow-hidden group h-full">
                   <Link href={`/case-studies/${study.slug}`} className="block h-full">
                     <CardHeader className="p-0">
                       <div className="relative overflow-hidden h-56">
@@ -152,29 +152,29 @@ export default function CaseStudiesPage() {
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
-                        <div className="absolute top-3 right-3 bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full">
+                        <div className="absolute top-3 right-3 bg-cobalt text-white text-xs font-medium px-2 py-1 rounded-full">
                           {study.category}
                         </div>
                       </div>
                     </CardHeader>
                     <CardContent className="p-6">
-                      <CardTitle className="text-xl mb-2 text-white group-hover:text-purple-300 transition-colors">
+                      <CardTitle className="text-xl mb-2 text-white group-hover:text-cobalt-glow transition-colors">
                         {study.title}
                       </CardTitle>
-                      <p className="text-purple-400 mb-3 font-medium">{study.company}</p>
+                      <p className="text-cobalt-glow mb-3 font-medium">{study.company}</p>
                       <p className="text-gray-300 mb-4 line-clamp-3">{study.description}</p>
                       
                       {/* Results highlights */}
                       <div className="mb-4 space-y-1">
                         {study.results.map((result, i) => (
                           <div key={i} className="flex items-center text-sm text-gray-400">
-                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-cobalt mr-2"></div>
                             {result}
                           </div>
                         ))}
                       </div>
                       
-                      <div className="text-purple-400 group-hover:text-purple-300 inline-flex items-center font-medium transition-all duration-300 group-hover:translate-x-1">
+                      <div className="text-cobalt-glow group-hover:text-cobalt-glow inline-flex items-center font-medium transition-all duration-300 group-hover:translate-x-1">
                         View Case Study
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </div>
@@ -188,7 +188,7 @@ export default function CaseStudiesPage() {
               <p className="text-gray-400 text-lg">No case studies found matching your criteria.</p>
               <Button 
                 variant="outline" 
-                className="mt-4 border-purple-800/30 text-purple-400 hover:bg-purple-900/20"
+                className="mt-4 border-cobalt-glow/30 text-cobalt-glow hover:bg-cobalt/20"
                 onClick={() => {
                   setSearchTerm("")
                   setSelectedCategory("All")
@@ -205,14 +205,14 @@ export default function CaseStudiesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 text-center bg-gradient-to-r from-purple-900/40 to-indigo-900/40 p-8 md:p-12 rounded-2xl border border-purple-500/20 shadow-xl"
+          className="mt-20 text-center bg-gradient-to-r from-cobalt/40 to-cobalt-deep/40 p-8 md:p-12 rounded-2xl border border-cobalt-glow/20 shadow-xl"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to become our next success story?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's discuss how our proven marketing strategies can help your business achieve similar results.
           </p>
           <Link href="/contact">
-            <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-6 rounded-full text-lg">
+            <Button className="bg-gradient-to-r from-cobalt-glow to-cobalt hover:from-cobalt-glow hover:to-cobalt text-white px-8 py-6 rounded-full text-lg">
               Schedule a Free Strategy Call
             </Button>
           </Link>

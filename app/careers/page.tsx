@@ -95,14 +95,14 @@ export default function CareersPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="bg-gray-800/50 border-purple-800/20">
+              <Card className="bg-gray-800/50 border-cobalt-glow/20">
                 <CardHeader className="cursor-pointer" onClick={() => toggleJobExpansion(index)}>
                   <div className="flex justify-between items-center">
                     <CardTitle className="text-2xl font-bold text-white">{job.title}</CardTitle>
                     {expandedJob === index ? (
-                      <ChevronUp className="text-purple-400" />
+                      <ChevronUp className="text-cobalt-glow" />
                     ) : (
-                      <ChevronDown className="text-purple-400" />
+                      <ChevronDown className="text-cobalt-glow" />
                     )}
                   </div>
                   <CardDescription className="text-gray-300">
@@ -118,7 +118,7 @@ export default function CareersPage() {
                         <li key={i}>{req}</li>
                       ))}
                     </ul>
-                    <Button className="mt-4 bg-purple-600 hover:bg-purple-700">Apply Now</Button>
+                    <Button className="mt-4 bg-cobalt hover:bg-cobalt">Apply Now</Button>
                   </CardContent>
                 )}
               </Card>
@@ -131,7 +131,7 @@ export default function CareersPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Card className="bg-gray-800/50 border-purple-800/20">
+          <Card className="bg-gray-800/50 border-cobalt-glow/20">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-white">Apply for a Position</CardTitle>
               <CardDescription className="text-gray-300">
@@ -147,7 +147,7 @@ export default function CareersPage() {
                   <Input
                     id="name"
                     placeholder="Your full name"
-                    className="bg-gray-700 text-white border-purple-800/20"
+                    className="bg-gray-700 text-white border-cobalt-glow/20"
                   />
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function CareersPage() {
                     id="email"
                     type="email"
                     placeholder="Your email address"
-                    className="bg-gray-700 text-white border-purple-800/20"
+                    className="bg-gray-700 text-white border-cobalt-glow/20"
                   />
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export default function CareersPage() {
                   <Input
                     id="position"
                     placeholder="Position you're applying for"
-                    className="bg-gray-700 text-white border-purple-800/20"
+                    className="bg-gray-700 text-white border-cobalt-glow/20"
                   />
                 </div>
                 <div>
@@ -178,16 +178,16 @@ export default function CareersPage() {
                   <Textarea
                     id="message"
                     placeholder="Tell us why you're a great fit for this position"
-                    className="bg-gray-700 text-white border-purple-800/20"
+                    className="bg-gray-700 text-white border-cobalt-glow/20"
                   />
                 </div>
                 <div>
                   <Label htmlFor="cv" className="text-white">
                     CV/Resume
                   </Label>
-                  <Input id="cv" type="file" className="bg-gray-700 text-white border-purple-800/20" />
+                  <Input id="cv" type="file" className="bg-gray-700 text-white border-cobalt-glow/20" />
                 </div>
-                <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
+                <Button type="submit" className="w-full bg-cobalt hover:bg-cobalt">
                   <Send className="mr-2 h-4 w-4" /> Submit Application
                 </Button>
               </form>

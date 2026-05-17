@@ -5,169 +5,166 @@ import Link from "next/link";
 import {
   MessageCircle,
   Search,
-  DollarSign,
+  Compass,
   Globe,
   FileText,
-  Palette,
-  ArrowRight,
+  Camera,
+  ArrowUpRight,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
-const staggerContainer = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const services = [
+  {
+    icon: MessageCircle,
+    title: "Social Media Management",
+    description:
+      "Content systems, calendars, and community — engineered for compounding reach.",
+    link: "/services/social-media-management",
+    span: "md:col-span-2 md:row-span-2",
+    featured: true,
   },
-};
+  {
+    icon: Search,
+    title: "Meta & Google Ads",
+    description: "Paid acquisition with attribution discipline.",
+    link: "/services/meta-and-google-ads",
+    span: "md:col-span-2",
+  },
+  {
+    icon: Compass,
+    title: "Brand Strategy & Consulting",
+    description: "Positioning, narrative, and identity that compounds.",
+    link: "/services/brand-strategy-and-consulting",
+    span: "md:col-span-2",
+  },
+  {
+    icon: Globe,
+    title: "Website & Funnel",
+    description: "Landing pages that convert.",
+    link: "/services/website-and-funnel-optimization",
+    span: "md:col-span-2",
+  },
+  {
+    icon: FileText,
+    title: "Content Marketing",
+    description: "SEO blogs, video, audio — surface area for trust.",
+    link: "/services/content-marketing",
+    span: "md:col-span-2",
+  },
+  {
+    icon: Camera,
+    title: "Photography & Video",
+    description: "Production with craft you can feel.",
+    link: "/services/photography-video",
+    span: "md:col-span-2",
+  },
+];
 
-const fadeIn = {
+const item = {
   initial: { opacity: 0, y: 30 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: EASE },
+  viewport: { once: true, margin: "-60px" },
 };
 
 export default function OurServiceOffering() {
-  const services = [
-    {
-      icon: MessageCircle,
-      title: "Social Media Management",
-      description: "Content creation, scheduling, and engagement",
-      link: "/services/social-media-management",
-      color: "from-blue-500 to-indigo-600",
-      bgColor: "bg-blue-900/20",
-      iconColor: "text-blue-400",
-    },
-    {
-      icon: Search,
-      title: "Meta & Google Ads",
-      description: "High-converting ad campaigns",
-      link: "/services/meta-and-google-ads",
-      color: "from-purple-500 to-fuchsia-600",
-      bgColor: "bg-purple-900/20",
-      iconColor: "text-purple-400",
-    },
-    {
-      icon: DollarSign,
-      title: "Brand Strategy & Consulting",
-      description:
-        "Brand positioning, storytelling, and identity building.",
-      link: "/services/brand-strategy-and-consulting",
-      color: "from-emerald-500 to-teal-600",
-      bgColor: "bg-emerald-900/20",
-      iconColor: "text-emerald-400",
-    },
-    {
-      icon: Globe,
-      title: "Website & Funnel Optimization",
-      description: "Landing pages that convert",
-      link: "/services/website-and-funnel-optimization",
-      color: "from-amber-500 to-orange-600",
-      bgColor: "bg-amber-900/20",
-      iconColor: "text-amber-400",
-    },
-    {
-      icon: FileText,
-      title: "Content Marketing",
-      description: "SEO-driven blogs, video content, audio content.",
-      link: "/services/content-marketing",
-      color: "from-pink-500 to-rose-600",
-      bgColor: "bg-pink-900/20",
-      iconColor: "text-pink-400",
-    },
-    {
-      icon: Palette,
-      title: "Photography & Video",
-      description: "High-quality visual content for your brand",
-      link: "/services/photography-video",
-      color: "from-cyan-500 to-sky-600",
-      bgColor: "bg-cyan-900/20",
-      iconColor: "text-cyan-400",
-    },
-  ];
-
   return (
-    <motion.section
-      id="features"
-      className="relative z-10 py-20 px-4 sm:px-8 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-md rounded-2xl shadow-md max-w-7xl mx-auto overflow-hidden"
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={staggerContainer}
+    <section
+      id="services"
+      className="relative z-10 mx-auto w-full max-w-7xl px-4 py-28 sm:px-8"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      </div>
-      
-      <motion.div
-        className="flex flex-col items-center mb-16"
-        variants={fadeIn}
-      >
-        <span className="px-3 py-1 text-xs font-medium text-indigo-400 bg-indigo-900/30 rounded-full mb-4">
-          Our Expertise
-        </span>
-        <motion.h2
-          className="text-center text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text max-w-2xl"
-          variants={fadeIn}
+      <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="md:col-span-5"
         >
-          Our Service Offerings
-        </motion.h2>
-        <motion.p 
-          className="mt-4 text-center text-gray-300 max-w-2xl"
-          variants={fadeIn}
+          <span className="eyebrow">What we do · 01</span>
+          <h2 className="mt-5 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl md:text-[4.5rem]">
+            <span className="text-stellar">Six disciplines.</span>{" "}
+            <span className="italic text-cobalt-grad">One orbit.</span>
+          </h2>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="self-end text-lg leading-relaxed text-text-dim md:col-span-6 md:col-start-7"
         >
-          Comprehensive marketing solutions tailored to elevate your brand and drive measurable results
+          We don&apos;t sell tactics — we run integrated programs that move every metric that
+          matters. From positioning to paid, content to creative, each service compounds the
+          others.
         </motion.p>
-      </motion.div>
-
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
-          <motion.div key={index} variants={fadeIn}>
-            <Link href={service.link} className="block h-full" passHref>
-              <Card className="group relative overflow-hidden rounded-2xl border border-gray-800 bg-zinc-900/80 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full">
-                <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-300 dark:group-hover:opacity-10 rounded-2xl"></div>
-                <div className="absolute h-1 top-0 left-0 right-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl"></div>
-                <CardContent className="p-6 flex flex-col h-full">
-                  <motion.div
-                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${service.bgColor} ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}
-                    animate={{ opacity: [1, 0.8, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <service.icon className="w-7 h-7" />
-                  </motion.div>
-                  <h3 className="mb-2 text-xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
-                    {service.description}
-                  </p>
-                  <div className="flex items-center text-sm font-medium text-indigo-400 mt-auto">
-                    <span className="mr-2">Learn more</span>
-                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          </motion.div>
-        ))}
       </div>
-      
-      <motion.div 
-        className="mt-16 text-center"
-        variants={fadeIn}
+
+      <div className="grid grid-cols-1 gap-3 md:auto-rows-[180px] md:grid-cols-4 md:gap-4">
+        {services.map((service, i) => {
+          const Icon = service.icon;
+          return (
+            <motion.div
+              key={service.title}
+              {...item}
+              transition={{ ...item.transition, delay: i * 0.06 }}
+              className={service.span}
+            >
+              <Link href={service.link} className="group block h-full">
+                <div className="surface-card relative flex h-full flex-col justify-between overflow-hidden p-7">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cobalt/0 blur-3xl transition-all duration-700 ease-out-expo group-hover:bg-cobalt/30"
+                  />
+
+                  <div className="relative flex items-start justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-hairline/60 bg-surface-2/70 text-cobalt-glow transition-all duration-500 group-hover:border-cobalt-glow/50 group-hover:bg-cobalt/15">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 -translate-x-2 translate-y-2 text-text-muted opacity-0 transition-all duration-500 ease-out-expo group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-cobalt-glow group-hover:opacity-100" />
+                  </div>
+
+                  <div className="relative mt-8">
+                    {service.featured && (
+                      <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-cobalt-glow/80">
+                        Flagship
+                      </span>
+                    )}
+                    <h3
+                      className={`mt-1 font-display tracking-tight text-foreground ${
+                        service.featured ? "text-4xl sm:text-5xl" : "text-2xl"
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
+                    <p
+                      className={`mt-3 text-text-dim ${
+                        service.featured ? "text-base max-w-md" : "text-sm"
+                      }`}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="mt-14 flex justify-center"
       >
-        <Link href="/services" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
+        <Link href="/services" className="btn-ghost group">
           View all services
-          <ArrowRight className="ml-2 w-4 h-4" />
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
         </Link>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }

@@ -10,7 +10,7 @@ function SubscribeButton({ loading }: { loading: boolean }) {
         <Button
             type="submit"
             size="icon"
-            className="bg-purple-600 hover:bg-purple-700 rounded-full shrink-0 text-white"
+            className="bg-cobalt hover:bg-cobalt rounded-full shrink-0 text-white"
             disabled={loading}
         >
             {loading ? <span className="animate-spin">↻</span> : <ArrowRight className="h-4 w-4" />}
@@ -66,7 +66,7 @@ const SubscriptionForm = () => {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="bg-[#1A1A2E] border border-purple-800/20 px-4 py-2 rounded-md text-white placeholder:text-gray-500 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="bg-[#1A1A2E] border border-cobalt-glow/20 px-4 py-2 rounded-md text-white placeholder:text-gray-500 w-full focus:outline-none focus:ring-2 focus:ring-cobalt-glow"
                     required
                 />
                 <SubscribeButton loading={loading} />

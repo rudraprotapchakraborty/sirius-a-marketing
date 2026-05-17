@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center mb-8">Privacy Policy</h1>
 
-        <Card className="border-purple-800/20 bg-purple-900/10 mb-12">
+        <Card className="border-cobalt-glow/20 bg-cobalt/10 mb-12">
           <CardContent className="p-8">
             <h2 className="text-2xl font-semibold mb-4">1. Information We Collect</h2>
             <p className="text-gray-300 mb-6">
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
         <div className="text-center">
           <p className="text-gray-300 mb-6">If you have any questions about this Privacy Policy, please contact us.</p>
           <Link href="/contact">
-            <Button className="bg-purple-600 hover:bg-purple-700">Contact Us</Button>
+            <Button className="bg-cobalt hover:bg-cobalt">Contact Us</Button>
           </Link>
         </div>
       </div>

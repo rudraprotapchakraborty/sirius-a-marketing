@@ -1,97 +1,100 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const WhatsNextForYourMarketing: React.FC = () => {
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const steps = [
+  {
+    n: "01",
+    title: "Diagnose",
+    body: "We audit your funnel, brand, and category — surfacing what's actually limiting growth.",
+  },
+  {
+    n: "02",
+    title: "Architect",
+    body: "Positioning, message map, and a 90-day plan with measurable bets.",
+  },
+  {
+    n: "03",
+    title: "Build",
+    body: "Creative, content, ads, and site work — produced in-studio, shipped weekly.",
+  },
+  {
+    n: "04",
+    title: "Compound",
+    body: "Each cycle informs the next. We trade vanity for velocity.",
+  },
+];
+
+export default function WhatsNextForYourMarketing() {
   return (
-    <div className="relative my-24 w-full max-w-7xl mx-auto px-4 sm:px-6">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 rounded-3xl"></div>
-      
-      {/* Main content */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-12 py-24 sm:py-28 rounded-3xl border border-purple-500/20 bg-white/5 backdrop-blur-sm shadow-[0_0_40px_rgba(128,0,255,0.2)]"
-      >
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/40 via-indigo-500/40 to-purple-500/40"></div>
-          <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        {/* Sparkle icon */}
+    <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-28 sm:px-8">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
         <motion.div
-          className="mb-6 p-3 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-full"
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0, -5, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="md:col-span-5"
         >
-          <Sparkles className="w-6 h-6 text-purple-500" />
-        </motion.div>
-        
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 leading-tight max-w-3xl">
-          What's next for your marketing?
-        </h2>
-        
-        <p className="mt-6 text-gray-300 max-w-2xl text-lg">
-          Ready to transform your brand's digital presence? Let's create a strategy that drives real results.
-        </p>
-        
-        <Link href="/contact" className="group mt-10">
-          <motion.button
-            className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium text-base tracking-wide shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <span className="eyebrow">How we work · 02</span>
+          <h2 className="mt-5 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
+            <span className="text-stellar">What&apos;s next</span>
+            <span className="block italic text-cobalt-grad">for your marketing?</span>
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-text-dim">
+            A clear, four-phase engagement. No theatre, no fluff — just the path from where you
+            are to where you should be.
+          </p>
+
+          <Link href="/contact" className="btn-stellar group mt-10 inline-flex">
+            Book a discovery call
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
+          </Link>
+
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0, rotate: -10 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
+            transition={{ duration: 1.2, ease: EASE }}
+            viewport={{ once: true }}
+            className="mt-12 hidden md:block"
           >
-            Get in touch
-            <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-          </motion.button>
-        </Link>
-      </motion.div>
+            <div className="relative h-40 w-40">
+              <div className="absolute inset-0 rounded-full bg-cobalt/20 blur-2xl" />
+              <Image src="/logo.png" alt="" fill className="relative object-contain opacity-90 animate-float" />
+            </div>
+          </motion.div>
+        </motion.div>
 
-      {/* Floating Images */}
-      <motion.div
-        className="absolute left-0 bottom-0 sm:-left-5 md:-left-10 w-[140px] sm:w-[180px] lg:w-[220px] aspect-square z-0 rounded-2xl overflow-hidden shadow-xl"
-        initial={{ y: 0, rotate: -5 }}
-        animate={{ y: [0, -15, 0], rotate: [-5, -3, -5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Image
-          src="/img2.webp"
-          alt="People"
-          fill
-          sizes="(max-width: 768px) 140px, (max-width: 1200px) 180px, 220px"
-          className="object-cover"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent"></div>
-      </motion.div>
-
-      <motion.div
-        className="absolute right-0 top-0 sm:-right-5 md:-right-10 w-[140px] sm:w-[180px] lg:w-[220px] aspect-square z-0 rounded-2xl overflow-hidden shadow-xl"
-        initial={{ y: 0, rotate: 5 }}
-        animate={{ y: [0, 15, 0], rotate: [5, 3, 5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Image
-          src="/img1.jpg"
-          alt="Red Appliances"
-          fill
-          sizes="(max-width: 768px) 140px, (max-width: 1200px) 180px, 220px"
-          className="object-cover"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/40 to-transparent"></div>
-      </motion.div>
-    </div>
+        <ol className="relative md:col-span-7 md:col-start-6">
+          <div aria-hidden className="absolute left-[1.85rem] top-2 hidden h-[calc(100%-4rem)] w-px bg-gradient-to-b from-cobalt-glow/40 via-hairline to-transparent md:block" />
+          {steps.map((step, i) => (
+            <motion.li
+              key={step.n}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE, delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              className="relative flex gap-6 border-b border-hairline/40 py-8 first:pt-0 last:border-b-0"
+            >
+              <div className="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-hairline/60 bg-surface/80 font-mono text-sm font-medium text-cobalt-glow backdrop-blur-sm">
+                {step.n}
+              </div>
+              <div className="flex-1 pt-2">
+                <h3 className="font-display text-3xl tracking-tight text-foreground">
+                  {step.title}
+                </h3>
+                <p className="mt-2 max-w-md text-text-dim">{step.body}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ol>
+      </div>
+    </section>
   );
-};
-
-export default WhatsNextForYourMarketing;
+}

@@ -1,55 +1,38 @@
 "use client";
 
-const MovingLogos = () => {
-  const logos = [
-    "/waffletime.jpg",
-    "/zafenity.jpg",
-    "/ghuddy.jpg",
-    "/namimoon.jpg",
-    "/kudos.jpg",
-    "/masalaking.jpg",
-    "/bridgepoint.jpg",
-  ];
+import Image from "next/image";
 
+const logos = [
+  "/waffletime.jpg",
+  "/zafenity.jpg",
+  "/ghuddy.jpg",
+  "/namimoon.jpg",
+  "/kudos.jpg",
+  "/masalaking.jpg",
+  "/bridgepoint.jpg",
+];
+
+const MovingLogos = () => {
   return (
-    <div className="relative w-screen overflow-hidden py-8 bg-transparent">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
+    <div className="relative w-full overflow-hidden py-8 mask-fade-x">
+      <div className="flex animate-marquee-x">
+        {[...logos, ...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="w-28 h-28 mx-4 inline-flex items-center justify-center flex-shrink-0"
+            className="mx-3 inline-flex h-20 w-20 flex-shrink-0 items-center justify-center sm:mx-4 sm:h-24 sm:w-24"
           >
-            <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-800 border border-gray-700 shadow-xl transform hover:scale-110 transition-all duration-300">
-              <img
+            <div className="group relative h-full w-full overflow-hidden rounded-full border border-hairline/60 bg-surface/60 backdrop-blur-sm transition-all duration-500 ease-out-expo hover:border-cobalt-glow/60 hover:scale-105">
+              <Image
                 src={logo}
-                alt={`Company logo ${index + 1}`}
-                className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-300"
+                alt={`Client logo ${(index % logos.length) + 1}`}
+                fill
+                sizes="(max-width: 640px) 80px, 96px"
+                className="object-cover opacity-75 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
               />
             </div>
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-
-        @media (max-width: 768px) {
-          .animate-marquee {
-            animation-duration: 15s;
-          }
-        }
-      `}</style>
     </div>
   );
 };

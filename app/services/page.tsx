@@ -4,12 +4,11 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Plus, ArrowRight, ChevronRight } from "lucide-react"
+import { Plus, ArrowUpRight, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 interface Service {
-  icon: JSX.Element
+  icon: React.ReactNode
   title: string
   description: string
   expandedContent?: string[]
@@ -208,142 +207,151 @@ export default function ServicesPage() {
   }, [expandedIndex])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-slate-900 py-12 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-8 sm:pt-40">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-20 max-w-4xl"
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Marketing Solutions That Deliver Real Impact
+          <span className="eyebrow">Services · 01</span>
+          <h1 className="mt-6 font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-[-0.02em]">
+            <span className="text-stellar">Marketing built for</span>{" "}
+            <span className="italic text-cobalt-grad">real impact.</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Tailored strategies to help your business grow, engage customers, and increase revenue.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-text-dim">
+            Six disciplines that compound: from positioning to paid, content to creative.
+            Designed to move every metric that matters.
           </p>
         </motion.div>
 
-        <div className="space-y-8 mt-12">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              ref={el => serviceRefs.current[index] = el}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`p-6 md:p-8 rounded-xl transition-all duration-500 shadow-lg ${
-                expandedIndex === index
-                  ? "bg-gradient-to-r from-purple-900/90 to-blue-900/90 shadow-purple-500/20"
-                  : "bg-gradient-to-r from-gray-800/90 to-slate-800/90 hover:from-purple-900/70 hover:to-blue-900/70"
-              }`}
-              onMouseEnter={() => handleServiceHover(index)}
-              onMouseLeave={() => handleServiceHover(null)}
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-6">
-                <Link href={`/services/${service.slug}`} className="flex-grow block group">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6">
-                    <motion.div 
-                      className="flex-shrink-0 p-4 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl shadow-lg mx-auto md:mx-0"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      {service.icon}
-                    </motion.div>
-                    <div className="flex-grow text-center md:text-left">
-                      <h2 className="text-xl md:text-2xl font-bold text-white mb-3 font-display tracking-wider group-hover:text-purple-300 transition-colors">
-                        {service.title}
-                      </h2>
-                      <p className="text-gray-300 mb-4 md:pr-8">{service.description}</p>
-                      <div className="hidden md:block">
-                        <span className="text-purple-400 text-sm font-medium inline-flex items-center group-hover:translate-x-1 transition-transform">
-                          Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="flex-shrink-0 text-white hover:bg-white/10 self-center md:self-start"
-                  onClick={(e) => toggleExpand(index, e)}
-                >
-                  <Plus
-                    className={`h-5 w-5 transition-transform duration-300 ${
-                      expandedIndex === index ? "rotate-45" : ""
-                    }`}
-                  />
-                  <span className="sr-only">Expand</span>
-                </Button>
-              </div>
-              
-              <AnimatePresence>
-                {expandedIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="mt-6 pt-6 border-t border-purple-500/30"
+        <div className="space-y-3">
+          {services.map((service, index) => {
+            const open = expandedIndex === index;
+            return (
+              <motion.div
+                key={index}
+                ref={(el) => {
+                  serviceRefs.current[index] = el;
+                }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
+                onMouseEnter={() => handleServiceHover(index)}
+                onMouseLeave={() => handleServiceHover(null)}
+                className={`surface-card overflow-hidden transition-all duration-700 ease-out-expo ${
+                  open ? "border-cobalt-glow/40" : ""
+                }`}
+              >
+                <div className="flex flex-col gap-6 p-7 md:flex-row md:items-center md:p-9">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group flex flex-1 flex-col gap-6 md:flex-row md:items-center"
                   >
-                    <div className="text-gray-200 pl-4 border-l-2 border-purple-500 space-y-3">
-                      {service.expandedContent?.map((content, i) => (
-                        <motion.p 
-                          key={i} 
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          className="text-base md:text-lg"
-                        >
-                          {content}
-                        </motion.p>
-                      ))}
+                    <span className="hidden font-mono text-sm font-medium text-cobalt-glow md:block md:w-12">
+                      0{index + 1}
+                    </span>
+
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border border-hairline/60 bg-surface-2/60 text-cobalt-glow transition-all duration-500 group-hover:border-cobalt-glow/60 group-hover:bg-cobalt/15">
+                      <span className="[&_svg]:h-6 [&_svg]:w-6 [&_svg]:text-current">
+                        {service.icon}
+                      </span>
                     </div>
-                    
+
+                    <div className="flex-grow">
+                      <h2 className="font-display text-2xl tracking-tight text-foreground transition-colors duration-500 group-hover:text-cobalt-glow md:text-3xl">
+                        {service.title.toLowerCase().replace(/(^|\s)\S/g, (s) => s.toUpperCase())}
+                      </h2>
+                      <p className="mt-2 max-w-2xl text-text-dim">{service.description}</p>
+                    </div>
+
+                    <ArrowUpRight
+                      className="hidden h-5 w-5 text-text-muted transition-all duration-500 ease-out-expo group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-cobalt-glow md:block"
+                    />
+                  </Link>
+
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-expanded={open}
+                    aria-controls={`service-expand-${index}`}
+                    onClick={(e) => toggleExpand(index, e)}
+                    className="flex-shrink-0 self-end rounded-full border border-hairline/60 bg-surface-2/40 text-foreground hover:bg-surface-2 md:self-center"
+                  >
+                    <Plus
+                      className={`h-5 w-5 transition-transform duration-500 ease-out-expo ${
+                        open ? "rotate-45" : ""
+                      }`}
+                    />
+                    <span className="sr-only">Expand details</span>
+                  </Button>
+                </div>
+
+                <AnimatePresence>
+                  {open && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                      className="mt-6 flex justify-end"
+                      id={`service-expand-${index}`}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
                     >
-                      <Link href={`/services/${service.slug}`}>
-                        <Button className="bg-white/10 hover:bg-white/20 text-white flex items-center gap-2">
-                          View service details
-                          <ArrowRight className="h-4 w-4" />
-                        </Button>
-                      </Link>
+                      <div className="border-t border-hairline/50 px-7 pb-9 pt-7 md:px-9">
+                        <div className="grid gap-6 md:grid-cols-2 md:gap-12">
+                          <div className="space-y-2 border-l border-cobalt-glow/30 pl-5">
+                            {service.expandedContent?.map((content, i) => (
+                              <motion.p
+                                key={i}
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-text-dim"
+                              >
+                                {content}
+                              </motion.p>
+                            ))}
+                          </div>
+                          <div className="flex items-end justify-start md:justify-end">
+                            <Link href={`/services/${service.slug}`} className="btn-ghost group">
+                              View service details
+                              <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.div
-          className="mt-20 text-center relative"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-24"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "-60px" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-xl rounded-full"></div>
-          <div className="relative bg-gradient-to-r from-purple-900/80 to-blue-900/80 p-8 md:p-12 rounded-2xl shadow-xl border border-purple-500/20">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to transform your marketing?</h2>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Our team of experts will analyze your business needs and create a customized marketing strategy to help you achieve your goals.
+          <div className="surface-card relative overflow-hidden p-12 text-center md:p-20">
+            <div aria-hidden className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-cobalt/30 blur-[100px]" />
+            </div>
+            <span className="eyebrow relative">Ready when you are</span>
+            <h2 className="relative mt-5 font-display text-4xl leading-tight tracking-tight md:text-5xl">
+              <span className="text-stellar">Ready to transform</span>{" "}
+              <span className="italic text-cobalt-grad">your marketing?</span>
+            </h2>
+            <p className="relative mx-auto mt-6 max-w-xl text-text-dim">
+              We&apos;ll analyze your business, surface the real constraint, and propose a
+              90-day plan with measurable bets. Complimentary.
             </p>
-            <Link href="/contact">
-              <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-purple-900/30 flex items-center gap-2 mx-auto">
-                <span>Get a Custom Marketing Plan for Free</span>
-                <ArrowRight className="h-5 w-5" />
-              </Button>
+            <Link href="/contact" className="btn-stellar group relative mt-10 inline-flex">
+              Get a custom plan
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
             </Link>
           </div>
         </motion.div>

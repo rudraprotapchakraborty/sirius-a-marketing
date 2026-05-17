@@ -95,7 +95,7 @@ export default function BrandStrategyAndConsultingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 neon-text">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-ice neon-text">
             Brand Strategy & Consulting
           </span>
         </motion.h1>
@@ -123,7 +123,7 @@ export default function BrandStrategyAndConsultingPage() {
             className="space-y-8"
           >
             <motion.span
-              className="text-purple-400 font-semibold tracking-wider text-sm uppercase"
+              className="text-cobalt-glow font-semibold tracking-wider text-sm uppercase"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -139,7 +139,7 @@ export default function BrandStrategyAndConsultingPage() {
               viewport={{ once: true }}
             >
               Define.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-ice">
                 Differentiate.
               </span>
               <br />
@@ -174,7 +174,7 @@ export default function BrandStrategyAndConsultingPage() {
               viewport={{ once: true }}
             >
               <Link href="/contact">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">Get Started</Button>
+                <Button className="bg-cobalt hover:bg-cobalt text-white px-8 py-3 text-lg">Get Started</Button>
               </Link>
             </motion.div>
           </motion.div>

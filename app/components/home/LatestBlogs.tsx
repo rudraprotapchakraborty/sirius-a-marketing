@@ -82,10 +82,10 @@ const LatestBlogs = () => {
                   />
                 </div>
                 <CardContent className="p-6 flex flex-col flex-grow">
-                  <Badge className="mb-4 bg-purple-600 text-white px-3 py-1 text-sm font-medium rounded-full">
+                  <Badge className="mb-4 bg-cobalt text-white px-3 py-1 text-sm font-medium rounded-full">
                     {post.category}
                   </Badge>
-                  <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-purple-400 transition-colors duration-300">
+                  <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-cobalt-glow transition-colors duration-300">
                     {post.title}
                   </h3>
                   <p className="text-gray-400 flex-grow">{post.excerpt}</p>
@@ -102,7 +102,7 @@ const LatestBlogs = () => {
       </motion.div>
       <motion.div className="text-center mt-12" variants={fadeInUp}>
         <Link href="/blog">
-          <Button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-lg rounded-full shadow-md transition-transform duration-300 hover:scale-105">
+          <Button className="px-6 py-3 bg-gradient-to-r from-cobalt-glow to-cobalt hover:from-cobalt-glow hover:to-cobalt text-white font-semibold text-lg rounded-full shadow-md transition-transform duration-300 hover:scale-105">
             Read All Posts
           </Button>
         </Link>

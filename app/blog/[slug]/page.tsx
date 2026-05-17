@@ -56,15 +56,15 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen bg-[#0D0B21] text-white py-12">
       <div className="container mx-auto px-4 max-w-4xl">
-        <Link href="/blog" className="text-purple-400 hover:text-purple-300 mb-8 inline-block">
+        <Link href="/blog" className="text-cobalt-glow hover:text-cobalt-glow mb-8 inline-block">
           ← Back to Blog
         </Link>
         <div className="relative w-full mx-auto aspect-video mb-8">
           <Image src={post.imageUrl || "/placeholder.svg"} alt={post.title} fill className="object-cover rounded-lg" />
         </div>
-        <Card className="border-purple-800/20 bg-purple-900/10 mb-12">
+        <Card className="border-cobalt-glow/20 bg-cobalt/10 mb-12">
           <CardContent className="p-8">
-            <Badge className="mb-4 bg-purple-600">{post.category}</Badge>
+            <Badge className="mb-4 bg-cobalt">{post.category}</Badge>
             <CardTitle className="mb-4 text-3xl">{post.title}</CardTitle>
             <div className="flex items-center justify-between text-sm text-gray-400 mb-8">
               <span>{post.date}</span>
@@ -76,7 +76,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </CardContent>
         </Card>
 
-        <div className="mt-16 px-4 py-8 bg-purple-900/10 rounded-lg">
+        <div className="mt-16 px-4 py-8 bg-cobalt/10 rounded-lg">
           <h2 className="text-2xl font-bold mb-8">Related Posts</h2>
           <RelatedPostsSlider posts={blogPosts} currentPostId={post.id} />
         </div>

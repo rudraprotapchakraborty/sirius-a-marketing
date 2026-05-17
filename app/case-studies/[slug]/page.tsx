@@ -221,7 +221,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         >
           <Link 
             href="/case-studies" 
-            className="text-purple-400 hover:text-purple-300 mb-8 inline-flex items-center group"
+            className="text-cobalt-glow hover:text-cobalt-glow mb-8 inline-flex items-center group"
           >
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             Back to Case Studies
@@ -243,42 +243,42 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
               <div className="p-8">
-                <span className="bg-purple-600 text-white text-sm font-medium px-3 py-1 rounded-full mb-4 inline-block">
+                <span className="bg-cobalt text-white text-sm font-medium px-3 py-1 rounded-full mb-4 inline-block">
                   {caseStudy.category}
                 </span>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
                   {caseStudy.title}
                 </h1>
-                <p className="text-purple-300 text-xl md:text-2xl">{caseStudy.company}</p>
+                <p className="text-cobalt-glow text-xl md:text-2xl">{caseStudy.company}</p>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="border-purple-800/20 bg-purple-900/10">
+            <Card className="border-cobalt-glow/20 bg-cobalt/10">
               <CardContent className="p-6">
                 <div className="flex items-center mb-2">
-                  <Calendar className="h-5 w-5 text-purple-400 mr-2" />
+                  <Calendar className="h-5 w-5 text-cobalt-glow mr-2" />
                   <h3 className="text-lg font-medium">Project Duration</h3>
                 </div>
                 <p className="text-gray-300">{caseStudy.duration}</p>
               </CardContent>
             </Card>
             
-            <Card className="border-purple-800/20 bg-purple-900/10">
+            <Card className="border-cobalt-glow/20 bg-cobalt/10">
               <CardContent className="p-6">
                 <div className="flex items-center mb-2">
-                  <Users className="h-5 w-5 text-purple-400 mr-2" />
+                  <Users className="h-5 w-5 text-cobalt-glow mr-2" />
                   <h3 className="text-lg font-medium">Client Size</h3>
                 </div>
                 <p className="text-gray-300">{caseStudy.clientSize}</p>
               </CardContent>
             </Card>
             
-            <Card className="border-purple-800/20 bg-purple-900/10">
+            <Card className="border-cobalt-glow/20 bg-cobalt/10">
               <CardContent className="p-6">
                 <div className="flex items-center mb-2">
-                  <BarChart className="h-5 w-5 text-purple-400 mr-2" />
+                  <BarChart className="h-5 w-5 text-cobalt-glow mr-2" />
                   <h3 className="text-lg font-medium">Key Focus</h3>
                 </div>
                 <p className="text-gray-300">{caseStudy.category}</p>
@@ -286,15 +286,15 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             </Card>
           </div>
 
-          <Card className="border-purple-800/20 bg-purple-900/10 mb-12">
+          <Card className="border-cobalt-glow/20 bg-cobalt/10 mb-12">
             <CardContent className="p-8">
               <div className="prose prose-invert max-w-none">
-                <h2 className="text-2xl font-semibold mb-6 text-purple-300">Overview</h2>
+                <h2 className="text-2xl font-semibold mb-6 text-cobalt-glow">Overview</h2>
                 <p className="mb-6 text-lg">{caseStudy.description}</p>
                 
                 {formattedDescription}
                 
-                <h3 className="text-2xl font-semibold mb-6 text-purple-300">Key Results</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-cobalt-glow">Key Results</h3>
                 <ul className="space-y-4 mb-8">
                   {caseStudy.results.map((result, index) => (
                     <motion.li 
@@ -320,16 +320,16 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mb-12"
             >
-              <Card className="border-purple-800/20 bg-gradient-to-r from-purple-900/30 to-indigo-900/30">
+              <Card className="border-cobalt-glow/20 bg-gradient-to-r from-cobalt/30 to-cobalt-deep/30">
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                    <div className="w-16 h-16 flex-shrink-0 rounded-full bg-purple-700 flex items-center justify-center text-2xl font-bold">
+                    <div className="w-16 h-16 flex-shrink-0 rounded-full bg-cobalt flex items-center justify-center text-2xl font-bold">
                       {caseStudy.testimonial.author.charAt(0)}
                     </div>
                     <div>
                       <p className="text-xl italic mb-4 text-gray-200">"{caseStudy.testimonial.quote}"</p>
                       <p className="font-semibold text-white">{caseStudy.testimonial.author}</p>
-                      <p className="text-purple-300">{caseStudy.testimonial.position}</p>
+                      <p className="text-cobalt-glow">{caseStudy.testimonial.position}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -341,14 +341,14 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center flex flex-col items-center bg-gradient-to-r from-purple-900/40 to-indigo-900/40 p-8 md:p-12 rounded-2xl border border-purple-500/20 shadow-xl"
+            className="text-center flex flex-col items-center bg-gradient-to-r from-cobalt/40 to-cobalt-deep/40 p-8 md:p-12 rounded-2xl border border-cobalt-glow/20 shadow-xl"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to achieve similar results?</h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Let's discuss how our proven strategies can be tailored to your business goals and challenges.
             </p>
             <Link href="/contact">
-              <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-6 rounded-full text-lg flex items-center gap-2">
+              <Button className="bg-gradient-to-r from-cobalt-glow to-cobalt hover:from-cobalt-glow hover:to-cobalt text-white px-8 py-6 rounded-full text-lg flex items-center gap-2">
                 <span>Schedule a Free Strategy Call</span>
                 <ArrowRight className="h-5 w-5" />
               </Button>
@@ -356,7 +356,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           </motion.div>
 
           <div className="mt-12 flex justify-between">
-            <Link href="/case-studies" className="text-purple-400 hover:text-purple-300 inline-flex items-center">
+            <Link href="/case-studies" className="text-cobalt-glow hover:text-cobalt-glow inline-flex items-center">
               <ArrowLeft className="mr-2 h-4 w-4" />
               All Case Studies
             </Link>

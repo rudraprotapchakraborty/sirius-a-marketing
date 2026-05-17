@@ -70,7 +70,7 @@ function BlogContent() {
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12">Our Blog</h1>
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-full">
           {posts.map((post) => (
-            <Card key={post.id} className="border-purple-800/20 bg-purple-900/10 overflow-hidden">
+            <Card key={post.id} className="border-cobalt-glow/20 bg-cobalt/10 overflow-hidden">
               <Link href={`/blog/${post.slug}`}>
                 <div className="relative overflow-hidden">
                   <Image
@@ -82,7 +82,7 @@ function BlogContent() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <Badge className="mb-4 bg-purple-600">{post.category}</Badge>
+                  <Badge className="mb-4 bg-cobalt">{post.category}</Badge>
                   <h2 className="mb-2 text-xl font-semibold line-clamp-2">{post.title}</h2>
                   <p className="text-gray-400 mb-4 text-sm md:text-base line-clamp-3">{post.excerpt}</p>
                   <div className="flex items-center justify-between text-xs md:text-sm text-gray-400">

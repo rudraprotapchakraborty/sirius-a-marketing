@@ -1,142 +1,149 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, Calendar, ArrowRight, X } from "lucide-react";
+import { Phone, Mail, Calendar, ArrowUpRight, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
-const CallToAction: React.FC = () => {
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+export default function CallToAction() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative bg-gradient-to-b from-gray-900/40 to-gray-800/10 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-700 max-w-4xl mx-auto p-10 text-center overflow-hidden my-12 flex flex-col items-center"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 blur-[100px] opacity-50 pointer-events-none" />
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <motion.h2
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-white tracking-tight"
-        >
-          <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-            Partner with Sirius A Marketing
-          </span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-4 max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed"
-        >
-          Elevate your business with expert marketing strategies. Schedule a complimentary consultation today.
-        </motion.p>
-
+      <section className="relative z-10 mx-auto w-full max-w-5xl px-4 py-28 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6"
+          transition={{ duration: 1, ease: EASE }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="surface-card relative overflow-hidden p-10 text-center sm:p-16 md:p-20"
         >
-          <Link href="tel:+4407362622636">
+          {/* Backdrop ornaments */}
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-cobalt/30 blur-[100px]" />
+            <div className="starfield opacity-50" />
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-5 py-3 bg-gray-800/80 rounded-full shadow-md border border-gray-700"
-            >
-              <Phone className="w-5 h-5 text-purple-400" />
-              <span className="text-white font-medium">+44 07362 622636</span>
-            </motion.div>
-          </Link>
+              animate={{ rotate: 360 }}
+              transition={{ duration: 60, ease: "linear", repeat: Infinity }}
+              className="absolute -right-40 -top-40 h-80 w-80 rounded-full border border-dashed border-cobalt-glow/15"
+            />
+          </div>
 
-          <Link href="mailto:contact@siriusamarketing.com">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-5 py-3 bg-gray-800/80 rounded-full shadow-md border border-gray-700"
-            >
-              <Mail className="w-5 h-5 text-purple-400" />
-              <span className="text-white font-medium">contact@siriusamarketing.com</span>
-            </motion.div>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-8"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setIsModalOpen(true)}
-            className="group flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-full shadow-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white transition-all duration-300"
+          {/* Floating brand mark */}
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0, y: -8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, ease: EASE }}
+            viewport={{ once: true }}
+            className="relative mx-auto mb-8 h-16 w-16"
           >
-            <Calendar className="w-5 h-5" />
-            Schedule Consultation
-            <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-          </motion.button>
-        </motion.div>
-      </motion.section>
+            <div className="absolute inset-0 rounded-full bg-cobalt/40 blur-2xl" />
+            <Image
+              src="/logo.png"
+              alt=""
+              fill
+              className="relative animate-float object-contain"
+            />
+          </motion.div>
 
-      {/* Modal */}
+          <span className="eyebrow relative">Ready when you are</span>
+
+          <h2 className="relative mt-6 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
+            <span className="text-stellar">Let&apos;s build the</span>{" "}
+            <span className="italic text-cobalt-grad">next chapter.</span>
+          </h2>
+
+          <p className="relative mx-auto mt-6 max-w-xl text-lg leading-relaxed text-text-dim">
+            A 30-minute call. No pitch deck, no pressure — just a sharp first read on what would
+            move the needle for you.
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <button onClick={() => setIsModalOpen(true)} className="btn-stellar group">
+              <Calendar className="h-4 w-4" />
+              Schedule consultation
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
+            </button>
+            <Link href="/contact" className="btn-ghost group">
+              Send a message
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out-expo group-hover:rotate-45" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, ease: EASE, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="relative mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10"
+          >
+            <a
+              href="tel:+4407362622636"
+              className="group flex items-center gap-2.5 text-sm text-text-dim transition-colors hover:text-foreground"
+            >
+              <Phone className="h-4 w-4 text-cobalt-glow" />
+              <span className="font-mono">+44 07362 622636</span>
+            </a>
+            <span className="hidden h-4 w-px bg-hairline sm:block" />
+            <a
+              href="mailto:contact@siriusamarketing.com"
+              className="group flex items-center gap-2.5 text-sm text-text-dim transition-colors hover:text-foreground"
+            >
+              <Mail className="h-4 w-4 text-cobalt-glow" />
+              <span>contact@siriusamarketing.com</span>
+            </a>
+          </motion.div>
+        </motion.div>
+      </section>
+
       <AnimatePresence>
         {isModalOpen && (
           <>
-            {/* Overlay */}
             <motion.div
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[99999]"
+              className="fixed inset-0 z-[99999] bg-ink/70 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
             />
-
-            {/* Modal Wrapper (Flex Centering) */}
             <motion.div
-              className="fixed inset-0 z-[99999] flex items-center justify-center"
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Modal Box */}
               <motion.div
-                className="w-[90%] max-w-3xl bg-gray-900 text-white rounded-2xl shadow-2xl p-6 relative"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 50 }}
+                className="relative w-full max-w-3xl rounded-2xl border border-hairline/60 bg-ink-2 p-6 shadow-2xl"
+                initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 30, scale: 0.96 }}
+                transition={{ duration: 0.4, ease: EASE }}
               >
-                {/* Header */}
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-semibold text-white">
-                    Book Your Free Consultation
-                  </h2>
+                <div className="mb-4 flex items-center justify-between">
+                  <h3 className="font-display text-2xl">Book your discovery call</h3>
                   <button
                     onClick={() => setIsModalOpen(false)}
-                    className="text-gray-500 hover:text-white"
+                    className="rounded-full p-2 text-text-dim hover:bg-surface-2 hover:text-foreground"
+                    aria-label="Close"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="h-5 w-5" />
                   </button>
                 </div>
-
-                {/* Calendly iframe */}
                 <iframe
                   src="https://calendly.com/contact-siriusamarketing/30min"
                   width="100%"
                   height="600"
-                  className="rounded-lg border border-gray-700"
+                  className="rounded-lg border border-hairline/60"
                   frameBorder="0"
                 />
               </motion.div>
@@ -146,6 +153,4 @@ const CallToAction: React.FC = () => {
       </AnimatePresence>
     </>
   );
-};
-
-export default CallToAction;
+}

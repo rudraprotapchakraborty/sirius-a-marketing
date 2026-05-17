@@ -53,7 +53,7 @@ const CountUp = ({ end, duration = 2, label, icon }) => {
       viewport={{ once: true, amount: 0.5 }}
       onViewportEnter={() => setIsInView(true)}
     >
-      <div className="mb-4 text-purple-500">{icon}</div>
+      <div className="mb-4 text-cobalt-glow">{icon}</div>
       <h3 className="text-4xl md:text-5xl font-bold mb-2">
         {end > 1000000
           ? `${Math.floor(count / 1000000).toLocaleString()}M+`
@@ -124,7 +124,7 @@ export default function ContentMarketingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 neon-text">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-ice neon-text">
             Content Marketing
           </span>
         </motion.h1>
@@ -152,7 +152,7 @@ export default function ContentMarketingPage() {
             className="space-y-8"
           >
             <motion.span
-              className="text-purple-400 font-semibold tracking-wider text-sm uppercase"
+              className="text-cobalt-glow font-semibold tracking-wider text-sm uppercase"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -168,7 +168,7 @@ export default function ContentMarketingPage() {
               viewport={{ once: true }}
             >
               Engage.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-ice">
                 Educate.
               </span>
               <br />
@@ -202,7 +202,7 @@ export default function ContentMarketingPage() {
               viewport={{ once: true }}
             >
               <Link href="/contact">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg group transition-all duration-300 transform hover:translate-y-[-2px]">
+                <Button className="bg-cobalt hover:bg-cobalt text-white px-8 py-4 text-lg group transition-all duration-300 transform hover:translate-y-[-2px]">
                   <span className="mr-2 inline-block transition-transform group-hover:rotate-[20deg]">📝</span>
                   Start Your Content Journey
                 </Button>
@@ -224,10 +224,10 @@ export default function ContentMarketingPage() {
                 objectFit="cover"
                 className="rounded-lg transition-transform duration-300 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-purple-600/10 mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-cobalt/10 mix-blend-overlay"></div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-full blur-2xl"></div>
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-cobalt/20 to-ice/20 rounded-full blur-2xl"></div>
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-br from-cobalt/20 to-ice/20 rounded-full blur-2xl"></div>
           </motion.div>
         </div>
       </div>
@@ -243,7 +243,7 @@ export default function ContentMarketingPage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <span className="text-purple-400 font-semibold tracking-wider text-sm uppercase">
+              <span className="text-cobalt-glow font-semibold tracking-wider text-sm uppercase">
                 DIVERSE CONTENT FORMATS
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -343,7 +343,7 @@ export default function ContentMarketingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-purple-400 font-semibold tracking-wider text-sm uppercase">
+            <span className="text-cobalt-glow font-semibold tracking-wider text-sm uppercase">
               OUR CONTENT MARKETING SERVICES
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">Content That Drives Results</h2>
@@ -390,7 +390,7 @@ export default function ContentMarketingPage() {
                   <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                   <p className="text-gray-300 mb-6">{service.description}</p>
                   <Link href="/contact">
-                    <Button className="w-full bg-purple-600 hover:bg-purple-700 group">
+                    <Button className="w-full bg-cobalt hover:bg-cobalt group">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -412,11 +412,11 @@ export default function ContentMarketingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-purple-400 font-semibold tracking-wider text-sm uppercase">GOT QUESTIONS?</span>
+            <span className="text-cobalt-glow font-semibold tracking-wider text-sm uppercase">GOT QUESTIONS?</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">Frequently Asked Questions</h2>
             <p className="text-gray-300">
               Can't find what you're looking for?{" "}
-              <Link href="/contact" className="text-purple-400 hover:text-purple-300 underline">
+              <Link href="/contact" className="text-cobalt-glow hover:text-cobalt-glow underline">
                 Reach out to us directly
               </Link>{" "}
               and we'll get back to you within 24 hours.
@@ -458,7 +458,7 @@ export default function ContentMarketingPage() {
                 },
               ].map((item, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-purple-400">
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-cobalt-glow">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-300">{item.answer}</AccordionContent>

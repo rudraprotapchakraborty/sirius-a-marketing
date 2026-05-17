@@ -13,35 +13,35 @@ const services = [
     title: "Brand & Commercial Videos",
     description: "Show the heart of your brand in a way that people connect with.",
     image: "/images/commercial.jpg",
-    icon: <Film className="w-6 h-6 text-purple-500" />,
+    icon: <Film className="w-6 h-6 text-cobalt-glow" />,
     features: ["Storytelling-focused approach", "High production value", "Brand message alignment"],
   },
   {
     title: "Social Media Content",
     description: "Short, engaging videos that stop the scroll and make an impact.",
     image: "/images/social.jpg",
-    icon: <Instagram className="w-6 h-6 text-purple-500" />,
+    icon: <Instagram className="w-6 h-6 text-cobalt-glow" />,
     features: ["Platform-optimized content", "Trend-aware creation", "Engagement-driving formats"],
   },
   {
     title: "Product Photography & Videography",
     description: "Bringing out the best in your products with creativity and detail.",
     image: "/images/product.jpg",
-    icon: <Camera className="w-6 h-6 text-purple-500" />,
+    icon: <Camera className="w-6 h-6 text-cobalt-glow" />,
     features: ["Studio-quality lighting", "Creative compositions", "Detail-focused shots"],
   },
   {
     title: "Event Filming & Photography",
     description: "Capturing real emotions, energy, and unforgettable moments. (Including culture-based weddings)",
     image: "/images/event.jpg",
-    icon: <Award className="w-6 h-6 text-purple-500" />,
+    icon: <Award className="w-6 h-6 text-cobalt-glow" />,
     features: ["Candid moment capture", "Multi-camera setups", "Same-day highlight edits"],
   },
   {
     title: "Corporate Storytelling",
     description: "Turning your journey into a story people want to follow.",
     image: "/images/corporate.jpg",
-    icon: <Film className="w-6 h-6 text-purple-500" />,
+    icon: <Film className="w-6 h-6 text-cobalt-glow" />,
     features: ["Interview-based narratives", "Company culture showcase", "Vision-aligned messaging"],
   },
 ];
@@ -82,7 +82,7 @@ export default function SiriusAVisual() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-purple-950/20 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-cobalt/20 text-white">
 
       <div className="relative flex flex-col md:flex-row px-4 sm:px-8 md:px-16 lg:px-32 justify-between items-center py-16 md:py-24 min-h-screen max-w-7xl mx-auto">
         {/* Text Content */}
@@ -92,13 +92,13 @@ export default function SiriusAVisual() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-full md:max-w-2xl mb-16 md:mb-0 text-center md:text-left z-10"
         >
-          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-purple-400 bg-purple-900/30 rounded-full">
+          <div className="inline-block px-3 py-1 mb-6 text-xs font-medium text-cobalt-glow bg-cobalt/30 rounded-full">
             Sirius A Visual
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
             The results-driven<br />
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-cobalt-glow to-cobalt text-transparent bg-clip-text">
               Visuals
             </span><br />
             you've been looking for
@@ -137,8 +137,8 @@ export default function SiriusAVisual() {
             />
             
             {/* Decorative elements */}
-            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl z-0"></div>
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-xl z-0"></div>
+            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-cobalt/10 rounded-full blur-xl z-0"></div>
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-cobalt/10 rounded-full blur-xl z-0"></div>
           </motion.div>
         </motion.div>
       </div>
@@ -190,14 +190,14 @@ export default function SiriusAVisual() {
                       <ul className="space-y-2 mb-4">
                         {service.features.map((feature, i) => (
                           <li key={i} className="flex items-center text-sm text-gray-400">
-                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2"></div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-cobalt mr-2"></div>
                             {feature}
                           </li>
                         ))}
                       </ul>
 
                       <Link href={`/sirius-a-visual/${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <Button variant="ghost" className="text-purple-400 p-0 hover:bg-transparent hover:text-purple-300 flex items-center gap-1 text-sm">
+                        <Button variant="ghost" className="text-cobalt-glow p-0 hover:bg-transparent hover:text-cobalt-glow flex items-center gap-1 text-sm">
                           Learn more <ArrowRight className="h-4 w-4" />
                         </Button>
                       </Link>
@@ -211,7 +211,7 @@ export default function SiriusAVisual() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-purple-950/30">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-cobalt/30">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -254,7 +254,7 @@ export default function SiriusAVisual() {
                       <p className="text-gray-300 text-lg italic mb-6">"{testimonial.quote}"</p>
                       <div>
                         <p className="font-semibold text-white">{testimonial.author}</p>
-                        <p className="text-purple-600 dark:text-purple-400">{testimonial.position}</p>
+                        <p className="text-cobalt dark:text-cobalt-glow">{testimonial.position}</p>
                       </div>
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export default function SiriusAVisual() {
                   key={index}
                   onClick={() => setActiveTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${activeTestimonial === index
-                    ? 'bg-purple-600 w-6'
+                    ? 'bg-cobalt w-6'
                     : 'bg-gray-700'
                     }`}
                   aria-label={`View testimonial ${index + 1}`}
@@ -287,7 +287,7 @@ export default function SiriusAVisual() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-transparent rounded-3xl overflow-hidden shadow-2xl shadow-purple-600/20"
+            className="bg-transparent rounded-3xl overflow-hidden shadow-2xl shadow-cobalt/20"
           >
             <div className="relative p-12 md:p-16">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -297,7 +297,7 @@ export default function SiriusAVisual() {
 
               <div className="relative z-10 max-w-3xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to bring your story to life?</h2>
-                <p className="text-lg text-purple-100 mb-8">
+                <p className="text-lg text-foreground mb-8">
                   Let's create visual content that captures your brand's essence and connects with your audience on a deeper level.
                 </p>
                 <Link href="/contact">

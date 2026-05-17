@@ -61,6 +61,27 @@ const config: Config = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Stellar palette aliases for Tailwind utilities
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          2: "hsl(var(--ink-2))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          2: "hsl(var(--surface-2))",
+          3: "hsl(var(--surface-3))",
+        },
+        cobalt: {
+          DEFAULT: "hsl(var(--cobalt))",
+          deep: "hsl(var(--cobalt-deep))",
+          glow: "hsl(var(--cobalt-glow))",
+        },
+        ice: "hsl(var(--ice))",
+        gold: "hsl(var(--gold))",
+        plasma: "hsl(var(--plasma))",
+        hairline: "hsl(var(--hairline))",
+        "text-dim": "hsl(var(--text-dim))",
+        "text-muted": "hsl(var(--text-muted))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -68,29 +89,26 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        "fade-up": { from: { opacity: "0", transform: "translateY(24px)" }, to: { opacity: "1", transform: "translateY(0)" } },
+        "fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+        "fade-in": "fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       fontFamily: {
-        merriweather: ["Merriweather", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["'Instrument Serif'", "Times New Roman", "serif"],
+        mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
+        merriweather: ["'Instrument Serif'", "serif"],
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
       },
     },
   },

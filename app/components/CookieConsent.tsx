@@ -41,21 +41,21 @@ export function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#0D0B21]/80 backdrop-blur-md">
-      <Card className="border-purple-800/20 bg-purple-900/10 max-w-4xl mx-auto">
+      <Card className="border-cobalt-glow/20 bg-cobalt/10 max-w-4xl mx-auto">
         <CardContent className="p-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-gray-300">
               We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our
               traffic. By clicking "Accept All", you consent to our use of cookies.
-              <Link href="/privacy" className="text-purple-400 hover:text-purple-300 ml-1">
+              <Link href="/privacy" className="text-cobalt-glow hover:text-cobalt-glow ml-1">
                 Cookie Policy
               </Link>
             </div>
             <div className="flex gap-4">
-              <Button variant="outline" className="border-purple-800/20 hover:bg-purple-900/50" onClick={rejectCookies}>
+              <Button variant="outline" className="border-cobalt-glow/20 hover:bg-cobalt/50" onClick={rejectCookies}>
                 Reject All
               </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700" onClick={acceptCookies}>
+              <Button className="bg-cobalt hover:bg-cobalt" onClick={acceptCookies}>
                 Accept All
               </Button>
             </div>
